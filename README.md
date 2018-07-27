@@ -11,4 +11,5 @@
 * name为css文件的名字，
 * local为class名，
 * [hash:base64:5] 5位hash值
+* ---
 * 'css-loader?modules&localIdentName=[name]_[local]_[hash:base64:5]'
