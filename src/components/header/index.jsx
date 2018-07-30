@@ -4,14 +4,14 @@ import React, {Component} from 'react'
 class Header extends Component {
 
     headerFn = () => {
-        console.log(this.props)
+        this.props.headerFn()
     }
 
     render(){
         
         return (
             <div onClick={this.headerFn}>
-                hello Header
+                hello Header「」{this.props.res}
             </div>
         )
     }

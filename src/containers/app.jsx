@@ -15,7 +15,7 @@ class App extends Component {
         headerFn:PropTypes.func.isRequired
     }
     render(){
-        console.log(this.props)
+        
         let {res, headerFn} = this.props
         return (
             <div>
