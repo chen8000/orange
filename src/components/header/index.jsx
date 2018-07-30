@@ -1,18 +1,17 @@
 
 import React, {Component} from 'react'
+import headStyle from './index.scss'
 
 
 class Header extends Component {
 
-    headerBar = () => {
-        this.props.test()
-    }
+    
 
     render(){
-        
+        console.log(headStyle.header)
         return (
-            <div onClick={this.headerBar}>
-                hello Header「{this.props.res}」
+            <div className={headStyle.header}>
+                dd
             </div>
         )
     }
