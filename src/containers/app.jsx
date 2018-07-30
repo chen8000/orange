@@ -5,8 +5,9 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { test } from '../redux/actions'
 
+// 自定义组件
 import Header from '../components/header'
-
+import Footer from '../components/footer'
 
 
 
@@ -22,7 +23,8 @@ class App extends Component {
         return (
             <div>
                 <Header res={res} test={test}/>
-                hello Orange
+                
+                <Footer />
             </div>
         )
     }
