@@ -1,17 +1,18 @@
+
 import React, {Component} from 'react'
 
 
 class Header extends Component {
 
-    headerFn = () => {
-        this.props.headerFn()
+    headerBar = () => {
+        this.props.test()
     }
 
     render(){
         
         return (
-            <div onClick={this.headerFn}>
-                hello Header「」{this.props.res}
+            <div onClick={this.headerBar}>
+                hello Header「{this.props.res}」
             </div>
         )
     }

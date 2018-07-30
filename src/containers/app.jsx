@@ -1,7 +1,9 @@
+
+
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { headerFn } from '../redux/actions'
+import { test } from '../redux/actions'
 
 import Header from '../components/header'
 
@@ -12,14 +14,14 @@ import Header from '../components/header'
 class App extends Component {
     static propTypes = {
         res:PropTypes.array.isRequired,
-        headerFn:PropTypes.func.isRequired
+        test:PropTypes.func.isRequired
     }
     render(){
         
-        let {res, headerFn} = this.props
+        let {res, test} = this.props
         return (
             <div>
-                <Header res={res} headerFn={headerFn}/>
+                <Header res={res} test={test}/>
                 hello Orange
             </div>
         )
@@ -27,6 +29,6 @@ class App extends Component {
 }
 
 export default connect(
-    state => ({res:state.reducerFn}),
-    { headerFn }
+    state => ({res:state.reducers}),
+    { test }
 )(App)

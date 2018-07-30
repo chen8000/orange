@@ -8,7 +8,7 @@ const InitState = ['ddd']
 
 
 // 一个函数
-function reducerFn( state = InitState, action ){
+function reducers( state = InitState, action ){
     switch(action.type){
         case HEADER :
             
@@ -21,7 +21,7 @@ function reducerFn( state = InitState, action ){
 
 
 // 导出多个函数
-export default combineReducers({reducerFn})
+export default combineReducers({reducers})
 
 
 
