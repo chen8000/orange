@@ -4,10 +4,8 @@ import { combineReducers } from 'redux'
 
 import { HEADER, HEADERNAVBAR } from './action-types'
 
-
-// 一个函数
+// 初始 state
 const InitState = {
-
     // 导航默认值
     headerBar:{
         w:'0px',

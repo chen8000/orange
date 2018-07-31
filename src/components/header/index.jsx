@@ -41,7 +41,7 @@ class Header extends Component {
                        <span style={{width:res.headerBar.w, left:res.headerBar.l}} className={ headStyle.navBarActive }></span>
 
                        {
-                           ['首页','相册','视频','发表文章','新闻列表','阅读排行榜']
+                           ['首页','相册','视频','文章','了解我们']
                            .map((res, index) => <li  onMouseOver={ this.navBarActive } key={ index } > { res } </li> )
                        } 
                        
