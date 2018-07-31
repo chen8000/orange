@@ -11,20 +11,8 @@ class Header extends Component {
         // 初始化动画位置
         this.props.headerNavBar({w:'60px',l:'0px'})
 
-        
-        /*
-            添加滚动条事件，根据滚动条top值动态设置class
-        */
-        window.addEventListener('scroll', () => {
-            let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
-            if(scrollTop > 100 ){
-                this.props.windowScroll({ scroll:true })
-            }else if(scrollTop <= 20){
-                this.props.windowScroll({ scroll:false })
-            }
-        })
-
-        // this.props.windowScroll({ scroll:true })
+        // 注册window scroll 事件
+        this.windowScroll()
         
     }
 
@@ -36,6 +24,20 @@ class Header extends Component {
 
         this.props.headerNavBar({w:`${navBarWidth}px`, l:`${navBarLeft}px`})
 
+    }
+
+    windowScroll = () => {
+        /*
+            添加滚动条事件，根据滚动条top值动态设置class
+        */
+       window.addEventListener('scroll', () => {
+            let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+            if(scrollTop > 100 ){
+                this.props.windowScroll({ scroll:true })
+            }else if(scrollTop <= 20){
+                this.props.windowScroll({ scroll:false })
+            }
+        })
     }
 
     
