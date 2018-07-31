@@ -20,6 +20,10 @@ class App extends Component {
         headerNavBar:PropTypes.func.isRequired,
         windowScroll:PropTypes.func.isRequired
     }
+
+    
+
+
     render(){
         
         let {result, headerNavBar, windowScroll} = this.props

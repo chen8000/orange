@@ -11,8 +11,21 @@ class Header extends Component {
         // 初始化动画位置
         this.props.headerNavBar({w:'60px',l:'0px'})
 
-        // 初始化导航样式状态
-        this.props.windowScroll({ scroll:true })
+        
+        /*
+            添加滚动条事件，根据滚动条top值动态设置class
+        */
+        window.addEventListener('scroll', () => {
+            let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+            if(scrollTop > 100 ){
+                this.props.windowScroll({ scroll:true })
+            }else if(scrollTop <= 20){
+                this.props.windowScroll({ scroll:false })
+            }
+        })
+
+        // this.props.windowScroll({ scroll:true })
+        
     }
 
     navBarActive = (event) => {

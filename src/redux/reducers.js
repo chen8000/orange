@@ -34,8 +34,8 @@ function reducers( state = InitState, action ){
         
         // 滚动条事件
         case WINDOWSCROLL :
-
             //需要解构
+            
             let { scroll } = state
             scroll.type = action.data.scroll
             
