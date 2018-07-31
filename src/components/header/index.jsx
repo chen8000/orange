@@ -7,7 +7,11 @@ class Header extends Component {
 
     // 组件渲染完成后初始化状态
     componentDidMount(){
+
+        // 初始化动画位置
         this.props.headerNavBar({w:'60',l:'0'})
+
+        this.props.windowScroll({ scroll:true })
     }
 
     navBarActive = (event) => {
@@ -20,8 +24,10 @@ class Header extends Component {
 
     }
 
+    
+
     render(){
-        let { res } = this.props
+        let { result } = this.props
         
         return (
             <div className={ headStyle.header }>
@@ -38,11 +44,11 @@ class Header extends Component {
                         }
                     </div>
                     <ul>
-                       <span style={{width:res.headerBar.w, left:res.headerBar.l}} className={ headStyle.navBarActive }></span>
+                       <span style={{width:result.headerBar.w, left:result.headerBar.l}} className={ headStyle.navBarActive }></span>
 
                        {
                            ['首页','相册','视频','文章','了解我们']
-                           .map((res, index) => <li  onMouseOver={ this.navBarActive } key={ index } > { res } </li> )
+                           .map((res, index) => <li onMouseOver={ this.navBarActive } key={ index } > { res } </li> )
                        } 
                        
                     </ul>

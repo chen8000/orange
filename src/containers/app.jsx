@@ -3,7 +3,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { test, headerNavBar } from '../redux/actions'
+import { headerNavBar, windowScroll } from '../redux/actions'
 
 // 自定义组件
 import Header from '../components/header'
@@ -13,18 +13,24 @@ import Footer from '../components/footer'
 
 
 class App extends Component {
+
+    // 数据类型
     static propTypes = {
-        res:PropTypes.object.isRequired,
-        test:PropTypes.func.isRequired,
-        headerNavBar:PropTypes.func.isRequired
+        result:PropTypes.object.isRequired,
+        headerNavBar:PropTypes.func.isRequired,
+        windowScroll:PropTypes.func.isRequired
     }
     render(){
         
-        let {res, test, headerNavBar} = this.props
+        let {result, headerNavBar, windowScroll} = this.props
         
         return (
             <div>
-                <Header res={res} headerNavBar={ headerNavBar } test={test}/>
+                <Header 
+                    result = {result}   
+                    headerNavBar = { headerNavBar }  
+                    windowScroll = { windowScroll }
+                    />
                 
                 <Footer />
             </div>
@@ -33,6 +39,6 @@ class App extends Component {
 }
 
 export default connect(
-    state => ({res:state.reducers}),
-    { test, headerNavBar }
+    state => ({ result:state.reducers }),
+    { headerNavBar, windowScroll }
 )(App)

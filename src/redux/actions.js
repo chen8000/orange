@@ -1,10 +1,12 @@
 
 
-import { HEADER, HEADERNAVBAR } from './action-types'
+import { HEADERNAVBAR, WINDOWSCROLL } from './action-types'
 
-export const test = () => ({type:HEADER})
+// 导航鼠标跟随动画
+export const headerNavBar = val => ( { type:HEADERNAVBAR, data:val } )
 
-export const headerNavBar = val => ({type:HEADERNAVBAR, data:val})
+// 滚动条事件
+export const windowScroll = val => ( { type:WINDOWSCROLL, data:val } )
 
 
 

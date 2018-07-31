@@ -2,7 +2,7 @@
 
 import { combineReducers } from 'redux'
 
-import { HEADER, HEADERNAVBAR } from './action-types'
+import { HEADERNAVBAR, WINDOWSCROLL } from './action-types'
 
 // 初始 state
 const InitState = {
@@ -10,21 +10,36 @@ const InitState = {
     headerBar:{
         w:'0px',
         l:'0px'
+    },
+
+    // scroll type
+    scroll:{
+        type:false
     }
+
 }
 // 【注意⚠️】 请不要直接修改 state
 function reducers( state = InitState, action ){
     switch(action.type){
-        case HEADER :
-            return state
-
+        
+        // 导航鼠标跟随动画
         case HEADERNAVBAR :
-            return { 
-                headerBar:{
-                    w:`${action.data.w}px`,
-                    l:`${action.data.l}px`
-                }
-            }
+        
+        //需要解构
+        let { headerBar } = state
+        headerBar.w = `${action.data.w}px`;
+        headerBar.l = `${action.data.l}px`;
+        
+            return { headerBar, ...state }
+        
+        // 滚动条事件
+        case WINDOWSCROLL :
+
+            //需要解构
+            let { scroll } = state
+            scroll.type = action.data.scroll
+            
+            return { scroll, ...state }
             
         default :
             return state    
