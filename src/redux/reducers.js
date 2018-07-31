@@ -27,8 +27,8 @@ function reducers( state = InitState, action ){
         
         //需要解构
         let { headerBar } = state
-        headerBar.w = `${action.data.w}px`;
-        headerBar.l = `${action.data.l}px`;
+        headerBar.w = action.data.w
+        headerBar.l = action.data.l
         
             return { headerBar, ...state }
         

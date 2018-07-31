@@ -9,8 +9,9 @@ class Header extends Component {
     componentDidMount(){
 
         // 初始化动画位置
-        this.props.headerNavBar({w:'60',l:'0'})
+        this.props.headerNavBar({w:'60px',l:'0px'})
 
+        // 初始化导航样式状态
         this.props.windowScroll({ scroll:true })
     }
 
@@ -20,7 +21,7 @@ class Header extends Component {
         let navBarWidth = event.target.clientWidth
         let navBarLeft = event.target.offsetLeft
 
-        this.props.headerNavBar({w:navBarWidth, l:navBarLeft})
+        this.props.headerNavBar({w:`${navBarWidth}px`, l:`${navBarLeft}px`})
 
     }
 
@@ -30,7 +31,12 @@ class Header extends Component {
         let { result } = this.props
         
         return (
-            <div className={ headStyle.header }>
+            <div className={
+                [
+                    headStyle.header, 
+                    result.scroll.type ? headStyle.headerFixed : null
+                ].join(' ')
+            }>
                 <div className={ headStyle.container }>
                     <div className={ headStyle.logo }>
                         <img src="/img/common/logo.png" alt=""/>
