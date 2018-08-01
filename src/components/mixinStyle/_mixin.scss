@@ -1,9 +1,9 @@
 // 过度
-@mixin transition( $time){
+@mixin transition( $time ){
     transition: all $time ease;
 } 
 // 背景颜色
-@mixin bg($color){
+@mixin bg( $color ){
     background:$color;
 }
 
@@ -15,7 +15,7 @@
 }
 
 // 宽高
-@mixin wh($w, $h){
+@mixin wh( $w, $h ){
     width:$w;
     height:$h;
 }
