@@ -6,10 +6,9 @@
     @include wh(null, 600px);
     @include bgImg('/img/home/carFooter.jpg');
 
-    background-size:100%;
     background-attachment:fixed;
-    background-position:top;
-    // position: relative;
+    background-position:top center;
+    
     text-align: center;
     img{
         @include wh(100%);
