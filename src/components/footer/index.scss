@@ -1,8 +1,15 @@
 
 
+@import '../commonStyle/commonSet';
+
 .footer{
-    height:2000px;
-    background:rgba(0,0,0,.2);
+    padding:15px;
+    color:white;
+
+
+    @include wh(100%);
+    @include bg(#21252b);
+    @extend .boxSizing;
 }
 
 

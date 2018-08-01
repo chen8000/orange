@@ -8,6 +8,7 @@ import { headerNavBar, windowScroll } from '../redux/actions'
 // 自定义组件
 import Header from '../components/header'
 import Footer from '../components/footer'
+import Home from '../components/home'
 
 
 
@@ -36,6 +37,7 @@ class App extends Component {
                     windowScroll = { windowScroll }
                     />
                 
+                <Home />
                 <Footer />
             </div>
         )
