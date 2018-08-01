@@ -5,6 +5,15 @@
     box-sizing: border-box;
 }
 
+.container{
+    width   : 90%;
+    margin  : 0 auto;
+    position: relative;
+
+    &:after{
+        @include afterClear();
+    }
+}
 
 
 

@@ -20,11 +20,16 @@
         border:1px solid #fff;
         color:white;
         cursor: pointer;
-        // border-radius: 50px;
+        outline:0;
         font-size:20px;
         position:relative;
 
         @include bg(rgba(0,0,0,0));
+
+        span{
+            position:relative;
+            z-index:1;
+        }
        
 
         &:after{
@@ -33,9 +38,10 @@
             position:absolute;
             left :0;
             top :0;
+            z-index:0;
             
             @include wh(0, 100%);
-            @include bg(rgba(255, 255, 255, .6));
+            @include bg(rgba(255, 255, 255, .5));
             @include transition(.3s);
 
             
@@ -46,10 +52,77 @@
         }
     }
 }
-.home1{
-    border:1px solid red;
-    @include wh(null, 400px);
-    // @include bg(rgba(0,0,0,.5))
+.todo ul{
+    list-style: none;
+    padding:30px 30px 28px 30px;
+
+    
+    
+    li{
+        float: left;
+        // outline: 1px solid red;
+        position:relative;
+
+        @include wh(50%);
+
+        // 占位图片
+        .placeholder{
+            display:block;
+
+            @include wh(100%);
+        }
+        .todos{
+            position:absolute;
+            top:0;
+            left:0;
+            overflow: hidden;
+
+            @include wh(99%, 98%);
+
+            img{
+                @include wh(100%);
+                @include absoluteCenter();
+                @include transition(1.6s);
+            }
+            h2{
+                position:absolute;
+                bottom:10%;
+                left:6%;
+                color:white;
+                font-size:2em;
+
+                &:after{
+                    content:"";
+                    display:block;
+                    width:0;
+                    height:4px;
+                    
+                    @include transition(.8s);
+                    @include bg(#751e0f);
+
+                }
+
+                
+            }
+            &:hover h2::after{
+                width:90px;
+            }
+
+            &:hover img{
+                transform: scale(1.15);
+            }
+        }
+        &:nth-child(2n){
+            .todos{
+                left:inherit;
+                right:0;
+            }   
+        }
+    }
+
+    &:after{
+        @include afterClear();
+    }
 }
 
 

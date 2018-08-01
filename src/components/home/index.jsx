@@ -10,10 +10,41 @@ class Home extends Component {
         return (
             <div>
                 <div  className={ homeStyle.home }>
-                    <button>VIP</button>
+                    <button><span>VIP</span></button>
                 </div>
-                <div className={ homeStyle.home1 }>
-
+                <div className={ homeStyle.todo }>
+                    <ul>
+                        {
+                            [
+                                {
+                                    title:'VIP-VIP-title-VIP',
+                                    imgUrl:'/img/home/todos1.png'
+                                },
+                                {
+                                    title:'VIP-VIP-title-VIP',
+                                    imgUrl:'/img/home/todos1.png'
+                                },
+                                {
+                                    title:'VIP-VIP-title-VIP',
+                                    imgUrl:'/img/home/todos1.png'
+                                },
+                                {
+                                    title:'VIP-VIP-title-VIP',
+                                    imgUrl:'/img/home/todos1.png'
+                                }
+                            ].map((res, index) => 
+                                <li key={index}>
+                                    <img className={ homeStyle.placeholder } src="/img/common/placeholder.png" alt=""/>
+                                    <div className={ homeStyle.todos }>
+                                        <img src={res.imgUrl} alt=""/>
+                                        <h2>{res.title}</h2>
+                                    </div>
+                                </li>
+                            )
+                        }
+                        
+                        
+                    </ul>
                 </div>
             </div>
         )
