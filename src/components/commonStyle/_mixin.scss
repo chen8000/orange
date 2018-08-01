@@ -9,6 +9,11 @@
     background : $color;
 }
 
+// 背景图片
+@mixin bgImg($url){
+    background:url($url) no-repeat;
+}
+
 // after清除浮动
 @mixin afterClear{
     content : "";

@@ -1,9 +1,56 @@
 
 @import '../commonStyle/commonSet';
 
-.home img{
-    @include wh(100%);
-    display:block;
+.home{
+
+    @include wh(null, 600px);
+    @include bgImg('/img/home/carFooter.jpg');
+
+    background-size:100%;
+    background-attachment:fixed;
+    background-position:top;
+    // position: relative;
+    text-align: center;
+    img{
+        @include wh(100%);
+        display:block;
+    }
+    button{
+        padding:15px 160px;
+        margin-top:300px;
+        border:1px solid #fff;
+        color:white;
+        cursor: pointer;
+        // border-radius: 50px;
+        font-size:20px;
+        position:relative;
+
+        @include bg(rgba(0,0,0,0));
+       
+
+        &:after{
+            content:'';
+            display:block;
+            position:absolute;
+            left :0;
+            top :0;
+            
+            @include wh(0, 100%);
+            @include bg(rgba(255, 255, 255, .6));
+            @include transition(.3s);
+
+            
+        }
+
+        &:hover::after{
+            @include wh(100%, 100%);
+        }
+    }
+}
+.home1{
+    border:1px solid red;
+    @include wh(null, 400px);
+    @include bg(rgba(0,0,0,.5))
 }
 
 

@@ -8,8 +8,13 @@ class Home extends Component {
 
     render(){
         return (
-            <div className={ homeStyle.home }>
-                <img src="/img/home/carFooter.jpg" alt=""/>
+            <div>
+                <div  className={ homeStyle.home }>
+                    <button>VIP</button>
+                </div>
+                <div className={ homeStyle.home1 }>
+
+                </div>
             </div>
         )
     }
