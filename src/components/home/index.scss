@@ -16,7 +16,7 @@
         display:block;
     }
     button{
-        padding:15px 160px;
+        padding:15px 180px;
         margin-top:300px;
         border:1px solid #fff;
         color:white;
@@ -50,7 +50,7 @@
 .home1{
     border:1px solid red;
     @include wh(null, 400px);
-    @include bg(rgba(0,0,0,.5))
+    // @include bg(rgba(0,0,0,.5))
 }
 
 
