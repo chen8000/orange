@@ -1,27 +1,13 @@
 
-
-// 过度
-@mixin transition($time){
-    transition: all $time ease;
-}
-// 背景颜色
-@mixin bg($color){
-    background:$color;
-}
-
-// after清除浮动
-@mixin afterClear{
-    content:"";
-    display:block;
-    clear: both;
-}
+// 导入封装的 scss mixin
+@import '../mixinStyle/mixin';
 
 
 .header{
     width:100%;
     padding:30px 0 20px 0;
     position: fixed;
-    background:rgba(255,255,255,0);
+    @include bg(rgba(255,255,255,0));
     font-size:15px;
 
     @include transition(.5s);
@@ -104,7 +90,6 @@
         &:after{
             color:#751e0f;
         }
-    
         &:hover{
             color:orangered;
         }
@@ -114,12 +99,12 @@
         &:last-child::after{
             content:"|";
             position:absolute;
-            left:-9px;
+            left:-9px; 
         }
     }
 }
 .headerFixed{
-    background:rgba(255,255,255,.8);
+    @include bg(rgba(255,255,255,.8));
     padding:20px 0 10px 0;
 
     .login{

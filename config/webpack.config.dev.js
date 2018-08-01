@@ -206,7 +206,7 @@ module.exports = {
           },
           {
             test:/\.scss$/,
-            loaders:['style-loader', 'css-loader?modules&localIdentName=[name]_[local]_[hash:base64:5]', 'sass-loader'],
+            loaders:['style-loader', 'css-loader?modules&localIdentName=[name]_[local]_[hash:base64:8]', 'sass-loader'],
           }
         ],
       },

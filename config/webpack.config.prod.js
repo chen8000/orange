@@ -229,7 +229,7 @@ module.exports = {
           },
           {
             test:/\.scss$/,
-            loaders:['style-loader', 'css-loader?modules&localIdentName=[name]_[local]_[hash:base64:5]', 'sass-loader'],
+            loaders:['style-loader', 'css-loader?modules&localIdentName=[name]_[local]_[hash:base64:8]', 'sass-loader'],
           }
           // ** STOP ** Are you adding a new loader?
           // Make sure to add the new loader(s) before the "file" loader.
