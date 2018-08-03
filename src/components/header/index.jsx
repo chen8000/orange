@@ -2,9 +2,9 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { Login } from '../../route/config'
+import { Login, NavBar } from '../../route/config'
 
-import headStyle from './index.scss'
+import style from './index.scss'
 
 
 class Header extends Component {
@@ -20,14 +20,23 @@ class Header extends Component {
         
     }
 
-    navBarActive = (event) => {
-
+    // enter
+    navBarActive = e => {
         // 获取节点的 width left
-        let navBarWidth = event.target.clientWidth
-        let navBarLeft = event.target.offsetLeft
+        // let links = e.target.parentNode.parentNode.childNodes
+
+
+        // e.target.parentNode.childNodes.className += ` ${ style.navHoverBar }`
+        let navBarWidth = e.target.parentNode.clientWidth
+        let navBarLeft = e.target.parentNode.offsetLeft
 
         this.props.headerNavBar({w:`${navBarWidth}px`, l:`${navBarLeft}px`})
+    }
 
+    // leave
+    navBarOut = e => {
+        // e.target.className = e.target.className.replace(style.navHoverBar, '').trim()
+            
     }
 
     windowScroll = () => {
@@ -52,27 +61,37 @@ class Header extends Component {
         return (
             <div className={
                 [
-                    headStyle.header, 
-                    result.scroll.type ? headStyle.headerFixed : null
+                    style.header, 
+                    result.scroll.type ? style.headerFixed : null
                 ].join(' ')
             }>
-                <div className={ headStyle.container }>
-                    <div className={ headStyle.logo }>
+                <div className={ style.container }>
+                    <div className={ style.logo }>
                         <img src="/img/common/logo.png" alt=""/>
-                        <img className={ headStyle.logo_O } src="/img/common/logo_O.png" alt=""/>
+                        <img className={ style.logo_O } src="/img/common/logo_O.png" alt=""/>
                         
                     </div>
-                    <div className={ headStyle.login }>
+                    <div className={ style.login }>
                         {
+                            // 登陆 注册
                             Login.map((res, index) => <NavLink to={ res.toPath } key={ index } >{ res.key }</NavLink>)
                         }
                     </div>
                     <ul>
-                       <span style={{width:result.headerBar.w, left:result.headerBar.l}} className={ headStyle.navBarActive }></span>
+                       <span style={{width:result.headerBar.w, left:result.headerBar.l}} className={ style.navBarActive }></span>
 
                        {
-                           ['首页','相册','视频','文章','了解我们']
-                           .map((res, index) => <li onMouseOver={ this.navBarActive } key={ index } > { res } </li> )
+                        // 面包屑   
+                           NavBar.map((res, index) => 
+                                    <li key={ index } >
+                                        <NavLink 
+                                            activeClassName={ style.navBarThisPage } 
+                                            onMouseEnter={ this.navBarActive } 
+                                            onMouseLeave = { this.navBarOut } 
+                                            to={ res.toPath }>{ res.key }
+                                        </NavLink>
+                                    </li> 
+                                )
                        } 
                        
                     </ul>

@@ -25,21 +25,16 @@ class App extends Component {
         windowScroll:PropTypes.func.isRequired
     }
 
-    
+
 
 
     render(){
         
-        let {result, headerNavBar, windowScroll} = this.props
+        let { result, headerNavBar, windowScroll } = this.props
         
         return (
             <div>
-                <Header 
-                    result = {result}   
-                    headerNavBar = { headerNavBar }  
-                    windowScroll = { windowScroll }
-                    />
-
+                <Header result = {result} headerNavBar = { headerNavBar } windowScroll = { windowScroll }/>
 
                     <Switch>
                         <Route path="/home" component={ Home }/>
@@ -47,6 +42,7 @@ class App extends Component {
                         <Route path="/doLogin" component={ DoLogin } />
                         <Redirect to="/home"/>
                     </Switch>
+
                 <Footer />
             </div>
         )

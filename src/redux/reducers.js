@@ -29,6 +29,7 @@ function reducers( state = InitState, action ){
         let { headerBar } = state
         headerBar.w = action.data.w
         headerBar.l = action.data.l
+        headerBar.color = action.data.color
         
             return { headerBar, ...state }
         

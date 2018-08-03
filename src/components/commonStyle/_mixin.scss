@@ -1,6 +1,6 @@
 
 // 过度
-@mixin transition( $time ){
+@mixin transition( $time:.3s ){
     transition         : all $time ease;
     -webkit-transition : all $time ease;
 } 

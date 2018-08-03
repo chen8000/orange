@@ -25,18 +25,36 @@
     
         li{
             display : inline-block;
-            padding : 7px 14px;
-            cursor  : pointer;
+            
+            
             position: relative;
             z-index : 1;
-            color   : #80000c;
 
             @include transition(.3s);
         
             &:first-child{
                 margin-left:0;
             }
+            &:hover a{
+                color: white;
+            }
+
+            a{
+                display:block;
+                color : #80000c;
+                text-decoration: none;
+                padding : 7px 14px;
+
+                @include transition(.5s);
+            }
+            .navBarThisPage{
+                color:white;
+            }
+            .navHoverBar{
+                color:#80000c;
+            }
         }
+        
     
         .navBarActive{
             display  : block;
