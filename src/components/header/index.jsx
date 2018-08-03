@@ -11,32 +11,64 @@ class Header extends Component {
 
     // 组件渲染完成后初始化状态
     componentDidMount(){
-
         // 初始化动画位置
-        this.props.headerNavBar({w:'60px',l:'0px'})
+        let active = this.refs
+                        .navBarContainer
+                        .getElementsByClassName(style.navBarThisPage)[0]
+        if(active){
+            this.animateStore(active)
+        }else{
+            this.props.headerNavBar({w:'0px',l:'0px'})
+        }
 
         // 注册window scroll 事件
         this.windowScroll()
-        
     }
+    /*
+        导航动画逻辑
+        1. 鼠标移动到每个节点上时获取该节点的left width 赋值给动画节点
+        2. 导航到当前的页面，面包屑会添加一个class   style.navBarThisPage
+        3. 鼠标再次移动到别的面包屑时，使用ref的方法获取ul 给ul添加一个class  style.navBarContainer
+           使除了鼠标hover的元素其他的元素的文字改变
+        4. 鼠标移走时移除ul上的class  用原生js方法获取 当前路由对应的面包屑 style.navBarThisPage
+           设置动画的left  width 使其回到原点
+    */ 
 
     // enter
     navBarActive = e => {
-        // 获取节点的 width left
-        // let links = e.target.parentNode.parentNode.childNodes
+        // 给ul添加一个class改变所有文字的颜色
+        this.refs.navBarContainer.className = style.navBarContainer
 
-
-        // e.target.parentNode.childNodes.className += ` ${ style.navHoverBar }`
-        let navBarWidth = e.target.parentNode.clientWidth
-        let navBarLeft = e.target.parentNode.offsetLeft
-
-        this.props.headerNavBar({w:`${navBarWidth}px`, l:`${navBarLeft}px`})
+        this.animateStore(e.target)
     }
 
     // leave
     navBarOut = e => {
-        // e.target.className = e.target.className.replace(style.navHoverBar, '').trim()
+
+        // 移走后移除ul上的class 
+        this.refs.navBarContainer
+            .className = this.refs.navBarContainer
+            .className.replace(style.navBarContainer, '').trim()
+
+        // 获取当前组件对应的面包屑
+        let activeClassName = e
+                                .target
+                                .parentNode
+                                .parentNode
+                                .getElementsByClassName(style.navBarThisPage)[0]
+        if(activeClassName){
+            this.animateStore(activeClassName)
+        }else{
+            this.props.headerNavBar({w:'0px',l:'0px'})
+        }
             
+    }
+
+    // 接收对象获取对象的left 和 width 改变状态
+    animateStore = o => {
+        let navBarWidth = o.parentNode.clientWidth
+        let navBarLeft = o.parentNode.offsetLeft
+        this.props.headerNavBar({w:`${navBarWidth}px`, l:`${navBarLeft}px`})    
     }
 
     windowScroll = () => {
@@ -52,8 +84,6 @@ class Header extends Component {
             }
         })
     }
-
-    
 
     render(){
         let { result } = this.props
@@ -74,21 +104,19 @@ class Header extends Component {
                     <div className={ style.login }>
                         {
                             // 登陆 注册
-                            Login.map((res, index) => <NavLink to={ res.toPath } key={ index } >{ res.key }</NavLink>)
+                            Login.map((res, index) => <NavLink activeClassName={ style.loginStyle } to={ res.toPath } key={ index } >{ res.key }</NavLink>)
                         }
                     </div>
-                    <ul>
+                    <ul ref='navBarContainer'>
                        <span style={{width:result.headerBar.w, left:result.headerBar.l}} className={ style.navBarActive }></span>
 
                        {
                         // 面包屑   
                            NavBar.map((res, index) => 
                                     <li key={ index } >
-                                        <NavLink 
-                                            activeClassName={ style.navBarThisPage } 
-                                            onMouseEnter={ this.navBarActive } 
-                                            onMouseLeave = { this.navBarOut } 
-                                            to={ res.toPath }>{ res.key }
+                                        <NavLink activeClassName={ style.navBarThisPage } 
+                                                onMouseOver={ this.navBarActive } onMouseOut = { this.navBarOut } 
+                                                to={ res.toPath }>{ res.key }
                                         </NavLink>
                                     </li> 
                                 )

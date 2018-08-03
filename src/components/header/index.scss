@@ -69,6 +69,10 @@
             @include transition(.5s);
         }
     }
+
+    .navBarContainer li a{
+        color:#80000c;
+    }
     
 }
 
@@ -102,7 +106,7 @@
 
     @include transition(.3s);
 
-    span{
+    a{
         margin-left    : 15px;
         position       : relative;
         text-decoration: none;
@@ -125,6 +129,10 @@
             left    : -9px; 
         }
     }
+    .loginStyle{
+        color:orangered;
+        text-decoration: underline;
+    }
 }
 .headerFixed{
     padding:20px 0 10px 0;
@@ -134,7 +142,7 @@
     .logo{
         width:180px;
     }
-    ul li{
+    ul li a{
         padding:5px 14px;
     }
 }

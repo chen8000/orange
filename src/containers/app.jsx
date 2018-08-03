@@ -10,8 +10,13 @@ import { headerNavBar, windowScroll } from '../redux/actions'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Home from '../components/home'
+import AboutUs from '../components/aboutUs'
+import Album from '../components/album'
+import Article from '../components/article'
+import VideoPage from '../components/videoPage'
 import Login from '../components/login'
 import DoLogin from '../components/doLogin'
+
 
 
 
@@ -38,6 +43,10 @@ class App extends Component {
 
                     <Switch>
                         <Route path="/home" component={ Home }/>
+                        <Route path="/aboutUs" component={ AboutUs } />
+                        <Route path="/album" component={ Album } />
+                        <Route path="/article" component={ Article } />
+                        <Route path="/videoPage" component={ VideoPage } />
                         <Route path="/login" component={ Login } />
                         <Route path="/doLogin" component={ DoLogin } />
                         <Redirect to="/home"/>

@@ -25,7 +25,7 @@ export const NavBar = [
     },
     {
         key:'视频',
-        toPath:'/video'
+        toPath:'/videoPage'
     },
     {
         key:'文章',
