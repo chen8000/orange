@@ -115,7 +115,7 @@
         cursor         : pointer;
     
         &:after{
-            color:#751e0f;
+            @include bg(#751e0f);
         }
         &:hover{
             color:orangered;
@@ -124,9 +124,13 @@
             color:#751e0f;
         }
         &:last-child::after{
-            content : "|";
+            content : "";
             position: absolute;
             left    : -9px; 
+            top:0;
+            bottom:0;
+            margin:auto;
+            @include wh(1px, 18px)
         }
     }
     .loginStyle{

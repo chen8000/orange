@@ -85,6 +85,7 @@ class Header extends Component {
         })
     }
 
+
     render(){
         let { result } = this.props
         
