@@ -41,7 +41,6 @@ class App extends Component {
                     />
 
 
-
                     <Switch>
                         <Route path="/home" component={ Home }/>
                         <Route path="/login" component={ Login } />

@@ -2,6 +2,8 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 
+import { Login } from '../../route/config'
+
 import headStyle from './index.scss'
 
 
@@ -62,17 +64,7 @@ class Header extends Component {
                     </div>
                     <div className={ headStyle.login }>
                         {
-                            [
-                                {
-                                    title:'登陆',
-                                    toPath:'/login'
-                                },
-                                {
-                                    title:'注册',
-                                    toPath:'/doLogin'
-                                }
-                            ]
-                            .map((res, index) => <NavLink to={ res.toPath } key={ index } >{ res.title }</NavLink>)
+                            Login.map((res, index) => <NavLink to={ res.toPath } key={ index } >{ res.key }</NavLink>)
                         }
                     </div>
                     <ul>
