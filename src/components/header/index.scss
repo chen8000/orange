@@ -10,7 +10,7 @@
     font-size: 15px;
     z-index  : 99;
 
-    @include bg(rgba(255,255,255,.8));
+    // @include bg(rgba(255,255,255,.8));
     @include transition(.5s);
 
     &:after{
