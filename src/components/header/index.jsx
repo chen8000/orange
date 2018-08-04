@@ -12,14 +12,7 @@ class Header extends Component {
     // 组件渲染完成后初始化状态
     componentDidMount(){
         // 初始化动画位置
-        let active = this.refs
-                        .navBarContainer
-                        .getElementsByClassName(style.navBarThisPage)[0]
-        if(active){
-            this.animateStore(active)
-        }else{
-            this.props.headerNavBar({w:'0px',l:'0px'})
-        }
+        this.props.headerNavBar({w:'60px',l:'0px'})
 
         // 注册window scroll 事件
         this.windowScroll()
