@@ -10,6 +10,15 @@ import style from './index.scss'
 
 class Header extends Component {
 
+    constructor(props){
+        super(props)
+
+        // mobile端的一个状态，false为pc
+        this.state = {
+            mbType:false
+        }
+    }
+
     // 组件渲染完成后初始化状态
     componentDidMount(){
         // 初始化动画位置
@@ -30,7 +39,12 @@ class Header extends Component {
 
         // 注册window scroll 事件
         this.windowScroll()
+
+        // 初始化li动画
+        this.mbNavBarAnimate()
     }
+
+    
     /*
         导航动画逻辑
         1. 鼠标移动到每个节点上时获取该节点的left width 赋值给动画节点
@@ -80,9 +94,9 @@ class Header extends Component {
         */
        window.addEventListener('scroll', () => {
             let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
-            if(scrollTop > 100 ){
+            if(scrollTop > 100){
                 this.props.windowScroll({ scroll:true })
-            }else if(scrollTop <= 20){
+            }else if(scrollTop <= 100){
                 this.props.windowScroll({ scroll:false })
             }
         })
@@ -92,12 +106,38 @@ class Header extends Component {
     // mobile事件
     mbNavBarToggle = e => {
 
-        if(!hasClass(e.target, style.mobileIconActive)){
-            addClass(e.target, style.mobileIconActive)
-        }else{
+        if(hasClass(e.target, style.mobileIconActive)){
+
+            // X 收起
             removeClass(e.target, style.mobileIconActive)
+
+            this.props.mbNavBar({l:`-100%` })
+        }else{
+            
+            // √ 展开
+            addClass(e.target, style.mobileIconActive)
+            
+            this.props.mbNavBar({l:`0px` })
+
         }
 
+    }
+
+    // 手机端初始化导航列表动画
+    mbNavBarAnimate = () => {
+        // 移动端
+        if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) { 
+            this.setState({ mbType:true })
+            let todos = this.refs.navBarContainer.childNodes
+            let times = .3;
+            for(let i = 0; i< todos.length; i++){
+                if(todos[i].nodeName.toLowerCase() === 'li'){
+                    todos[i].style.transition = `all ${times}s ease`
+
+                    times += .05
+                }
+            }
+        }
     }
 
 
@@ -105,7 +145,7 @@ class Header extends Component {
         let { result } = this.props
         
         return (
-            <div className={
+            <div ref='header' className={
                 [
                     style.header, 
                     result.scroll.type ? style.headerFixed : null
@@ -128,7 +168,7 @@ class Header extends Component {
                         {
                             // 面包屑   
                             NavBar.map((res, index) => 
-                                        <li key={ index } >
+                                        <li key={ index } style={ this.state.mbType ? { transform:`translate(${result.distance.l})` } : null } className={ result.scroll.type ? style.todosBg : null }>
                                             <NavLink activeClassName={ style.navBarThisPage } 
                                                     onMouseOver={ this.navBarActive } onMouseOut = { this.navBarOut } 
                                                     to={ res.toPath }>{ res.key }

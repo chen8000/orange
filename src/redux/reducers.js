@@ -2,7 +2,7 @@
 
 import { combineReducers } from 'redux'
 
-import { HEADERNAVBAR, WINDOWSCROLL } from './action-types'
+import { HEADERNAVBAR, WINDOWSCROLL, DISTANCE } from './action-types'
 
 // 初始 state
 const InitState = {
@@ -15,6 +15,11 @@ const InitState = {
     // scroll type
     scroll:{
         type:false
+    },
+
+    // 下拉菜单展开收起
+    distance:{
+        l:'-100%'
     }
 
 }
@@ -29,7 +34,6 @@ function reducers( state = InitState, action ){
         let { headerBar } = state
         headerBar.w = action.data.w
         headerBar.l = action.data.l
-        headerBar.color = action.data.color
         
             return { headerBar, ...state }
         
@@ -41,9 +45,20 @@ function reducers( state = InitState, action ){
             scroll.type = action.data.scroll
             
             return { scroll, ...state }
+        
+        // 导航展开收起
+        case DISTANCE :
+
+            let { distance } = state
             
+            distance.l = action.data.l
+
+        return  { distance, ...state }
+
+
+        // 默认
         default :
-            return state    
+        return state    
     }
 }
 

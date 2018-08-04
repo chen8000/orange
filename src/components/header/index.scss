@@ -171,7 +171,7 @@
 /*-------------- 767  phone*/
 @media all and (max-width: 767px){
     .header{
-        padding:12px 0 5px 0;
+        padding:10px 0 3px 0;
     }
     .logo{
         width:120px;
@@ -224,11 +224,11 @@
         // display:none;
 
         position: absolute;
-        top:140px;
+        top:100%;
         left:0;
         
         
-        @include wh(100%, inherit);
+        @include wh(100%, 0);
 
         &:after{
             @include afterClear();
@@ -236,14 +236,17 @@
 
         ul{
             position: initial;
+
+            @include wh(null, 0);
             .navBarActive{
                 display: none;
             }
 
             li{
                 display:block;
-                
-                @include bg(white);
+                transform: translate(-100%);
+                border-top:1px solid white;
+                @include bg(rgba(255,255,255,.8));
                 .navBarThisPage{
                     color:#333;
                 }
@@ -251,6 +254,14 @@
                 a{
                     color:#333;
                 }
+
+                &:last-child{
+                    border-bottom:1px solid white;
+                }
+            }
+            .todosBg{
+                @include bg(rgba(255,255,255,.6))
+
             }
         }
     }
@@ -263,7 +274,7 @@
     .headerFixed{
         padding:10px 0 3px 0;
     
-        @include bg(rgba(255,255,255,.5));
+        @include bg(rgba(255,255,255,.6));
     
         .logo{
             width:100px;
