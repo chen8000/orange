@@ -102,20 +102,26 @@ class Header extends Component {
         })
     }
 
+    todosClick = () => {
+        this.mbNavBarToggle(this.refs.mobileIcon)
+    }
+
 
     // mobile事件
     mbNavBarToggle = e => {
 
-        if(hasClass(e.target, style.mobileIconActive)){
+        let obj = e.target ? e.target : e 
+
+        if(hasClass(obj, style.mobileIconActive)){
 
             // X 收起
-            removeClass(e.target, style.mobileIconActive)
+            removeClass(obj, style.mobileIconActive)
 
             this.props.mbNavBar({l:`-100%` })
         }else{
             
             // √ 展开
-            addClass(e.target, style.mobileIconActive)
+            addClass(obj, style.mobileIconActive)
             
             this.props.mbNavBar({l:`0px` })
 
@@ -152,9 +158,7 @@ class Header extends Component {
                 ].join(' ')
             }>
                 <div className={ style.container }>
-                    <div onClick={ this.mbNavBarToggle } className={ style.mobileIcon }>
-
-                    </div>
+                    <div ref='mobileIcon' onClick={ this.mbNavBarToggle } className={ style.mobileIcon }></div>
                     <div className={ style.logo }>
                         <img src="/img/common/logo.png" alt=""/>
                         <img className={ style.logo_O } src="/img/common/logo_O.png" alt=""/>
@@ -168,7 +172,7 @@ class Header extends Component {
                         {
                             // 面包屑   
                             NavBar.map((res, index) => 
-                                        <li key={ index } style={ this.state.mbType ? { transform:`translate(${result.distance.l})` } : null } className={ result.scroll.type ? style.todosBg : null }>
+                                        <li onClick = { this.todosClick } key={ index } style={ this.state.mbType ? { transform:`translate(${result.distance.l})` } : null } className={ result.scroll.type ? style.todosBg : null }>
                                             <NavLink activeClassName={ style.navBarThisPage } 
                                                     onMouseOver={ this.navBarActive } onMouseOut = { this.navBarOut } 
                                                     to={ res.toPath }>{ res.key }
