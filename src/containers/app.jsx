@@ -14,8 +14,6 @@ import AboutUs from '../components/aboutUs'
 import Album from '../components/album'
 import Article from '../components/article'
 import VideoPage from '../components/videoPage'
-import Login from '../components/login'
-import DoLogin from '../components/doLogin'
 
 
 
@@ -34,12 +32,15 @@ class App extends Component {
 
 
     render(){
+
+        // 获取url后面的地址
+        let pathname = this.props.location.pathname
         
-        let { result, headerNavBar, windowScroll } = this.props
+        let {  result, headerNavBar, windowScroll } = this.props
         
         return (
             <div>
-                <Header result = {result} headerNavBar = { headerNavBar } windowScroll = { windowScroll }/>
+                <Header pathname = { pathname } result = {result} headerNavBar = { headerNavBar } windowScroll = { windowScroll }/>
 
                     <Switch>
                         <Route path="/home" component={ Home }/>
@@ -47,8 +48,6 @@ class App extends Component {
                         <Route path="/album" component={ Album } />
                         <Route path="/article" component={ Article } />
                         <Route path="/videoPage" component={ VideoPage } />
-                        <Route path="/login" component={ Login } />
-                        <Route path="/doLogin" component={ DoLogin } />
                         <Redirect to="/home"/>
                     </Switch>
 

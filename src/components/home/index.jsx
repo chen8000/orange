@@ -31,6 +31,14 @@ class Home extends Component {
                                 {
                                     title:'VIP-VIP-title-VIP',
                                     imgUrl:'/img/home/todos1.png'
+                                },
+                                {
+                                    title:'VIP-VIP-title-VIP',
+                                    imgUrl:'/img/home/todos1.png'
+                                },
+                                {
+                                    title:'VIP-VIP-title-VIP',
+                                    imgUrl:'/img/home/todos1.png'
                                 }
                             ].map((res, index) => 
                                 <li key={index}>

@@ -1,8 +1,8 @@
 
 // 过度
-@mixin transition( $time:.3s ){
-    transition         : all $time ease;
-    -webkit-transition : all $time ease;
+@mixin transition( $time:.3s, $curve:ease ){
+    transition         : all $time $curve;
+    -webkit-transition : all $time $curve;
 } 
 // 背景颜色
 @mixin bg( $color ){
@@ -13,11 +13,15 @@
 @mixin bgImg($url){
     background:url($url) no-repeat;
 }
+// 伪类块
+@mixin PseudoBlock{
+    content:"";
+    display:block;
+}
 
 // after清除浮动
 @mixin afterClear{
-    content : "";
-    display : block;
+    @include PseudoBlock();
     clear   : both;
 }
 

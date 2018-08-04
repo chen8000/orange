@@ -2,8 +2,9 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { Login, NavBar } from '../../route/config'
+import { NavBar } from '../../route/config'
 
+import { addClass, hasClass, removeClass } from '../../module/cssClass'
 import style from './index.scss'
 
 
@@ -12,7 +13,20 @@ class Header extends Component {
     // 组件渲染完成后初始化状态
     componentDidMount(){
         // 初始化动画位置
-        this.props.headerNavBar({w:'60px',l:'0px'})
+        let routeActive = this.refs.navBarContainer.childNodes
+        
+        for(let i = 0; i< routeActive.length; i++){
+            if(routeActive[i].getElementsByClassName(style.navBarThisPage).length > 0){
+                this.animateStore(routeActive[i].getElementsByClassName(style.navBarThisPage)[0])
+            }
+        }
+
+        // 首页状态
+        if(this.props.pathname === '/'){
+            this.props.headerNavBar({w:`60px`, l:`0px`})    
+        }
+
+        // console.log(routeActive)
 
         // 注册window scroll 事件
         this.windowScroll()
@@ -30,7 +44,7 @@ class Header extends Component {
     // enter
     navBarActive = e => {
         // 给ul添加一个class改变所有文字的颜色
-        this.refs.navBarContainer.className = style.navBarContainer
+        addClass(this.refs.navBarContainer, style.navBarContainer)
 
         this.animateStore(e.target)
     }
@@ -39,9 +53,7 @@ class Header extends Component {
     navBarOut = e => {
 
         // 移走后移除ul上的class 
-        this.refs.navBarContainer
-            .className = this.refs.navBarContainer
-            .className.replace(style.navBarContainer, '').trim()
+        removeClass(this.refs.navBarContainer, style.navBarContainer)
 
         // 获取当前组件对应的面包屑
         let activeClassName = e
@@ -51,8 +63,6 @@ class Header extends Component {
                                 .getElementsByClassName(style.navBarThisPage)[0]
         if(activeClassName){
             this.animateStore(activeClassName)
-        }else{
-            this.props.headerNavBar({w:'0px',l:'0px'})
         }
             
     }
@@ -79,6 +89,18 @@ class Header extends Component {
     }
 
 
+    // mobile事件
+    mbNavBarToggle = e => {
+
+        if(!hasClass(e.target, style.mobileIconActive)){
+            addClass(e.target, style.mobileIconActive)
+        }else{
+            removeClass(e.target, style.mobileIconActive)
+        }
+
+    }
+
+
     render(){
         let { result } = this.props
         
@@ -90,33 +112,34 @@ class Header extends Component {
                 ].join(' ')
             }>
                 <div className={ style.container }>
+                    <div onClick={ this.mbNavBarToggle } className={ style.mobileIcon }>
+
+                    </div>
                     <div className={ style.logo }>
                         <img src="/img/common/logo.png" alt=""/>
                         <img className={ style.logo_O } src="/img/common/logo_O.png" alt=""/>
                         
                     </div>
-                    <div className={ style.login }>
-                        {
-                            // 登陆 注册
-                            Login.map((res, index) => <NavLink activeClassName={ style.loginStyle } to={ res.toPath } key={ index } >{ res.key }</NavLink>)
-                        }
-                    </div>
-                    <ul ref='navBarContainer'>
-                       <span style={{width:result.headerBar.w, left:result.headerBar.l}} className={ style.navBarActive }></span>
+                    <div className={ style.mobileHeader }>
+                        
+                        <ul ref='navBarContainer'>
+                        <span style={{width:result.headerBar.w, left:result.headerBar.l}} className={ style.navBarActive }></span>
 
-                       {
-                        // 面包屑   
-                           NavBar.map((res, index) => 
-                                    <li key={ index } >
-                                        <NavLink activeClassName={ style.navBarThisPage } 
-                                                onMouseOver={ this.navBarActive } onMouseOut = { this.navBarOut } 
-                                                to={ res.toPath }>{ res.key }
-                                        </NavLink>
-                                    </li> 
-                                )
-                       } 
-                       
-                    </ul>
+                        {
+                            // 面包屑   
+                            NavBar.map((res, index) => 
+                                        <li key={ index } >
+                                            <NavLink activeClassName={ style.navBarThisPage } 
+                                                    onMouseOver={ this.navBarActive } onMouseOut = { this.navBarOut } 
+                                                    to={ res.toPath }>{ res.key }
+                                            </NavLink>
+                                        </li> 
+                                    )
+                        } 
+                        
+                        </ul>
+                    </div>
+                    
                 </div>
             </div>
         )

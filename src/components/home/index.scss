@@ -5,6 +5,7 @@
 
     @include wh(null, 600px);
     @include bgImg('/img/home/carFooter.jpg');
+    
 
     background-attachment:fixed;
     background-position:top center;
@@ -52,11 +53,14 @@
         }
     }
 }
+.todo{
+    margin-bottom:80px;
+}
 .todo ul{
     list-style: none;
     padding:30px 30px 28px 30px;
 
-    
+    @include bg(white);
     
     li{
         float: left;
@@ -77,7 +81,7 @@
             left:0;
             overflow: hidden;
 
-            @include wh(99%, 98%);
+            @include wh(99%, 97.7%);
 
             img{
                 @include wh(100%);
@@ -89,7 +93,7 @@
                 bottom:10%;
                 left:6%;
                 color:white;
-                font-size:2em;
+                font-size:3vw;
 
                 &:after{
                     content:"";
@@ -122,6 +126,34 @@
 
     &:after{
         @include afterClear();
+    }
+}
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .home{
+        @include wh(null, 400px);
+
+        button{
+            padding:10px 80px;
+            margin-top:220px;
+        }
+    }
+    .todo ul {
+        padding:15px 0 0 0;
+
+        li{
+            left:0;
+            right:0;
+            margin-bottom:15px;
+            @include wh(100%);
+            .todos{
+                @include wh(100%, 100%);
+                h2{
+                    font-size:4vw;
+                }
+            } 
+        } 
     }
 }
 

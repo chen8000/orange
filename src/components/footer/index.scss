@@ -5,6 +5,9 @@
 .footer{
     padding:30px 15px;
     color:white;
+    position: fixed;
+    bottom:0;
+    z-index:-1;
 
 
     @include wh(100%);
