@@ -235,7 +235,7 @@
         }
 
         ul{
-            position: initial;
+            position: static;
 
             @include wh(null, 0);
             .navBarActive{

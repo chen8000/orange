@@ -17,7 +17,7 @@ class Home extends Component {
                         {
                             [
                                 {
-                                    title:'VIP-VIP-title-VIP',
+                                    title:'VIP-VIP-title-VIP11111',
                                     imgUrl:'/img/home/todos1.png'
                                 },
                                 {
