@@ -1,29 +1,43 @@
 
 @import '../commonStyle/commonSet';
 
+
 .home{
 
-    @include wh(null, 600px);
-    @include bgImg('/img/home/carFooter.jpg');
-    
-
-    background-attachment:fixed;
-    background-position:top center;
+    @include wh(100%, $bannerH);
+    position: fixed;
     
     text-align: center;
-    img{
-        @include wh(100%);
-        display:block;
+    overflow: hidden;
+    z-index: 0;
+    &>img{
+        
+        position: absolute;
+        top:0;
+        left:50%;
+        transform: translateX(-50%);
+    }
+    &:after{
+        content:"";
+        display: block;
+        position: absolute;
+        top:0;
+        left:0;
+
+        @include bg(rgba(34, 32, 32, 0.4));
+        @include wh(100%, 100%);
+
     }
     button{
         padding:15px 180px;
-        margin-top:300px;
+        margin-top:$bannerH/2;
         border:1px solid #fff;
         color:white;
         cursor: pointer;
         outline:0;
         font-size:20px;
         position:relative;
+        z-index: 2;
 
         @include bg(rgba(0,0,0,0));
 
@@ -54,17 +68,19 @@
     }
 }
 .todo{
-    margin-bottom:80px;
+    margin-bottom:$footerH;
+    padding-top:$bannerH;
 }
 .todo ul{
     list-style: none;
     padding:30px 30px 28px 30px;
 
     @include bg(white);
+    position: relative;
+    z-index: 1;
     
     li{
         float: left;
-        // outline: 1px solid red;
         position:relative;
 
         @include wh(50%);
@@ -109,7 +125,7 @@
                 
             }
             &:hover h2::after{
-                width:90px;
+                width:1em;
             }
 
             &:hover img{
@@ -128,16 +144,43 @@
         @include afterClear();
     }
 }
+/*-------------- 992 pad*/
+@media all and (max-width: 992px){
+    .home{
+        @include wh(100%, 400px);
+        &>img{
+            max-width:1200px;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+        }
+        button{
+            margin-top:200px;
+        }
+    }
+
+    .todo{
+        padding-top:400px;
+    }
+}
 
 /*-------------- 767  phone*/
 @media all and (max-width: 767px){
     .home{
-        @include wh(null, 400px);
-
+        @include wh(100%, 300px);
+        &>img{
+            max-width:780px;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+        }
         button{
             padding:10px 80px;
-            margin-top:220px;
+            margin-top:150px;
         }
+    }
+    .todo{
+        padding-top:300px;
     }
     .todo ul {
         padding:15px 0 0 0;

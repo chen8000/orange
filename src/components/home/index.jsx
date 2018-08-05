@@ -10,6 +10,7 @@ class Home extends Component {
         return (
             <div>
                 <div  className={ homeStyle.home }>
+                    <img src="/img/home/banner.jpg" alt=""/>
                     <button><span>VIP</span></button>
                 </div>
                 <div className={ homeStyle.todo }>
@@ -17,28 +18,28 @@ class Home extends Component {
                         {
                             [
                                 {
-                                    title:'VIP-VIP-title-VIP11111',
-                                    imgUrl:'/img/home/todos1.png'
+                                    title:'晚霞',
+                                    imgUrl:'/img/home/todos1.jpg'
                                 },
                                 {
-                                    title:'VIP-VIP-title-VIP',
-                                    imgUrl:'/img/home/todos1.png'
+                                    title:'枫叶🍁',
+                                    imgUrl:'/img/home/todos2.jpg'
                                 },
                                 {
-                                    title:'VIP-VIP-title-VIP',
-                                    imgUrl:'/img/home/todos1.png'
+                                    title:'鸟巢',
+                                    imgUrl:'/img/home/todos3.jpg'
                                 },
                                 {
-                                    title:'VIP-VIP-title-VIP',
-                                    imgUrl:'/img/home/todos1.png'
+                                    title:'故宫',
+                                    imgUrl:'/img/home/todos4.jpg'
                                 },
                                 {
-                                    title:'VIP-VIP-title-VIP',
-                                    imgUrl:'/img/home/todos1.png'
+                                    title:'航空工业',
+                                    imgUrl:'/img/home/todos5.jpg'
                                 },
                                 {
-                                    title:'VIP-VIP-title-VIP',
-                                    imgUrl:'/img/home/todos1.png'
+                                    title:'SOHO',
+                                    imgUrl:'/img/home/todos6.jpg'
                                 }
                             ].map((res, index) => 
                                 <li key={index}>
