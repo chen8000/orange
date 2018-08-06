@@ -25,8 +25,9 @@ class Header extends Component {
         let routeActive = this.navBarContainer.childNodes
         
         for(let i = 0; i< routeActive.length; i++){
-            if(routeActive[i].getElementsByClassName(style.navBarThisPage).length > 0){
-                this.animateStore(routeActive[i].getElementsByClassName(style.navBarThisPage)[0])
+            let rouObj = routeActive[i].getElementsByClassName(style.navBarThisPage)
+            if(rouObj.length > 0){
+                this.animateStore(rouObj[0])
             }
         }
 
@@ -34,8 +35,6 @@ class Header extends Component {
         if(this.props.pathname === '/'){
             this.props.headerNavBar({w:`60px`, l:`0px`})    
         }
-
-        // console.log(routeActive)
 
         // 注册window scroll 事件
         this.windowScroll()
