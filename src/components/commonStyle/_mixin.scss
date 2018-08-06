@@ -14,8 +14,8 @@
     background:url($url) no-repeat;
 }
 // 伪类块
-@mixin PseudoBlock{
-    content:"";
+@mixin PseudoBlock($c:''){
+    content:$c;
     display:block;
 }
 
@@ -29,14 +29,4 @@
 @mixin wh( $w:null, $h:null ){
     width  : $w ;
     height : $h ;
-}
-
-// 使用定位上下左右居中  - 父级要 position relative
-@mixin absoluteCenter(){
-    position : absolute;
-    top      : 0;
-    bottom   : 0;
-    left     : 0;
-    right    : 0;
-    margin   : auto;
 }

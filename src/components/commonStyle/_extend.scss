@@ -15,6 +15,13 @@
     }
 }
 
+// 占位图片
+.placeholder{
+    display:block;
+
+    @include wh(100%);
+}
+
 /*-------------- 767  phone*/
 @media all and (max-width: 767px){
     .container{

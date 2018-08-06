@@ -16,6 +16,10 @@ import Article from '../components/article'
 import VideoPage from '../components/videoPage'
 
 
+// app style
+import style from './app.scss'
+
+
 
 
 
@@ -40,7 +44,7 @@ class App extends Component {
         let {  result, headerNavBar, windowScroll, mbNavBar } = this.props
         
         return (
-            <div>
+            <div className={ style.app }>
                 <Header pathname = { pathname } result = {result} mbNavBar = { mbNavBar } headerNavBar = { headerNavBar } windowScroll = { windowScroll }/>
 
                     <Switch>

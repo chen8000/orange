@@ -1,0 +1,110 @@
+
+@import '../../commonStyle/commonSet';
+
+
+
+.todo{
+    border-top:10px solid $footerColor;
+    padding:15px;
+    @include bg(white);
+    position: relative;
+    z-index:3;
+
+    ul{
+        list-style: none;
+        @include bg(white);
+        li{
+            float: left;
+            position:relative;
+    
+            @include wh(50%);
+            
+            .todos{
+                position:absolute;
+                top:0;
+                left:0;
+                overflow: hidden;
+    
+                @include wh(99%, 97.7%);
+    
+                img{
+                    @include wh(100%);
+                    @include transition(1.6s);
+                }
+                h2{
+                    position:absolute;
+                    bottom:10%;
+                    left:6%;
+                    color:white;
+                    font-size:3vw;
+    
+                    &:after{
+                        @include PseudoBlock();
+                        width:0;
+                        height:4px;
+                        @include transition(.8s);
+                        @include bg(#751e0f);
+    
+                    }
+                    
+                }
+                &:after{
+                    @include PseudoBlock();
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    @include wh(100%, 100%);
+                    @include bg(rgba(0,0,0,.2));
+                    @include transition(1s);
+                }
+                &:hover h2::after{
+                    width:1em;
+                }
+    
+                &:hover img{
+                    transform: scale(1.15);
+                }
+                &:hover::after{
+                    @include bg(rgba(0,0,0,0));
+                }
+    
+            }
+            &:nth-child(2n){
+                .todos{
+                    left:inherit;
+                    right:0;
+                }   
+            }
+        }
+    
+        &:after{
+            @include afterClear();
+        }
+    }
+}
+
+
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+
+    .todo ul {
+        li{
+            left:0;
+            right:0;
+            margin-bottom:15px;
+            @include wh(100%);
+            .todos{
+                @include wh(100%, 100%);
+                h2{
+                    font-size:4vw;
+                }
+            } 
+        } 
+    }
+}
+
+
+
+
+

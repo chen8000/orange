@@ -8,7 +8,7 @@ class Footer extends Component {
     render(){
         return (
             <div className={ footStyle.footer }>
-                chenzhanghui.vip
+                京ICP备18040656
             </div>
         )
     }

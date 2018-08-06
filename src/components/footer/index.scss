@@ -7,13 +7,14 @@
     line-height: $footerH;
     padding:0 15px;
     color:white;
-    position: fixed;
-    bottom:0;
-    z-index:0;
+    position: relative;
+    // bottom:0;
+    // left:0;
+    z-index:3;
 
 
     @include wh(100%);
-    @include bg(#21252b);
+    @include bg($footerColor);
     @extend .boxSizing;
 }
 
