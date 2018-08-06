@@ -22,7 +22,7 @@ class Header extends Component {
     // 组件渲染完成后初始化状态
     componentDidMount(){
         // 初始化动画位置
-        let routeActive = this.refs.navBarContainer.childNodes
+        let routeActive = this.navBarContainer.childNodes
         
         for(let i = 0; i< routeActive.length; i++){
             if(routeActive[i].getElementsByClassName(style.navBarThisPage).length > 0){
@@ -58,7 +58,7 @@ class Header extends Component {
     // enter
     navBarActive = e => {
         // 给ul添加一个class改变所有文字的颜色
-        addClass(this.refs.navBarContainer, style.navBarContainer)
+        addClass(this.navBarContainer, style.navBarContainer)
 
         this.animateStore(e.target)
     }
@@ -67,7 +67,7 @@ class Header extends Component {
     navBarOut = e => {
 
         // 移走后移除ul上的class 
-        removeClass(this.refs.navBarContainer, style.navBarContainer)
+        removeClass(this.navBarContainer, style.navBarContainer)
 
         // 获取当前组件对应的面包屑
         let activeClassName = e
@@ -103,7 +103,8 @@ class Header extends Component {
     }
 
     todosClick = () => {
-        this.mbNavBarToggle(this.refs.mobileIcon)
+        
+        this.mbNavBarToggle(this.mobileIcon)
     }
 
 
@@ -134,7 +135,7 @@ class Header extends Component {
         // 移动端
         if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) { 
             this.setState({ mbType:true })
-            let todos = this.refs.navBarContainer.childNodes
+            let todos = this.navBarContainer.childNodes
             let times = .3;
             for(let i = 0; i< todos.length; i++){
                 if(todos[i].nodeName.toLowerCase() === 'li'){
@@ -151,14 +152,14 @@ class Header extends Component {
         let { result } = this.props
         
         return (
-            <div ref='header' className={
+            <div className={
                 [
                     style.header, 
                     result.scroll.type ? style.headerFixed : null
                 ].join(' ')
             }>
                 <div className={ style.container }>
-                    <div ref='mobileIcon' onClick={ this.mbNavBarToggle } className={ style.mobileIcon }></div>
+                    <div ref={ ele => this.mobileIcon = ele } onClick={ this.mbNavBarToggle } className={ style.mobileIcon }></div>
                     <div className={ style.logo }>
                         <img src="/img/common/logo.png" alt=""/>
                         <img className={ style.logo_O } src="/img/common/logo_O.png" alt=""/>
@@ -166,7 +167,7 @@ class Header extends Component {
                     </div>
                     <div className={ style.mobileHeader }>
                         
-                        <ul ref='navBarContainer'>
+                        <ul ref={ ele => this.navBarContainer = ele }>
                         <span style={{width:result.headerBar.w, left:result.headerBar.l}} className={ style.navBarActive }></span>
 
                         {
