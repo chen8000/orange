@@ -1,0 +1,11 @@
+
+@import '../../commonStyle/commonSet';
+
+// 占位图片
+.placeholder{
+    display:block;
+
+    @include wh(100%);
+}
+
+

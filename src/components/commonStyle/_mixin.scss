@@ -30,3 +30,11 @@
     width  : $w ;
     height : $h ;
 }
+
+// 定位 上下左右居中  要求父元素有定位属性
+@mixin positionCenter( $type:absolute ){
+    position: $type;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}

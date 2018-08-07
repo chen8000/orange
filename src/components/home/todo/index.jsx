@@ -3,6 +3,8 @@
 import React, { Component } from 'react'
 import homeStyle from './index.scss'
 
+import Placeholder from '../../commonComponents/placeholder'
+
 class Todo extends Component {
 
     constructor(props){
@@ -28,7 +30,8 @@ class Todo extends Component {
                     {
                         this.state.todo.map((res, index) => 
                             <li key={index}>
-                                <img className={ homeStyle.placeholder } src="/img/common/placeholder.png" alt=""/>
+
+                                <Placeholder url={`/img/common/placeholder.png`}/>
                                 <div className={ homeStyle.todos }>
                                     <img src={res.imgUrl} alt=""/>
                                     <h2>{res.title}</h2>

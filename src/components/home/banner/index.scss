@@ -16,6 +16,10 @@
             left:0;
 
         }
+
+        button{
+            @include positionCenter();
+        }
     }
     
 }
