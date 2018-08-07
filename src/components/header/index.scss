@@ -260,10 +260,6 @@
                     border-bottom:1px solid white;
                 }
             }
-            .todosBg{
-                @include bg(rgba(255,255,255,.6))
-
-            }
         }
     }
 
@@ -271,12 +267,11 @@
         position: inherit;
     }
 
-
+    .mbOpacity{
+        @include bg(rgba(255,255,255,.8));
+    }
     .headerFixed{
         padding:10px 0 3px 0;
-    
-        @include bg(rgba(255,255,255,.6));
-    
         .logo{
             width:100px;
         }

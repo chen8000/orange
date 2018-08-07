@@ -88,20 +88,23 @@
 /*-------------- 767  phone*/
 @media all and (max-width: 767px){
 
-    .todo ul {
-        li{
-            left:0;
-            right:0;
-            margin-bottom:15px;
-            @include wh(100%);
-            .todos{
-                @include wh(100%, 100%);
-                h2{
-                    font-size:4vw;
-                }
+    .todo{
+        padding:15px 0 0 0;
+        ul {
+            li{
+                left:0;
+                right:0;
+                margin-bottom:15px;
+                @include wh(100%);
+                .todos{
+                    @include wh(100%, 100%);
+                    h2{
+                        font-size:4vw;
+                    }
+                } 
             } 
-        } 
-    }
+        }
+    } 
 }
 
 

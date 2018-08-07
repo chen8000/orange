@@ -154,7 +154,8 @@ class Header extends Component {
             <div className={
                 [
                     style.header, 
-                    result.scroll.type ? style.headerFixed : null
+                    result.scroll.type ? style.headerFixed : null,
+                    result.distance.l === '0px' ? style.mbOpacity : null
                 ].join(' ')
             }>
                 <div className={ style.container }>
@@ -172,7 +173,7 @@ class Header extends Component {
                         {
                             // 面包屑   
                             NavBar.map((res, index) => 
-                                        <li onClick = { this.todosClick } key={ index } style={ this.state.mbType ? { transform:`translate(${result.distance.l})` } : null } className={ result.scroll.type ? style.todosBg : null }>
+                                        <li onClick = { this.todosClick } key={ index } style={ this.state.mbType ? { transform:`translate(${result.distance.l})` } : null }>
                                             <NavLink activeClassName={ style.navBarThisPage } 
                                                     onMouseOver={ this.navBarActive } onMouseOut = { this.navBarOut } 
                                                     to={ res.toPath }>{ res.key }
