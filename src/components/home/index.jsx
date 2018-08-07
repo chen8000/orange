@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 // 引入子组件
 import Banner from './banner'
 import Todo from './todo'
+import StylePiece from './stylePiece'
 
 
 class Home extends Component {
@@ -14,6 +15,7 @@ class Home extends Component {
             <div>
                 <Banner />
                 <Todo />
+                <StylePiece />
             </div>
         )
     }

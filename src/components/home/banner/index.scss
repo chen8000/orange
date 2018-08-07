@@ -1,7 +1,12 @@
 
 @import '../../commonStyle/commonSet';
 
+
 .banner{
+    img{
+        display: block;
+        @include wh(100%);
+    }
     .fixedCase{
         @include wh(100%);
         position:fixed;
@@ -15,10 +20,6 @@
             top:0;
             left:0;
 
-        }
-
-        button{
-            @include positionCenter();
         }
     }
     

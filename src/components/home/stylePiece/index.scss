@@ -1,0 +1,51 @@
+
+
+@import '../../commonStyle/commonSet';
+
+.stylePiece{
+    @include wh(100%);
+    position: relative;
+
+    margin:$PlateMargin*2 0 $PlateMargin 0;
+
+    .bg{
+        position: absolute;
+        top:0;
+        @include wh(100%, 200px);
+        @include bg(rgba(0,0,0,.1));
+    }
+    .content{
+        @include wh(60%);
+        @include marginCenter();
+        position: relative;
+        padding: 15px;
+        
+
+        .leftImg{
+            @include wh(40%, 600px);
+            border:1px solid $Gcolor;
+        }
+        .rightImg{
+            @include wh(40%, 600px);
+
+            border: 1px solid $Gcolor;
+            position: absolute;
+            top:0;
+            right:0;
+            box-shadow:2px 2px 30px #333333;
+            transform: rotate(40deg);
+            
+
+        }
+    }
+}
+
+
+/*-------------- 992 pad*/
+@media all and (max-width: 992px){}
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){}
+
+
+

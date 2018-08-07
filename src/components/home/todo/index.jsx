@@ -14,10 +14,7 @@ class Todo extends Component {
             todo:[
                 {title:'晚霞', imgUrl:'/img/home/todo/todos1.jpg'},
                 {title:'枫叶🍁', imgUrl:'/img/home/todo/todos2.jpg'},
-                {title:'鸟巢', imgUrl:'/img/home/todo/todos3.jpg' },
-                {title:'故宫', imgUrl:'/img/home/todo/todos4.jpg'},
-                {title:'航空工业', imgUrl:'/img/home/todo/todos5.jpg'},
-                {title:'SOHO', imgUrl:'/img/home/todo/todos6.jpg'}
+                {title:'鸟巢', imgUrl:'/img/home/todo/todos3.jpg' }
             ]
         }
     }
@@ -25,7 +22,7 @@ class Todo extends Component {
     render(){
         return (
             <div className={ homeStyle.todo }>
-                <h2>推荐</h2>
+                <h1>zhanghui.chen</h1>
                 <ul>
                     {
                         this.state.todo.map((res, index) => 

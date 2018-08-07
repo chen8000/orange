@@ -4,11 +4,20 @@
 
 
 .todo{
-    border-top:10px solid $footerColor;
+    
     padding:15px;
     @include bg(white);
-    position: relative;
-    z-index:3;
+
+    &>h1{
+        margin:30px 0;
+        position: relative;
+
+        &:after{
+            @include PseudoBlock();
+            @include wh(100%, 3px);
+            @include bg($Gcolor);
+        }
+    }
 
     ul{
         list-style: none;
@@ -17,7 +26,7 @@
             float: left;
             position:relative;
     
-            @include wh(50%);
+            @include wh(33.3333%);
             
             .todos{
                 position:absolute;
@@ -25,7 +34,7 @@
                 left:0;
                 overflow: hidden;
     
-                @include wh(99%, 97.7%);
+                @include wh(100%, 100%);
     
                 img{
                     @include wh(100%);
@@ -69,12 +78,6 @@
                 }
     
             }
-            &:nth-child(2n){
-                .todos{
-                    left:inherit;
-                    right:0;
-                }   
-            }
         }
     
         &:after{
@@ -89,7 +92,7 @@
 @media all and (max-width: 767px){
 
     .todo{
-        padding:15px 0 0 0;
+        padding:7px;
         ul {
             li{
                 left:0;
