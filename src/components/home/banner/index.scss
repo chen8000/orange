@@ -11,6 +11,45 @@
 
     .linkCase{
         @include positionCenter();
+
+        a{
+            display: block;
+            border:1px solid white;
+            padding:15px 160px;
+            
+            font-size:20px;
+            color:white;
+            text-decoration: none;
+            position: relative;
+            @include transition(.8s);
+
+            i{
+                display: inline-block;
+                margin-right:8px;
+                font-size:30px;
+            }
+            span{
+                font-size:30px;
+                position: absolute;
+                right:20px;
+                transform: translateX(-40px);
+                opacity: 0;
+                @include transition(.5s);
+            }
+            &:hover{
+                @include bg(rgba(255,255,255,.8));
+                color:orange;
+            }
+            &:hover span{
+                transform:translateX(0);
+                opacity: 1;
+                color:orange;
+            }
+        }
+        
+        a:last-child{
+            margin-top:-1px;
+        }
     }
 }
 

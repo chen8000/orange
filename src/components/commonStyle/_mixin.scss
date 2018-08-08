@@ -31,6 +31,12 @@
     height : $h ;
 }
 
+// 高 行高 文字上下居中
+@mixin hl($h){
+    height:$h;
+    line-height:$h;
+}
+
 // margin 左右居中
 @mixin marginCenter( $t:0 ){
     margin:$t auto;
