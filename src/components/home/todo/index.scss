@@ -21,6 +21,7 @@
             @include bg($Gcolor);
             @include transition();
             bottom:-15px;
+            border-radius: 2px;
         }
     }
     &:hover>h2:after{
