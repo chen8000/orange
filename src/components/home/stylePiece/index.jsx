@@ -11,12 +11,12 @@ class StylePiece extends Component{
                 <div className={ style.content }>
                     {/* left图片 */}
                     <div className={ style.leftImg }>
-
+                        
                     </div>
 
                     {/* right 图片 */}
                     <div className={ style.rightImg }>
-
+                    
                     </div>
                 </div>
             </div>
