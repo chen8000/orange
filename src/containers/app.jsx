@@ -21,8 +21,6 @@ import style from './app.scss'
 
 
 
-
-
 class App extends Component {
 
     // 数据类型
@@ -37,7 +35,6 @@ class App extends Component {
 
 
     render(){
-
         // 获取url后面的地址
         let pathname = this.props.location.pathname
         

@@ -1,11 +1,16 @@
 
-@import '../../commonStyle/commonSet';
+@import '../../commonStyle/commonSet.scss';
 
 
 .banner{
+    position: relative;
     img{
         display: block;
         @include wh(100%);
+    }
+
+    .linkCase{
+        @include positionCenter();
     }
 }
 

@@ -36,8 +36,6 @@ class Todo extends Component {
                             </li>
                         )
                     }
-                    
-                    
                 </ul>
             </div>
         )
