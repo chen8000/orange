@@ -12,9 +12,10 @@ class Todo extends Component {
 
         this.state = {
             todo:[
-                {title:'晚霞', imgUrl:'/img/home/todo/todos1.jpg'},
-                {title:'枫叶🍁', imgUrl:'/img/home/todo/todos2.jpg'},
-                {title:'鸟巢', imgUrl:'/img/home/todo/todos3.jpg' }
+                {imgUrl:'/img/home/todo/todos1.jpg'},
+                {imgUrl:'/img/home/todo/todos2.jpg'},
+                {imgUrl:'/img/home/todo/todos3.jpg' },
+                {imgUrl:'/img/home/todo/todos2.jpg'},
             ]
         }
     }
@@ -22,16 +23,15 @@ class Todo extends Component {
     render(){
         return (
             <div className={ homeStyle.todo }>
-                <h1>zhanghui.chen</h1>
+                <h2>zhanghui.chen</h2>
                 <ul>
                     {
                         this.state.todo.map((res, index) => 
                             <li key={index}>
 
-                                <Placeholder url={`/img/common/placeholder.png`}/>
+                                <Placeholder url={`/img/home/todo/placeholder.png`}/>
                                 <div className={ homeStyle.todos }>
                                     <img src={res.imgUrl} alt=""/>
-                                    <h2>{res.title}</h2>
                                 </div>
                             </li>
                         )

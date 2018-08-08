@@ -4,6 +4,8 @@
 // 占位图片
 .placeholder{
     display:block;
+    position: relative;
+    z-index: 0;
 
     @include wh(100%);
 }

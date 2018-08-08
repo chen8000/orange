@@ -5,18 +5,26 @@
 
 .todo{
     
-    padding:15px;
-    @include bg(white);
+    padding:40px 0 0;
+    @include bg($BGcolor);
 
-    &>h1{
-        margin:30px 0;
+    &>h2{
+        color:white;
+        text-align: center;
         position: relative;
+        margin-bottom:60px;
 
         &:after{
             @include PseudoBlock();
-            @include wh(100%, 2px);
+            @include positionLRcenter();
+            @include wh(2em, 3px);
             @include bg($Gcolor);
+            @include transition();
+            bottom:-15px;
         }
+    }
+    &:hover>h2:after{
+        @include wh(4em);
     }
 
     ul{
@@ -26,7 +34,7 @@
             float: left;
             position:relative;
     
-            @include wh(33.3333%);
+            @include wh(25%);
             
             .todos{
                 position:absolute;
@@ -39,23 +47,9 @@
                 img{
                     @include wh(100%);
                     @include transition(1.6s);
-                }
-                h2{
-                    position:absolute;
-                    bottom:10%;
-                    left:6%;
-                    color:white;
-                    font-size:3vw;
-    
-                    &:after{
-                        @include PseudoBlock();
-                        width:0;
-                        height:4px;
-                        @include transition(.8s);
-                        @include bg(#751e0f);
-    
-                    }
-                    
+                    position: relative;
+                    z-index: 1;
+                    cursor: pointer;
                 }
                 &:after{
                     @include PseudoBlock();
@@ -101,9 +95,6 @@
                 @include wh(100%);
                 .todos{
                     @include wh(100%, 100%);
-                    h2{
-                        font-size:4vw;
-                    }
                 } 
             } 
         }
