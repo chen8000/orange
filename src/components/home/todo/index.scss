@@ -14,7 +14,7 @@
 
         &:after{
             @include PseudoBlock();
-            @include wh(100%, 3px);
+            @include wh(100%, 2px);
             @include bg($Gcolor);
         }
     }

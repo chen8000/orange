@@ -1,0 +1,12 @@
+
+@import '../../commonStyle/commonSet';
+
+.bar{
+    @include wh(100%, 400px);
+    margin-top: $PlateMargin;
+    margin-bottom:$PlateMargin;
+    border: 1px solid red
+}
+
+
+

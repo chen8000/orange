@@ -17,21 +17,26 @@
     .content{
         @include wh(60%);
         @include marginCenter();
+        
         position: relative;
         padding: 15px;
         
+        &:after{
+            @include afterClear();
+        }
 
         .leftImg{
             @include wh(40%, 600px);
             border:1px solid $Gcolor;
+            display: inline-block;
         }
         .rightImg{
             @include wh(40%, 600px);
-
+            float: right;
             border: 1px solid $Gcolor;
-            position: absolute;
-            top:0;
-            right:0;
+            // position: absolute;
+            // top:0;
+            // right:0;
             box-shadow:2px 2px 30px #adadad;
             transform: rotate(40deg);
             

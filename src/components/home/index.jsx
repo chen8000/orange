@@ -6,6 +6,7 @@ import React, { Component } from 'react'
 import Banner from './banner'
 import Todo from './todo'
 import StylePiece from './stylePiece'
+import DisplayBar from './displayBar'
 
 
 class Home extends Component {
@@ -16,6 +17,7 @@ class Home extends Component {
                 <Banner />
                 <Todo />
                 <StylePiece />
+                <DisplayBar />
             </div>
         )
     }
