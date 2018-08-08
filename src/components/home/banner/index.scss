@@ -7,22 +7,6 @@
         display: block;
         @include wh(100%);
     }
-    .fixedCase{
-        @include wh(100%);
-        position:fixed;
-        top:0;
-        left:0;
-        overflow: hidden;
-
-        .bannerBg{
-            @include wh(100%);
-            position: absolute;
-            top:0;
-            left:0;
-
-        }
-    }
-    
 }
 
 
