@@ -2,11 +2,40 @@
 @import '../../commonStyle/commonSet.scss';
 
 .bar{
-    @include wh(100%, 400px);
-    margin-top: $PlateMargin;
-    margin-bottom:$PlateMargin;
-    border: 1px solid red
+    @include wh(100%);
+    position: relative;
+    overflow: hidden;
+
+    img{
+        @include wh(100%);
+        display: block;
+    }
+
+    &:after{
+        @include PseudoBlock();
+        @include bg(rgba(0,0,0,.5));
+        @include wh(100%, 100%);
+
+        position: absolute;
+        left:0;
+        top:0;
+
+    }
 }
+
+/*-------------- 992 pad*/
+@media all and (max-width: 992px){
+    .bar{
+        margin-bottom:0;
+        img{
+            @include wh(200%);
+            @include positionLRcenter(relative);
+        }
+    } 
+}
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){}
 
 
 

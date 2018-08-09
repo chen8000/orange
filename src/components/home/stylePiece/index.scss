@@ -4,53 +4,101 @@
 
 .stylePiece{
     @include wh(100%);
+
+    
     position: relative;
 
     margin:$PlateMargin*2 0 $PlateMargin 0;
+    padding:15px 0;
 
     .bg{
         position: absolute;
         top:0;
-        @include wh(100%, 200px);
-        @include bg(rgba(0,0,0,.1));
+        left:0;
+        z-index: 0;
+        @include wh(100%, 30%);
+        
+        @include bg(rgba(0,0,0,.2))
     }
-    .content{
-        @include wh(60%);
+
+    .piece{
+        @include wh(90%);
         @include marginCenter();
-        
         position: relative;
-        padding: 15px;
-        
+        z-index: 1;
+        @extend .boxSizing;
         &:after{
             @include afterClear();
         }
-
-        .leftImg{
-            @include wh(40%, 600px);
-            border:1px solid $Gcolor;
-            display: inline-block;
-        }
-        .rightImg{
-            @include wh(40%, 600px);
-            float: right;
-            border: 1px solid $Gcolor;
-            // position: absolute;
-            // top:0;
-            // right:0;
-            box-shadow:2px 2px 30px #adadad;
-            transform: rotate(40deg);
+        
+        .imgbox{
+            width:30%;
+            float: left;
             
+            img{
+                @include wh(100%);
+                display: block;
+                @include radius();
+            }
+        }
+        .text{
+            float: left;
+            width:65%;
+            padding:30px;
+            margin-top:5%;
+            margin-left:5%;
+            font-size:16px;
+            @include bg($Ncolor);
 
+            h2{
+                font-size:30px;
+
+                margin-bottom:20px;
+            }
+
+            @extend .boxSizing;
         }
     }
+    
+
 }
 
 
 /*-------------- 992 pad*/
-@media all and (max-width: 992px){}
+@media all and (max-width: 992px){
+    .stylePiece{
+        margin-top:5px;
+        margin-bottom:15px;
 
-/*-------------- 767  phone*/
-@media all and (max-width: 767px){}
+        .piece{
+            @include wh(100%);
+            padding:7px;
+            
+            .imgbox{
+                @include wh(100%);
+                float: left;
+                
+                img{
+                    @include wh(100%);
+                    display: block;
+                    @include radius();
+                }
+            }
+            .text{
+                margin:0;
+                @include wh(100%);
+                padding:15px;
+                margin-top:5px;
+                @include radius();
+                color:white;
+    
+                h2{
+                    margin-bottom:20px;
+                }
+            }
+        }
+    }
+}
 
 
 

@@ -7,7 +7,7 @@ class DisplayBar extends Component {
     render(){
         return(
             <div className={ style.bar } >
-                DisplayBar
+                <img src="/img/home/displayBar/bg.jpg" alt=""/>
             </div>
         )
     }

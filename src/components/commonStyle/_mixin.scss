@@ -63,3 +63,8 @@
     top:50%;
     transform: translateY(-50%);
 }
+
+// 圆角
+@mixin radius($p:5px){
+    border-radius:$p;
+}

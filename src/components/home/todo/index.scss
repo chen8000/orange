@@ -79,13 +79,19 @@
         }
     }
 }
-
+/*-------------- 992 pad*/
+@media all and (max-width: 992px){
+    .todo ul li {
+        width:50%;
+    }
+}
 
 
 /*-------------- 767  phone*/
 @media all and (max-width: 767px){
 
     .todo{
+        
         &>h2{
             margin:20px 0 45px 0;
         }
