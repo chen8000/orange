@@ -1,0 +1,43 @@
+
+@import '../../commonStyle/commonSet.scss';
+
+.logo{
+    width   : 100%;
+    float   : left;
+    position: relative;
+
+    @include transition(.3s);
+
+    img{
+        width : 100%;
+    }
+
+    .logo_O{
+        position : absolute;
+        top      : 1px;
+        left     : 1px;
+        width    : 20%;
+        transform: rotate(0deg);
+        animation: logoRotate 8s linear infinite;
+    }
+}
+
+/* rotate */ 
+@keyframes logoRotate {
+    0%{
+        transform: rotate(0deg)
+    }
+    100%{
+        transform: rotate(360deg)
+    }
+}
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .logo{
+        .logo_O{
+            top      : .5px;
+            left     : .5px;
+        }
+    }
+}

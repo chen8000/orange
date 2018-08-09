@@ -7,6 +7,8 @@ import { NavBar } from '../../route/config'
 import { addClass, hasClass, removeClass } from '../../module/cssClass'
 import style from './index.scss'
 
+import Logo from './logo'
+
 
 class Header extends Component {
 
@@ -162,9 +164,7 @@ class Header extends Component {
                 <div className={ style.container }>
                     <div ref={ ele => this.mobileIcon = ele } onClick={ this.mbNavBarToggle } className={ style.mobileIcon }></div>
                     <div className={ style.logo }>
-                        <img src="/img/common/logo.png" alt=""/>
-                        <img className={ style.logo_O } src="/img/common/logo_O.png" alt=""/>
-                        
+                        <Logo />
                     </div>
                     <div className={ style.mobileHeader }>
                         
