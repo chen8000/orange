@@ -169,7 +169,7 @@ class Header extends Component {
                     <div className={ style.mobileHeader }>
                         
                         <ul ref={ ele => this.navBarContainer = ele }>
-                        <span style={{width:result.headerBar.w, left:result.headerBar.l}} className={ style.navBarActive }></span>
+                        <span style={ { width:result.headerBar.w, left:result.headerBar.l } } className={ style.navBarActive }></span>
 
                         {
                             // 面包屑   
