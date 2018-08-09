@@ -53,5 +53,20 @@
     }
 }
 
+/*-------------- 992 pad*/
+@media all and (max-width: 992px){
+    .banner .linkCase a{
+        padding:15px 100px;
+
+        span{
+            right:20px;
+            transform: translateX(-20px);
+        }
+    }
+}
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){}
+
 
 

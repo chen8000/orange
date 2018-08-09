@@ -131,8 +131,9 @@ class Header extends Component {
 
     // 手机端初始化导航列表动画
     mbNavBarAnimate = () => {
-        // 移动端
-        if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) { 
+        // 移动端 只判断手机
+        if (/(iPhone|iOS|Android)/i.test(navigator.userAgent)) { 
+            
             this.setState({ mbType:true })
             let todos = this.navBarContainer.childNodes
             let times = .3;
