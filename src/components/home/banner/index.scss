@@ -66,7 +66,19 @@
 }
 
 /*-------------- 767  phone*/
-@media all and (max-width: 767px){}
+@media all and (max-width: 767px){
+    .banner .linkCase a{
+        font-size:16px;
+        padding:6px 30px;
+
+        i{
+            font-size:20px;
+        }
+        span{
+            display: none;
+        }
+    }
+}
 
 
 

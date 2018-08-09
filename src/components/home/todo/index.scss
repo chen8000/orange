@@ -30,7 +30,6 @@
 
     ul{
         list-style: none;
-        @include bg(white);
         li{
             float: left;
             position:relative;
@@ -87,6 +86,9 @@
 @media all and (max-width: 767px){
 
     .todo{
+        &>h2{
+            margin:20px 0 45px 0;
+        }
         padding:7px;
         ul {
             li{
