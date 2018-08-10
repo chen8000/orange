@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { headerNavBar, windowScroll, mbNavBar } from '../redux/actions'
+import { headerNavBar, headerScroll, mbNavBar } from '../redux/actions'
 
 // 自定义组件
 import Header from '../components/header'
@@ -27,7 +27,7 @@ class App extends Component {
     static propTypes = {
         result:PropTypes.object.isRequired,
         headerNavBar:PropTypes.func.isRequired,
-        windowScroll:PropTypes.func.isRequired,
+        headerScroll:PropTypes.func.isRequired,
         mbNavBar:PropTypes.func.isRequired,
     }
 
@@ -38,11 +38,11 @@ class App extends Component {
         // 获取url后面的地址
         let pathname = this.props.location.pathname
         
-        let {  result, headerNavBar, windowScroll, mbNavBar } = this.props
+        let {  result, headerNavBar, headerScroll, mbNavBar } = this.props
         
         return (
             <div className={ style.app }>
-                <Header pathname = { pathname } result = {result} mbNavBar = { mbNavBar } headerNavBar = { headerNavBar } windowScroll = { windowScroll }/>
+                <Header pathname = { pathname } result = {result} mbNavBar = { mbNavBar } headerNavBar = { headerNavBar } headerScroll = { headerScroll }/>
 
                     <Switch>
                         <Route path="/home" component={ Home }/>
@@ -61,5 +61,5 @@ class App extends Component {
 
 export default withRouter(connect(
     state => ({ result:state.reducers }),
-    { headerNavBar, windowScroll, mbNavBar }
+    { headerNavBar, headerScroll, mbNavBar }
 )(App))

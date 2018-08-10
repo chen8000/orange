@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 import { NavBar } from '../../route/config'
 
-import { addClass, hasClass, removeClass } from '../../module/cssClass'
+import { addClass, hasClass, removeClass, addEvent } from '../../tools'
 import style from './index.scss'
 
 import Logo from './logo'
@@ -39,7 +39,7 @@ class Header extends Component {
         }
 
         // 注册window scroll 事件
-        this.windowScroll()
+        this.headerScroll()
 
         // 初始化li动画
         this.mbNavBarAnimate()
@@ -89,16 +89,16 @@ class Header extends Component {
         this.props.headerNavBar({w:`${navBarWidth}px`, l:`${navBarLeft}px`})    
     }
 
-    windowScroll = () => {
+    headerScroll = () => {
         /*
             添加滚动条事件，根据滚动条top值动态设置class
         */
-       window.addEventListener('scroll', () => {
+        addEvent(window, 'scroll', () => {
             let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
             if(scrollTop > 100){
-                this.props.windowScroll({ scroll:true })
+                this.props.headerScroll({ scroll:true })
             }else if(scrollTop <= 100){
-                this.props.windowScroll({ scroll:false })
+                this.props.headerScroll({ scroll:false })
             }
         })
     }

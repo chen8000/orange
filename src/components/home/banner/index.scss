@@ -1,9 +1,9 @@
 
 @import '../../commonStyle/commonSet.scss';
 
-
 .banner{
     position: relative;
+    overflow: hidden;
     img{
         display: block;
         @include wh(100%);

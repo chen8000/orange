@@ -2,7 +2,7 @@
 
 import { combineReducers } from 'redux'
 
-import { HEADERNAVBAR, WINDOWSCROLL, DISTANCE } from './action-types'
+import { HEADERNAVBAR, HEADERSCROLL, DISTANCE } from './action-types'
 
 // 初始 state
 const InitState = {
@@ -38,7 +38,7 @@ function reducers( state = InitState, action ){
             return { headerBar, ...state }
         
         // 滚动条事件
-        case WINDOWSCROLL :
+        case HEADERSCROLL :
             //需要解构
             
             let { scroll } = state
@@ -54,7 +54,6 @@ function reducers( state = InitState, action ){
             distance.l = action.data.l
 
         return  { distance, ...state }
-
 
         // 默认
         default :
