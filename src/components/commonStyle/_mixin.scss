@@ -14,14 +14,14 @@
     background:url($url) no-repeat;
 }
 // 伪类块
-@mixin PseudoBlock($c:''){
+@mixin afterBlock($c:''){
     content:$c;
     display:block;
 }
 
 // after清除浮动
 @mixin afterClear{
-    @include PseudoBlock();
+    @include afterBlock();
     clear   : both;
 }
 

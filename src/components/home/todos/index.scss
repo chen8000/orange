@@ -61,7 +61,7 @@
                 }
             }
             &:after{
-                @include PseudoBlock();
+                @include afterBlock();
                 @include positionCenter();
                 @include bg(rgba(255,255,255,0));
                 @include wh(100%, 100%);

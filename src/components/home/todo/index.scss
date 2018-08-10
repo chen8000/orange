@@ -15,7 +15,7 @@
         margin-bottom:60px;
 
         &:after{
-            @include PseudoBlock();
+            @include afterBlock();
             @include positionLRcenter();
             @include wh(2em, 3px);
             @include bg($Gcolor);
@@ -63,7 +63,7 @@
                     cursor: pointer;
                 }
                 &:after{
-                    @include PseudoBlock();
+                    @include afterBlock();
                     position: absolute;
                     top:0;
                     left:0;
