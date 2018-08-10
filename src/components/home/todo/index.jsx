@@ -31,6 +31,7 @@ class Todo extends Component {
 
                                 <Placeholder url={`/img/home/todo/placeholder.png`}/>
                                 <div className={ homeStyle.todos }>
+                                    <p>img title</p>
                                     <img src={res.imgUrl} alt=""/>
                                 </div>
                             </li>

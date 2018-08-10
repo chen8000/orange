@@ -43,6 +43,17 @@
                 overflow: hidden;
     
                 @include wh(100%, 100%);
+
+                p{
+                    position: absolute;
+                    left:0;
+                    bottom:10%;
+                    z-index: 3;
+                    transform: translateX(0);
+                    opacity: 0;
+                    font-size:20px;
+                    @include transition(1s);
+                }
     
                 img{
                     @include wh(100%);
@@ -57,8 +68,9 @@
                     top:0;
                     left:0;
                     @include wh(100%, 100%);
-                    @include bg(rgba(0,0,0,.2));
+                    @include bg(rgba(0,0,0,0));
                     @include transition(1s);
+                    z-index: 2;
                 }
                 &:hover h2::after{
                     width:1em;
@@ -68,7 +80,11 @@
                     transform: scale(1.15);
                 }
                 &:hover::after{
-                    @include bg(rgba(0,0,0,0));
+                    @include bg(rgba(255,255,255,.3));
+                }
+                &:hover p{
+                    transform: translateX(80%);
+                    opacity: 1;
                 }
     
             }
@@ -83,6 +99,23 @@
 @media all and (max-width: 992px){
     .todo ul li {
         width:50%;
+        .todos{
+            p{
+                opacity: 1;
+                transform: translateX(0);
+                bottom: 0;
+                padding:7px 15px;
+                @include wh(100%);
+                @include bg(rgba(255,255,255,.3))
+            }
+            &:after{
+                display: none;
+            }
+            &:hover p{
+                transform: translateX(0);
+            }
+        }
+        
     }
 }
 
