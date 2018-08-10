@@ -1,0 +1,106 @@
+
+@import '../../commonStyle/commonSet.scss';
+
+
+.todosBox{
+    padding: 10px;
+    font-size:0;
+    @include wh(100%);
+    @extend .boxSizing;
+
+    li{
+        @include wh(20%);
+        @extend .boxSizing;
+        display: inline-block;
+        font-size:16px;
+        padding:0 5px 5px*2 5px;
+
+
+        .content{
+            position: relative;
+            overflow: hidden;
+
+            &>img{
+                @include wh(100%);
+                @include transition();
+                transform: scale(1);
+            }
+            
+
+            .imgObj,
+            .textBox{
+                position: absolute;
+                top:0;
+                left:0;
+                z-index: 0;
+            }
+
+            .textBox{
+                @include positionCenter(absolute);
+                @include transition();
+                @include wh(100%, 100%);
+                @include bg(rgba(255,255,255,0));
+
+                z-index: 2;
+                color:black;
+                opacity:0;
+
+                .title{
+                    font-size:20px;
+                    padding:10px;
+                }
+                .sort{
+                    @include wh(100%);
+                    @extend .boxSizing;
+                    position: absolute;
+                    bottom:0;
+                    left:0;
+                    font-size:16px;
+                    padding: 10px;
+                    text-align: right;
+                }
+            }
+            &:after{
+                @include PseudoBlock();
+                @include positionCenter();
+                @include bg(rgba(255,255,255,0));
+                @include wh(100%, 100%);
+                @include transition();
+                z-index: 1;
+            }
+            &:hover .textBox{
+                @include wh(85%, 85%);
+                @include bg(rgba(255,255,255,.5));
+                opacity: 1;
+            }
+            &:hover::after{
+                @include bg(rgba(255,255,255,.4));
+            }
+            &:hover>img{
+                transform: scale(1.2);
+            }
+        }   
+    }
+}
+
+
+
+
+
+/*-------------- 992 pad*/
+@media all and (max-width: 992px){
+    .todosBox li{
+        @include wh(25%);
+    }
+}
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .todosBox{
+        padding: 7px 0;
+        li{
+            padding:0;
+            @include wh(100%);
+        }
+    } 
+}

@@ -22,8 +22,9 @@
     }
 
     .piece{
-        @include wh(90%);
+        @include wh(100%);
         @include marginCenter();
+        padding:0 10px;
         position: relative;
         z-index: 1;
         @extend .boxSizing;

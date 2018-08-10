@@ -7,6 +7,7 @@ import Banner from './banner'
 import Todo from './todo'
 import StylePiece from './stylePiece'
 import DisplayBar from './displayBar'
+import Todos from './todos'
 
 
 class Home extends Component {
@@ -18,6 +19,7 @@ class Home extends Component {
                 <Todo />
                 <StylePiece />
                 <DisplayBar />
+                <Todos />
             </div>
         )
     }

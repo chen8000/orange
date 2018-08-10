@@ -16,6 +16,10 @@ class Todo extends Component {
                 {imgUrl:'/img/home/todo/todos2.jpg'},
                 {imgUrl:'/img/home/todo/todos3.jpg' },
                 {imgUrl:'/img/home/todo/todos2.jpg'},
+                {imgUrl:'/img/home/todo/todos1.jpg'},
+                {imgUrl:'/img/home/todo/todos2.jpg'},
+                {imgUrl:'/img/home/todo/todos3.jpg' },
+                {imgUrl:'/img/home/todo/todos2.jpg'},
             ]
         }
     }
