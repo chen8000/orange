@@ -9,11 +9,13 @@ class Banner extends Component {
     constructor(props){
         super(props)
 
-        // 获取body的高度
-        let bodyH = getBodyHeight()
-
+        
         this.state = {
-            bodyH,
+
+            // 获取body的高度
+            bodyH:getBodyHeight(),
+
+            // 设置banner的y值 默认0
             translateY:0
         }
 
@@ -22,8 +24,15 @@ class Banner extends Component {
         this.windowScroll();
     }
 
+    // 动态设置banner的高度
+    bannerLoad = h => {
+        if(h < this.state.bodyH){
+            this.setState({ bodyH:h })
+        }
+    }
+
     // 滚动条事件
-    windowScroll = () =>{
+    windowScroll = () => {
         addEvent(window, 'scroll', () => {
             // 修改图片的 translateY
             let scrollTop = getScrollTop()
@@ -40,7 +49,7 @@ class Banner extends Component {
         let { bodyH, translateY } = this.state
         return (
             <div className={ style.banner } style={{height:bodyH}}>
-                <img className={ style.bannerBg } style={{ transform:`translateY(${translateY}px)`}} src="/img/home/banner/banner.jpg" alt=""/>
+                <img onLoad = { e => { this.bannerLoad(e.target.height) } } className={ style.bannerBg } style={{ transform:`translateY(${translateY}px)`}} src="/img/home/banner/banner.jpg" alt=""/>
                 
                 
                 <div className={ style.linkCase }>
