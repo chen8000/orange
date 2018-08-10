@@ -1,11 +1,13 @@
 
 
-//------------------------------------------------------
-//  |
-//  |           增加 删除 检查 元素的class
-//  |      elem 需要操作的元素  cls class
-//  |
-//------------------------------------------------------
+/*
+------------------------------------------------------
+|
+|           增加 删除 检查 元素的class
+|      elem 需要操作的元素  cls class
+|
+------------------------------------------------------
+*/
 
 // 检查
 export const hasClass = (elem, cls) =>{
@@ -34,12 +36,14 @@ export const removeClass = (elem, cls) =>{
 
 
 
-//------------------------------------------------------
-//  |
-//  |        注册事件
-//  |   obj 事件元素  type 事件类型  fn触发函数
-//  |
-//------------------------------------------------------
+/*
+------------------------------------------------------
+|
+|        注册事件
+|   obj 事件元素  type 事件类型  fn触发函数
+|
+------------------------------------------------------
+*/
 
 export const addEvent = (obj,type,fn) =>{
     if(obj.attachEvent){ //ie
@@ -51,3 +55,36 @@ export const addEvent = (obj,type,fn) =>{
     }
 }
 
+
+/*
+-----------------------------------------------------
+|
+|       获取滚动条距离浏览器顶部的距离
+|   
+|
+-----------------------------------------------------
+*/
+export const getScrollTop = () => {  
+    let scrollPos;  
+    if (window.pageYOffset) {  
+        scrollPos = window.pageYOffset
+    }else if (document.compatMode && document.compatMode !== 'BackCompat'){ 
+        scrollPos = document.documentElement.scrollTop
+    }else if (document.body) { 
+        scrollPos = document.body.scrollTop
+    }   
+    return scrollPos 
+} 
+
+
+/*
+-----------------------------------------------------
+|
+|       获取body的高度
+| 
+-----------------------------------------------------
+*/
+
+export const getBodyHeight = () => {
+    return document.documentElement.clientHeight || document.body.clientHeight || window.clientHeight
+}
