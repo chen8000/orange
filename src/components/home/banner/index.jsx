@@ -27,9 +27,10 @@ class Banner extends Component {
         addEvent(window, 'scroll', () => {
             // 修改图片的 translateY
             let scrollTop = getScrollTop()
+
+            // banner滚完后不调用setState修改数据
             if(scrollTop < this.state.bodyH){
-                console.log('呵呵')
-                this.setState({translateY:scrollTop / 5})
+                this.setState({translateY:scrollTop / 8})
             }
             
         })

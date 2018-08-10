@@ -1,10 +1,8 @@
 
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-
 import { NavBar } from '../../route/config'
-
-import { addClass, hasClass, removeClass, addEvent } from '../../tools'
+import { addClass, hasClass, removeClass, addEvent, getScrollTop } from '../../tools'
 import style from './index.scss'
 
 import Logo from './logo'
@@ -76,9 +74,8 @@ class Header extends Component {
                                 .parentNode
                                 .parentNode
                                 .getElementsByClassName(style.navBarThisPage)[0]
-        if(activeClassName){
+        if(activeClassName) 
             this.animateStore(activeClassName)
-        }
             
     }
 
@@ -94,7 +91,7 @@ class Header extends Component {
             添加滚动条事件，根据滚动条top值动态设置class
         */
         addEvent(window, 'scroll', () => {
-            let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+            let scrollTop = getScrollTop()
             if(scrollTop > 100){
                 this.props.headerScroll({ scroll:true })
             }else if(scrollTop <= 100){

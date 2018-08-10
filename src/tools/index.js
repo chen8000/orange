@@ -61,7 +61,6 @@ export const addEvent = (obj,type,fn) =>{
 |
 |       获取滚动条距离浏览器顶部的距离
 |   
-|
 -----------------------------------------------------
 */
 export const getScrollTop = () => {  
