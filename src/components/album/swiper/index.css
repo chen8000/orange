@@ -3,6 +3,27 @@
 
 .swiper-button-next, .swiper-button-prev{
     background-image: url('');
+    background: rgba(0,0,0,0);
+    color: white;
+    transition: all .5s ease;
+    
+}
+.swiper-container:hover .swiper-button-prev,
+.swiper-container:hover .swiper-button-next{
+
+    background: rgba(0,0,0,.5);
+
+}
+.swiper-button-next i, .swiper-button-prev i{
+   position: absolute;
+   top:50%;
+   transform: translateY(-50%) rotate(-90deg); 
+   font-size:30px;
+
+}
+.swiper-button-next i{
+    right:0;
+    transform: translateY(-50%) rotate(90deg);
 }
 .swiper-pagination-bullet{
     opacity: .5;

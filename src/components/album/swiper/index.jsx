@@ -17,26 +17,22 @@ class Swiper extends Component{
                 {
                     imgUrl:'/img/album/swiper/item01.jpg',
                     title:'标题',
-                    sort:'分类',
-                    titleShow:false
+                    sort:'分类'
                 },
                 {
                     imgUrl:'/img/album/swiper/item02.jpg',
                     title:'标题',
-                    sort:'分类',
-                    titleShow:false
+                    sort:'分类'
                 },
                 {
                     imgUrl:'/img/album/swiper/item03.jpg',
                     title:'标题',
-                    sort:'分类',
-                    titleShow:false
+                    sort:'分类'
                 },
                 {
                     imgUrl:'/img/album/swiper/item04.jpg',
                     title:'标题',
-                    sort:'分类',
-                    titleShow:false
+                    sort:'分类'
                 }
             ]
         }
@@ -49,7 +45,7 @@ class Swiper extends Component{
             loop:true, 
             grabCursor: true,  /* 抓住小手 */
             autoplay:{
-                delay:100000,
+                delay:3000,
             },
 
             navigation: {
@@ -103,8 +99,11 @@ class Swiper extends Component{
                             <div className="swiper-slide" key={ i }>
                                 <img className={ style.imgObj } src={ res.imgUrl } alt=""/>
                                 <div className={ style.textBox }>
-                                    <h1> { res.title }</h1>
-                                    <p>{ res.sort }</p>
+                                    <h1 className={ style.title }> { res.title }</h1>
+                                    <p className={ style.sort }>
+                                        { res.sort } 
+                                        <i className='iconfont icon-fenlei'></i> 
+                                    </p>
                                 </div>
                             </div>
                         )
@@ -115,10 +114,10 @@ class Swiper extends Component{
 
                 {/* 左右切换箭头 */}
                 <div className="swiper-button-next" ref={ next => this.nextId = next }>
-                    <i className="iconfont icon-you"></i>
+                    <i className="iconfont icon-jiantou-copy-copy"></i>
                 </div>
                 <div className="swiper-button-prev" ref={ prev => this.prevId = prev }>
-                    <i className="iconfont icon-zuo"></i>
+                    <i className="iconfont icon-jiantou-copy-copy"></i>
                 </div>
 
                 {/* 下面的小点点 */}

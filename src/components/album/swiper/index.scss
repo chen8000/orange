@@ -11,7 +11,7 @@
     @include positionLT;
     @include wh(100%, 100%);
 
-    h1{
+    .title{
 
         @include positionLT(5%);
         @include wh(100%);
@@ -19,16 +19,32 @@
         top:auto;
         bottom: 20%;
 
+        // 初始动画类
         transform: translateX(-5%);
         opacity: 0;
 
 
     }
+
+    .sort{
+        position: absolute;
+        right:0;
+        bottom:15%;
+        padding: 7px 15px 7px 20px;
+        @include radius(5px 0 0 5px);
+        @include bg($Rcolor);
+
+        i{
+            display: inline-block;
+            padding-left:7px;
+            color:$Acolor;
+        }
+    }
     
 }
 
 // 文字动态出来
-.titleShow h1{
+.titleShow .title{
     transform: translateX(0);
     opacity: 1;
 }
