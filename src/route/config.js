@@ -7,7 +7,7 @@ export const NavBar = [
         toPath:'/home'
     },
     {
-        key:'相册',
+        key:'专辑',
         toPath:'/album'
     },
     {
