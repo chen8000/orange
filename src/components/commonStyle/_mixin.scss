@@ -57,6 +57,13 @@
     transform: translateX(-50%);
 }
 
+// 定位靠左靠上
+@mixin positionLT($l:0, $t:0){
+    position: absolute;
+    left: $l;
+    top:$t;
+}
+
 // 定位上下居中
 @mixin positionTBcenter($type:absolute){
     position: $type;

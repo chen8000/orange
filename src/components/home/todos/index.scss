@@ -29,9 +29,7 @@
 
             .imgObj,
             .textBox{
-                position: absolute;
-                top:0;
-                left:0;
+                @include positionLT;
                 z-index: 0;
             }
 

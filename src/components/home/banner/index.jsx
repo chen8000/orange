@@ -54,7 +54,7 @@ class Banner extends Component {
                 
                 <div className={ style.linkCase }>
                     <a href="https://github.com/chen8000" target="_blank" rel="noopener noreferrer">
-                        <i className="iconfont icon-github3"></i>
+                        <i className="iconfont icon-social-github-octocat"></i>
                         GitHub
                         <span className="iconfont icon-jiantou1-copy"></span>
                     </a>

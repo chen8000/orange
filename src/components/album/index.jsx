@@ -1,29 +1,18 @@
 
 import React, { Component } from 'react'
 
+// 子组件
+import Swiper from './swiper'
+
 
 class Album extends Component {
+
+
 
     render(){
         return(
             <div>
-                <h1>Album</h1>
-                <h1>Album</h1>
-                <h1>Album</h1>
-                <h1>Album</h1>
-                <h1>Album</h1>
-                <h1>Album</h1>
-                <h1>Album</h1>
-                <h1>Album</h1>
-                <h1>Album</h1>
-                <h1>Album</h1>
-
-                <h1>Album</h1><h1>Album</h1>
-
-                <h1>Album</h1>
-                <h1>Album</h1>
-                <h1>Album</h1>
-
+                <Swiper />
             </div>
         )
     }

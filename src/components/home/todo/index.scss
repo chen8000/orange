@@ -37,9 +37,7 @@
             @include wh(25%);
             
             .todos{
-                position:absolute;
-                top:0;
-                left:0;
+                @include positionLT;
                 overflow: hidden;
     
                 @include wh(100%, 100%);
@@ -63,10 +61,8 @@
                     cursor: pointer;
                 }
                 &:after{
-                    @include afterBlock();
-                    position: absolute;
-                    top:0;
-                    left:0;
+                    @include afterBlock;
+                    @include positionLT;
                     @include wh(100%, 100%);
                     @include bg(rgba(0,0,0,0));
                     @include transition(1s);

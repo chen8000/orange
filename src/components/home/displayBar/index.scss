@@ -12,13 +12,10 @@
     }
 
     &:after{
-        @include afterBlock();
+        @include afterBlock;
         @include bg(rgba(0,0,0,.5));
         @include wh(100%, 100%);
-
-        position: absolute;
-        left:0;
-        top:0;
+        @include positionLT;
 
     }
 }
