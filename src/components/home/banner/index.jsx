@@ -59,7 +59,7 @@ class Banner extends Component {
                         <span className="iconfont icon-jiantou1-copy"></span>
                     </a>
                     <a href="https://www.cnblogs.com/chefweb/" target="_blank" rel="noopener noreferrer">
-                        <i className="iconfont icon-bokeyuan"></i>
+                        <i className="iconfont icon-yumaobi"></i>
                         博客园
                         <span className="iconfont icon-jiantou1-copy"></span>
                     </a>
