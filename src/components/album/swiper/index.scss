@@ -22,8 +22,6 @@
         // 初始动画类
         transform: translateX(-5%);
         opacity: 0;
-
-
     }
 
     .sort{
@@ -47,4 +45,20 @@
 .titleShow .title{
     transform: translateX(0);
     opacity: 1;
+}
+
+
+/*-------------- 992 pad*/
+@media all and (max-width: 992px){
+    
+    .imgObj{
+        @include wh(180%);
+        @include positionLRcenter(relative);
+    }
+}
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .imgObj{
+        @include wh(200%);
+    }
 }

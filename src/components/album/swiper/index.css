@@ -12,6 +12,7 @@
 .swiper-container:hover .swiper-button-next{
 
     background: rgba(0,0,0,.5);
+    outline: 0;
 
 }
 .swiper-button-next i, .swiper-button-prev i{
@@ -31,3 +32,16 @@
 .swiper-pagination-bullet-active{
     background: red;
 }
+.swiper-slide{
+    overflow: hidden;
+}
+
+/*-------------- 992 pad*/
+@media all and (max-width: 992px){
+    .swiper-button-next, .swiper-button-prev{
+        display: none;
+    }
+}
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){}
