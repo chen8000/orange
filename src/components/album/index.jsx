@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 
 // 子组件
 import Swiper from './swiper'
+import Todos from './todos'
 
 
 class Album extends Component {
@@ -13,6 +14,7 @@ class Album extends Component {
         return(
             <div>
                 <Swiper />
+                <Todos />
             </div>
         )
     }

@@ -1,0 +1,114 @@
+
+@import '../../commonStyle/commonSet.scss';
+
+.container{
+    @include wh(100%);
+    @include bg(rgba(230, 230, 230, 0.2));
+
+    .todos{
+        @include wh(95%);
+        @include marginCenter;
+        .itemMax,
+        .itemMin{
+            @include wh(25%);
+            display: inline-block;
+            padding: 0 5px 10px 5px;
+            @extend .boxSizing;
+            cursor: pointer;
+            // float: left;
+            .layout{
+                @include bg(white);
+                @include radius(5px);
+                @include wh(100%);
+                @include transition;
+                
+                overflow: hidden;
+                border:1px solid #f3f3f3;
+                display: inline-block;
+
+                &:hover{
+                    transform: translateY(-8px);
+                    box-shadow:0px 4px 17px #A6A6A6;
+                }
+                .focusImgbox{
+                    @include wh(100%);
+                    position: relative;
+                    overflow: hidden;
+
+                    .focusImg{
+                        @include wh(100%);
+                        display: block;
+                        @include positionLT;
+                    }
+                }
+                
+
+                .info{
+                    
+                    h2{
+                        padding:7px;
+                        @extend .boxSizing;
+                        font-size:16px;
+                        color:rgb(80, 80, 80);
+                        @include wh(100%, 55px);
+                    }
+                    p{
+                        padding:7px;
+                        @extend .boxSizing;
+                        font-size:13px;
+                        color:rgb(148, 148, 148);
+                        &:after{
+                            @include afterClear;
+                        }
+                        .source{
+                            float: left;
+                            
+                            &>img{
+                                float: left;
+                                @include wh(20px, 20px);
+                                display: block;
+                                @include radius(50%);
+                            }
+                            &>span{
+                                float: left;
+                                @include lineCenter(20px);
+                                margin-left:5px;
+                            }
+                        }
+                        .times{
+                            float: right;
+                        }
+                    }
+                }
+            }
+            
+        }
+        .itemMax{
+            @include wh(50%);
+
+            .layout{
+                @include wh(100%);
+            }
+        }
+    }
+
+    .title{
+        border-bottom:1px solid #dedede;
+        padding:15px 0 0 0;
+        margin-bottom:15px;
+        position: relative;
+
+        &:after{
+            @include afterBlock;
+            @include wh(2em);
+            border-bottom:1px solid $Gcolor;
+            position: absolute;
+            bottom:-1px;
+            left:0;
+        }
+    }
+}
+
+
+
+

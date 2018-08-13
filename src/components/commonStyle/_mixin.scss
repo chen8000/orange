@@ -71,6 +71,12 @@
     transform: translateY(-50%);
 }
 
+// 一行文字上下居中
+@mixin lineCenter($h:auto){
+    height: $h;
+    line-height:$h;
+}
+
 // 圆角
 @mixin radius($p:5px){
     border-radius:$p;
