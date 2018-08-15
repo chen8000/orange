@@ -102,7 +102,7 @@ class Todos extends Component {
         let max = [] // 放大盒子
         let min = [] // 放小盒子
         let todos = [] // 放经过筛选和排版后的盒子
-        let reg = /[04]$/ // 验证末尾是 0 或 4 
+        let reg = /[04]$/ // 匹配末尾是 0 或 4 
 
         // 把大盒子和小盒子分开放两个数组
         for(let i = 0; i< newtodos.length; i++){
