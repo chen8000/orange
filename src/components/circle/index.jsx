@@ -1,14 +1,14 @@
 
 import React, { Component } from 'react'
 
-import Canvas from './canvas'
+import Search from './search'
 
 
 class Circle extends Component {
     render(){
         return(
             <div>
-                <Canvas />
+                <Search />
             </div>
         )
     }

@@ -1,0 +1,55 @@
+
+@import '../../commonStyle/commonSet.scss';
+
+.canvasBox{
+    overflow: hidden;
+    position: relative;
+}
+
+.canvas{
+    @include wh(100%, 400px);
+    display: block;
+    @include bg(black);
+}
+
+.searchBox{
+    @include positionCenter();
+    @include wh(60%, 50px);
+    @include bg(white);
+
+    .search{
+        @include wh(100%, 100%);
+        border:0;
+        outline:0;
+        font-size:16px;
+        padding: 0 40px 0 12px;
+        @extend .boxSizing;
+    }
+    .searchIcon{
+        position: absolute;
+        top:0;
+        right:0;
+        width:40px;
+        height: 50px;
+        line-height:50px;
+        font-size:30px;
+        text-align: center;
+        cursor: pointer;
+        @include transition;
+        &:hover{
+            color:$Rcolor;
+        }
+    }
+}
+
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .canvas{
+        @include wh(200%, 200px);
+        display: block;
+        @include bg(black);
+        margin-left:50%;
+        transform: translateX(-50%)
+    }
+}
