@@ -5,7 +5,7 @@
 
 .header{
     width    : 100%;
-    padding  : 30px 0 20px 0;
+    padding  : 20px 0;
     position : fixed;
     left:0;
     font-size: 15px;
@@ -78,59 +78,18 @@
 }
 
 .logo{
-    width:200px;
+    width:150px;
     @include transition(.3s);
 }
 
 
-.login{
-    position  : absolute;
-    bottom    : 7px;
-    right     : 0;
-    font-size : 16px;
-
-
-    @include transition(.3s);
-
-    a{
-        margin-left    : 15px;
-        position       : relative;
-        text-decoration: none;
-        color          : orange;
-        display        : inline-block;
-        cursor         : pointer;
-    
-        &:after{
-            @include bg(#751e0f);
-        }
-        &:hover{
-            color:orangered;
-        }
-        &:hover::after{
-            color:#751e0f;
-        }
-        &:last-child::after{
-            content : "";
-            position: absolute;
-            left    : -9px; 
-            top:0;
-            bottom:0;
-            margin:auto;
-            @include wh(1px, 18px)
-        }
-    }
-    .loginStyle{
-        color:orangered;
-        text-decoration: underline;
-    }
-}
 .headerFixed{
-    padding:20px 0 10px 0;
+    padding:7px 0;
 
-    @include bg(rgba(255,255,255,.4));
+    @include bg(rgba(255,255,255,.5));
 
     .logo{
-        width:180px;
+        width:120px;
     }
     ul li a{
         padding:5px 14px;
@@ -237,11 +196,6 @@
             }
         }
     }
-
-    .login{
-        position: inherit;
-    }
-
     .mbOpacity{
         @include bg(rgba(255,255,255,.8));
     }
