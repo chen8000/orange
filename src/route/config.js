@@ -11,7 +11,7 @@ export const NavBar = [
         toPath:'/news'
     },
     {
-        key:'文章',
+        key:'圈子',
         toPath:'/circle'
     },
     {
