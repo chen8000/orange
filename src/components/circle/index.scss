@@ -1,0 +1,11 @@
+
+@import '../commonStyle/commonSet.scss';
+
+.canvas{
+    @include wh(100%, 300px);
+    display: block;
+    @include bg(black);
+}
+
+
+

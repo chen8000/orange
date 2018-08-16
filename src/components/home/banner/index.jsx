@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import style from './index.scss'
 
-import { addEvent, getBodyHeight, getScrollTop } from '../../../tools'
+import { addEvent, getBodyHeight, getScrollTop } from '../../../module/tools'
 
 class Banner extends Component {
 

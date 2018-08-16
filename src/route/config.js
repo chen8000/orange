@@ -12,7 +12,7 @@ export const NavBar = [
     },
     {
         key:'文章',
-        toPath:'/article'
+        toPath:'/circle'
     },
     {
         key:'关于我',

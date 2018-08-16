@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { NavBar } from '../../route/config'
-import { addClass, hasClass, removeClass, addEvent, getScrollTop } from '../../tools'
+import { addClass, hasClass, removeClass, addEvent, getScrollTop } from '../../module/tools'
 import style from './index.scss'
 
 import Logo from './logo'

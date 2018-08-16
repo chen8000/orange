@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import style from './index.scss'
-import { addClass, removeClass } from '../../../tools'
+import { addClass, removeClass } from '../../../module/tools'
 
 import SwiperComponent from 'swiper/dist/js/swiper'
 import 'swiper/dist/css/swiper.min.css'
