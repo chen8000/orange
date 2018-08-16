@@ -168,7 +168,7 @@ class Todos extends Component {
                                                 <img src={ res.headImg } alt=""/>
                                                 <span>{ res.userName }</span>
                                             </span>
-                                            <span className={ style.times }>{ res.times }</span>
+                                            <span className={ style.times }> <i className="iconfont icon-shijian1"></i> { res.times }</span>
                                         </p>
                                     </div>
                                 </div>

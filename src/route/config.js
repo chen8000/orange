@@ -7,19 +7,15 @@ export const NavBar = [
         toPath:'/home'
     },
     {
-        key:'专辑',
-        toPath:'/album'
-    },
-    {
-        key:'视频',
-        toPath:'/videoPage'
+        key:'最新动态',
+        toPath:'/news'
     },
     {
         key:'文章',
         toPath:'/article'
     },
     {
-        key:'了解我们',
+        key:'关于我',
         toPath:'/aboutUs'
     },
 ]

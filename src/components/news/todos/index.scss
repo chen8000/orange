@@ -15,7 +15,6 @@
             padding: 0 5px 10px 5px;
             @extend .boxSizing;
             cursor: pointer;
-            // float: left;
             .layout{
                 @include bg(white);
                 @include radius(5px);
@@ -50,10 +49,12 @@
                         @extend .boxSizing;
                         font-size:16px;
                         color:rgb(80, 80, 80);
-                        @include wh(100%, 55px);
+                        @include wh(100%, 50px);
+                        line-height: 22px;
+                        @include clamp(2);
                     }
                     p{
-                        padding:7px;
+                        padding:15px 7px 10px 7px;
                         @extend .boxSizing;
                         font-size:13px;
                         color:rgb(148, 148, 148);
@@ -105,6 +106,43 @@
             position: absolute;
             bottom:-1px;
             left:0;
+        }
+    }
+}
+
+/*-------------- 992 pad*/
+@media all and (max-width: 992px){
+    .container .todos {
+        .itemMax,
+        .itemMin{
+            .layout{
+                .info{
+                    .source{
+                        &>span{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .container .todos {
+        .itemMax,
+        .itemMin{
+            @include wh(100%);
+            .layout{
+                .info{
+                    .source{
+                        &>span{
+                            display: none;
+                        }
+                    }
+                }
+            }
         }
     }
 }

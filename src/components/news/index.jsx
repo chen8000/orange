@@ -6,7 +6,7 @@ import Swiper from './swiper'
 import Todos from './todos'
 
 
-class Album extends Component {
+class News extends Component {
 
 
 
@@ -20,7 +20,7 @@ class Album extends Component {
     }
 }
 
-export default Album
+export default News
 
 
 

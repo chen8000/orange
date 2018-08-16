@@ -81,3 +81,11 @@
 @mixin radius($p:5px){
     border-radius:$p;
 }
+
+// 超出显示省略号 参数是设置多少行超出
+@mixin clamp($line:1){
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+    overflow: hidden;
+}
