@@ -1,16 +1,14 @@
 
 import React, { Component } from 'react'
-import style from './index.scss';
+
+import Canvas from './canvas'
 
 
 class Circle extends Component {
-
-    
-
     render(){
         return(
             <div>
-                <canvas ref={ cvs => this.canvas = cvs } className={ style.canvas } ></canvas>
+                <Canvas />
             </div>
         )
     }
