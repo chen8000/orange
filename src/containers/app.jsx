@@ -32,16 +32,13 @@ class App extends Component {
 
 
 
-
     render(){
-        // 获取url后面的地址
-        let pathname = this.props.location.pathname
         
-        let {  result, headerNavBar, headerScroll, mbNavBar } = this.props
+        let {  ...res } = this.props
         
         return (
             <div className={ style.app }>
-                <Header pathname = { pathname } result = {result} mbNavBar = { mbNavBar } headerNavBar = { headerNavBar } headerScroll = { headerScroll }/>
+                <Header res = {res} />
 
                     <Switch>
                         <Route path="/home" component={ Home }/>

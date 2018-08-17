@@ -2,14 +2,12 @@
 import React, { Component } from 'react'
 import style from './index.scss'
 
-import { addEvent, getBodyHeight, getScrollTop } from '../../../module/tools'
+import { addEvent, removeEvent, getBodyHeight, getScrollTop } from '../../../module/tools'
 
 class Banner extends Component {
 
     constructor(props){
         super(props)
-
-        
         this.state = {
 
             // 获取body的高度
@@ -21,7 +19,23 @@ class Banner extends Component {
 
 
         // 注册滚动条事件
-        this.windowScroll();
+        addEvent(window, 'scroll', this.winScrollCollback)
+    }
+
+    // 组件卸载后移除window的scroll事件
+    componentWillUnmount(){
+        removeEvent(window, 'scroll', this.winScrollCollback)
+    }
+
+    // window的滚动回调事件
+    winScrollCollback = () => {
+        // 修改图片的 translateY
+        let scrollTop = getScrollTop()
+
+        // banner滚完后不调用setState修改数据
+        if(scrollTop < this.state.bodyH){
+            this.setState({translateY:scrollTop / 8})
+        }
     }
 
     // 动态设置banner的高度
@@ -29,20 +43,6 @@ class Banner extends Component {
         if(h < this.state.bodyH){
             this.setState({ bodyH:h })
         }
-    }
-
-    // 滚动条事件
-    windowScroll = () => {
-        addEvent(window, 'scroll', () => {
-            // 修改图片的 translateY
-            let scrollTop = getScrollTop()
-
-            // banner滚完后不调用setState修改数据
-            if(scrollTop < this.state.bodyH){
-                this.setState({translateY:scrollTop / 8})
-            }
-            
-        })
     }
 
     render() {

@@ -31,11 +31,6 @@ class Header extends Component {
             }
         }
 
-        // 首页状态
-        if(this.props.pathname === '/'){
-            this.props.headerNavBar({w:`60px`, l:`0px`})    
-        }
-
         // 注册window scroll 事件
         this.headerScroll()
 
@@ -83,7 +78,7 @@ class Header extends Component {
     animateStore = o => {
         let navBarWidth = o.parentNode.clientWidth
         let navBarLeft = o.parentNode.offsetLeft
-        this.props.headerNavBar({w:`${navBarWidth}px`, l:`${navBarLeft}px`})    
+        this.props.res.headerNavBar({w:`${navBarWidth}px`, l:`${navBarLeft}px`})    
     }
 
     headerScroll = () => {
@@ -93,9 +88,9 @@ class Header extends Component {
         addEvent(window, 'scroll', () => {
             let scrollTop = getScrollTop()
             if(scrollTop > 100){
-                this.props.headerScroll({ scroll:true })
+                this.props.res.headerScroll({ scroll:true })
             }else if(scrollTop <= 100){
-                this.props.headerScroll({ scroll:false })
+                this.props.res.headerScroll({ scroll:false })
             }
         })
     }
@@ -116,13 +111,13 @@ class Header extends Component {
             // X 收起
             removeClass(obj, style.mobileIconActive)
 
-            this.props.mbNavBar({l:`-100%` })
+            this.props.res.mbNavBar({l:`-100%` })
         }else{
             
             // √ 展开
             addClass(obj, style.mobileIconActive)
             
-            this.props.mbNavBar({l:`0px` })
+            this.props.res.mbNavBar({l:`0px` })
 
         }
 
@@ -148,7 +143,7 @@ class Header extends Component {
 
 
     render(){
-        let { result } = this.props
+        let { result } = this.props.res
         
         return (
             <div className={

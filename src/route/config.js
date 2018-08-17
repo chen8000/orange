@@ -20,6 +20,26 @@ export const NavBar = [
     },
 ]
 
+// 圈子左侧导航
+export const ArticleLeftBar = [
+    {
+        key:'推荐',
+        toPath:'/recommend'
+    },
+    {
+        key:'栏目1',
+        toPath:'/column'
+    },
+    {
+        key:'栏目2',
+        toPath:'/column'
+    },
+    {
+        key:'栏目3',
+        toPath:'/column'
+    }
+]
+
 
 
 

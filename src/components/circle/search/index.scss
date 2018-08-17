@@ -52,4 +52,23 @@
         margin-left:50%;
         transform: translateX(-50%)
     }
+
+    .searchBox{
+        @include wh(60%, 40px);
+        .searchIcon{
+            position: absolute;
+            top:0;
+            right:0;
+            width:40px;
+            height: 40px;
+            line-height:40px;
+            font-size:20px;
+            text-align: center;
+            cursor: pointer;
+            @include transition;
+            &:hover{
+                color:$Rcolor;
+            }
+        }
+    }
 }

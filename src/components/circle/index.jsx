@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 
 import Search from './search'
+import Article from './article'
 
 
 class Circle extends Component {
@@ -9,6 +10,7 @@ class Circle extends Component {
         return(
             <div>
                 <Search />
+                <Article />
             </div>
         )
     }

@@ -55,6 +55,24 @@ export const addEvent = (obj,type,fn) =>{
     }
 }
 
+/*
+------------------------------------------------------
+|
+|        删除事件
+|   obj 事件元素  type 事件类型  fn触发函数
+|
+------------------------------------------------------
+*/
+export const removeEvent = (obj,type,fn) =>{
+    if(obj.attachEvent){ //ie
+        obj.detachEvent('on'+type,() => {
+            fn.call(obj);
+        })
+    }else{
+        obj.removeEventListener(type,fn,false);
+    }
+}
+
 
 /*
 -----------------------------------------------------
