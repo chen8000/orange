@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import style from './index.scss'
+// import style from './index.scss'
 
 
 class Todos extends Component{

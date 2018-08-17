@@ -8,8 +8,6 @@ import Todos from './todos'
 
 class News extends Component {
 
-
-
     render(){
         return(
             <div>

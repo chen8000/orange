@@ -10,15 +10,13 @@ class NavBar extends Component {
 
     render(){
         return(
-            <ul>
+            <div className={ style.navbar }>
                 {
                     ArticleLeftBar.map((res, i) => 
-                        <li key={i}>
-                            <NavLink to={ res.toPath }> { res.key } </NavLink>
-                        </li>
+                        <NavLink key={ i } to={ res.toPath }> { res.key } </NavLink>
                     )
                 }
-            </ul>
+            </div>
         )
     }
 }

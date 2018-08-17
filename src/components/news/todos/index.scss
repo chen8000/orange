@@ -3,7 +3,7 @@
 
 .container{
     @include wh(100%);
-    @include bg(rgba(230, 230, 230, 0.2));
+    @include bg($Gbg);
 
     .todos{
         @include wh(95%);

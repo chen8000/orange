@@ -17,6 +17,9 @@ class Header extends Component {
         this.state = {
             mbType:false
         }
+
+         // 注册window scroll 事件
+         this.headerScroll()
     }
 
     // 组件渲染完成后初始化状态
@@ -31,10 +34,7 @@ class Header extends Component {
             }
         }
 
-        // 注册window scroll 事件
-        this.headerScroll()
-
-        // 初始化li动画
+        // 初始化li动画 mobile
         this.mbNavBarAnimate()
     }
 

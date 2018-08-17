@@ -1,0 +1,24 @@
+
+
+@import '../../../commonStyle/commonSet.scss';
+
+.navbar{
+    list-style:none;
+    @include bg(white);
+    display: inline-block;
+    border: 1px solid $BorderColor;
+    @include radius(10px);
+
+    a{
+        text-decoration: none;
+        color:$textColor;
+        padding: 20px 30px;
+        display: block;
+        border-bottom:1px solid #eeeeee;
+    }
+
+}
+
+
+
+

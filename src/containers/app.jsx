@@ -38,7 +38,7 @@ class App extends Component {
         
         return (
             <div className={ style.app }>
-                <Header res = {res} />
+                <Header res = { res } />
 
                     <Switch>
                         <Route path="/home" component={ Home }/>

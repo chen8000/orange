@@ -27,7 +27,7 @@ export const ArticleLeftBar = [
         toPath:'/recommend'
     },
     {
-        key:'栏目1',
+        key:'栏目栏目1',
         toPath:'/column'
     },
     {

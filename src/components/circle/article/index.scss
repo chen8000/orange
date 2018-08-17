@@ -1,0 +1,13 @@
+
+@import '../../commonStyle/commonSet.scss';
+
+.containerBg{
+    @include bg($Gbg);
+}
+.container{
+    @extend .container;
+    padding:30px 0;
+}
+
+
+
