@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react'
 import style from './index.scss'
-import { NavLink } from 'react-router-dom'
 
 
 class NavBar extends Component {
@@ -14,7 +13,7 @@ class NavBar extends Component {
                 {
                     key:'推荐',
                     toPath:'/recommend',
-                    iconCls:'icon-tuijian1',
+                    iconCls:'icon-tuijianyouli',
                     active:true
                 },
                 {

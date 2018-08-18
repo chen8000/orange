@@ -15,9 +15,26 @@
 .todos{
     @include wh(calc(100% - 180px));
     margin-left:180px;
-    padding: 15px;
+    padding: 0 0 0 15px;
     @extend .boxSizing;
 }
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .navBar{
+        float: none;
+        @include wh(100%);
+    }
+    .todos{
+        @include wh(100%);
+        margin-left:0;
+        padding:0;
+    }
+    .container{
+        @include wh(96%);
+    }
+}
+
 
 
 

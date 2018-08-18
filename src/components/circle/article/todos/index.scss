@@ -1,0 +1,166 @@
+
+
+@import '../../../commonStyle/commonSet.scss';
+
+.todosBox{
+    list-style:none;
+    li{
+        @include radius(10px);
+        @include bg(white);
+        overflow: hidden;
+        padding:10px;
+        border:1px solid $BorderColor;
+        position: relative;
+        margin-bottom:15px;
+        &:after{
+            @include afterClear;
+        }
+
+        .imgBox{
+            width:30%;
+            float: left;
+            img{
+                width: 100%;
+                display: block;
+            }
+        }
+        .textBox{
+            @include wh(70%);
+            @extend .boxSizing;
+            float: left;
+            padding: 0 0 30px 12px; 
+
+            h2{
+                font-size:18px;
+                @include clamp(2);
+            }
+            p{
+                font-size:14px;
+                margin-top:10px;
+                color:$textColor;
+                @include clamp;
+            }
+        }
+    }
+}
+
+.userInfo{
+
+    &:after{
+        @include afterClear;
+    }
+    .headImg{
+        @include wh(40px, 40px);
+        @include radius(50%);
+        overflow: hidden;
+        float: left;
+        img{
+            @include wh(100%);
+        }
+    }
+    .title{
+        float: left;
+        padding-left:.5em;
+        padding-bottom:12px;
+
+        h2{
+            font-size:16px;
+        }
+        p{
+            color: rgb(179, 179, 179);
+            font-size:12px;
+        }
+    }
+}
+
+.actions{
+    position: absolute;
+    bottom:12px;
+    right:12px;
+    span{
+        display: inline-block;
+        margin-left:10px;
+        font-size:14px;
+        color:$textColor;
+        cursor: pointer;
+        i{
+            font-size:20px;
+            // color:$textColor;
+        }
+        
+    } 
+    .shoucang:hover i{
+        color:$Gcolor;
+    }
+}
+
+/*--------------  1199*/
+@media all and (max-width: 1100px){
+    .todosBox li{
+        .textBox{
+            @include wh(65%);
+            h2{
+                font-size:18px;
+            }
+            p{
+                margin-top:7px;
+            }
+        } 
+        .imgBox{
+            @include wh(35%);
+        }
+    } 
+}
+
+/*-------------- 992 pad*/
+@media all and (max-width: 992px){
+    .todosBox li{
+        .textBox{
+            @include wh(55%);
+        } 
+        .imgBox{
+            @include wh(45%);
+        }
+    } 
+}
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .todosBox li{
+        margin-bottom:10px;
+        padding-bottom:20px;
+        .textBox{
+            padding:0 0 0 10px;
+            @include wh(70%);
+
+            h2{
+                font-size:14px;
+            }
+            p{
+                display: none;
+            }
+        } 
+        .imgBox{
+            @include wh(30%);
+        }
+    } 
+    .actions{
+        bottom:5px;
+
+        span{
+            font-size:12px;
+
+            i{
+                font-size:18px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+

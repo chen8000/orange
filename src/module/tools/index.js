@@ -105,3 +105,28 @@ export const getScrollTop = () => {
 export const getBodyHeight = () => {
     return document.documentElement.clientHeight || document.body.clientHeight || window.clientHeight
 }
+
+
+/*
+-----------------------------------------------------
+|
+|       判断是pc还是手机
+| 
+-----------------------------------------------------
+*/
+
+export const isPC = () => {
+    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+
+        // iphone
+        return { boolean:false, type:'iPhone' }
+    } else if (/(Android)/i.test(navigator.userAgent)) {
+
+        //Android
+        return { boolean:false, type:'Android' }
+    } else {
+
+        // pc
+        return { boolean:true, type:'pc' }
+    }
+}

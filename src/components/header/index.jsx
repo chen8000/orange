@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { NavBar } from '../../route/config'
-import { addClass, hasClass, removeClass, addEvent, getScrollTop } from '../../module/tools'
+import { addClass, hasClass, removeClass, addEvent, getScrollTop, isPC } from '../../module/tools'
 import style from './index.scss'
 
 import Logo from './logo'
@@ -18,9 +18,6 @@ class Header extends Component {
             mbType:false
         }
 
-        // 初始化li动画 mobile
-        this.mbNavBarAnimate()
-
          // 注册window scroll 事件
          this.headerScroll()
 
@@ -32,19 +29,27 @@ class Header extends Component {
 
     // 组件渲染完成后初始化状态
     componentDidMount(){
+
+        // 初始化动画位置
         this.initStart()
+
+        // 初始化li动画 mobile
+        this.mbNavBarAnimate()
     }
 
     initStart = () => {
         // 初始化动画位置
-        let routeActive = this.navBarContainer.childNodes
+        if(isPC().boolean){
+            let routeActive = this.navBarContainer.childNodes
                 
-        for(let i = 0; i< routeActive.length; i++){
-            let rouObj = routeActive[i].getElementsByClassName(style.navBarThisPage)
-            if(rouObj.length > 0){
-                this.animateStore(rouObj[0])
+            for(let i = 0; i< routeActive.length; i++){
+                let rouObj = routeActive[i].getElementsByClassName(style.navBarThisPage)
+                if(rouObj.length > 0){
+                    this.animateStore(rouObj[0])
+                }
             }
         }
+        
     }
     // 接收对象获取对象的left 和 width 改变状态
     animateStore = o => {
