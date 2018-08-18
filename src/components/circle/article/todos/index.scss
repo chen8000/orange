@@ -17,7 +17,7 @@
         }
 
         .imgBox{
-            width:30%;
+            width:40%;
             float: left;
             img{
                 width: 100%;
@@ -25,7 +25,7 @@
             }
         }
         .textBox{
-            @include wh(70%);
+            @include wh(60%);
             @extend .boxSizing;
             float: left;
             padding: 0 0 30px 12px; 

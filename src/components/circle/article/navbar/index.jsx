@@ -2,6 +2,8 @@
 import React, { Component } from 'react'
 import style from './index.scss'
 
+import { addEvent, removeEvent, getElemTop, isPC, getScrollTop } from '../../../../module/tools'
+
 
 class NavBar extends Component {
 
@@ -34,7 +36,38 @@ class NavBar extends Component {
                     iconCls:'icon-tuijian1',
                     active:false
                 }
-            ]
+            ],
+            fixedBar:false
+        }
+    }
+
+    // 组件渲染完成
+    componentDidMount(){
+
+        if(isPC()){
+            addEvent(window, 'scroll', this.scrollFn)
+        }
+    }
+    // 组件将要卸载
+    componentWillUnmount(){
+        if(isPC()){
+            removeEvent(window, 'scroll', this.scrollFn)
+        }
+    }
+
+    // 滚动条事件
+    scrollFn = () => {
+
+        // 获取元素距离浏览器顶部的距离
+        let eleTop = getElemTop(this.navbar)
+
+        // 滚动条距离顶部的距离
+        let scrollTop = getScrollTop()
+        
+        if(scrollTop > eleTop - 50){
+            this.setState({ fixedBar:true })
+        }else{
+            this.setState({ fixedBar:false }) 
         }
     }
 
@@ -54,19 +87,22 @@ class NavBar extends Component {
     }
 
     render(){
-        let { bar } = this.state
+        let { bar, fixedBar } = this.state
         return(
-            <ul className={ style.navbar }>
-                {
-                    bar.map((res, i) => 
-                        <li onClick={ e => this.activeClick(e, i) } key={ i } 
-                            className={ res.active ? style.navbaractive : null }> 
-                            <i className={['iconfont', res.iconCls].join(' ')}></i> 
-                            { res.key }
-                        </li>
-                    )
-                }
-            </ul>
+            <div ref={ fixedBar => this.navbar = fixedBar }>
+                <ul className={ [ style.navbar, fixedBar ? style.fixedBar : null ].join(' ') }>
+                    {
+                        bar.map((res, i) => 
+                            <li onClick={ e => this.activeClick(e, i) } key={ i } 
+                                className={ res.active ? style.navbaractive : null }> 
+                                <i className={['iconfont', res.iconCls].join(' ')}></i> 
+                                { res.key }
+                            </li>
+                        )
+                    }
+                </ul>
+            </div>
+            
         )
     }
 }
