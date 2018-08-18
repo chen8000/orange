@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import style from './index.scss'
 
-import { addEvent, removeEvent, getElemTop, isPC, getScrollTop } from '../../../../module/tools'
+import { addEvent, removeEvent, getElemTop, dev, getScrollTop } from '../../../../module/tools'
 
 
 class NavBar extends Component {
@@ -43,14 +43,14 @@ class NavBar extends Component {
 
     // 组件渲染完成
     componentDidMount(){
-
-        if(isPC()){
+        
+        if(dev().type === 'pc'){
             addEvent(window, 'scroll', this.scrollFn)
         }
     }
     // 组件将要卸载
     componentWillUnmount(){
-        if(isPC()){
+        if(dev().type === 'pc'){
             removeEvent(window, 'scroll', this.scrollFn)
         }
     }
@@ -71,7 +71,7 @@ class NavBar extends Component {
         }
     }
 
-    activeClick = (e, i) => {
+    activeClick = (i) => {
         let { bar } = this.state
 
         let newbar = bar.map(res => {
@@ -93,7 +93,7 @@ class NavBar extends Component {
                 <ul className={ [ style.navbar, fixedBar ? style.fixedBar : null ].join(' ') }>
                     {
                         bar.map((res, i) => 
-                            <li onClick={ e => this.activeClick(e, i) } key={ i } 
+                            <li onClick={ e => this.activeClick(i) } key={ i } 
                                 className={ res.active ? style.navbaractive : null }> 
                                 <i className={['iconfont', res.iconCls].join(' ')}></i> 
                                 { res.key }

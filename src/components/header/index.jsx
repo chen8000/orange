@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { NavBar } from '../../route/config'
-import { addClass, hasClass, removeClass, addEvent, getScrollTop, isPC } from '../../module/tools'
+import { addClass, hasClass, removeClass, addEvent, getScrollTop, dev } from '../../module/tools'
 import style from './index.scss'
 
 import Logo from './logo'
@@ -39,7 +39,7 @@ class Header extends Component {
 
     initStart = () => {
         // 初始化动画位置
-        if(isPC().boolean){
+        if(dev().type !== 'iphone' ){
             let routeActive = this.navBarContainer.childNodes
                 
             for(let i = 0; i< routeActive.length; i++){
@@ -140,7 +140,7 @@ class Header extends Component {
     // 手机端初始化导航列表动画
     mbNavBarAnimate = () => {
         // 移动端 只判断手机
-        if (/(iPhone|iOS|Android)/i.test(navigator.userAgent)) { 
+        if (dev().type === 'iphone') { 
             
             this.setState({ mbType:true })
             let todos = this.navBarContainer.childNodes

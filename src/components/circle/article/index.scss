@@ -20,7 +20,7 @@
 }
 
 /*-------------- 767  phone*/
-@media all and (max-width: 767px){
+@media all and (max-width: 992px){
     .navBar{
         float: none;
         @include wh(100%);
