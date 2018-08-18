@@ -8,13 +8,39 @@
     display: inline-block;
     border: 1px solid $BorderColor;
     @include radius(10px);
+    overflow: hidden;
 
-    a{
+    @include wh(100%);
+    li{
         text-decoration: none;
         color:$textColor;
-        padding: 20px 30px;
+        padding: 20px 0 20px 35px;
         display: block;
         border-bottom:1px solid #eeeeee;
+        font-size:18px;
+        @include transition;
+        cursor: pointer;
+
+        i{
+            display: inline-block;
+            margin-right:10px;
+            font-size:30px;
+            color:$Gcolor;
+        }
+    }
+    li:last-child{
+        border-bottom:0;
+    }
+    li:hover{
+        @include bg(#f7f7f7);
+    }
+    .navbaractive{
+        @include bg($BGcolor);
+        color:white;
+
+        &:hover{
+            @include bg($BGcolor);
+        }
     }
 
 }
