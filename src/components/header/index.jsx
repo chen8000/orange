@@ -18,26 +18,40 @@ class Header extends Component {
             mbType:false
         }
 
+        // 初始化li动画 mobile
+        this.mbNavBarAnimate()
+
          // 注册window scroll 事件
          this.headerScroll()
+
+        // 监听浏览器的前进后退按钮
+        addEvent(window, 'popstate', () => {
+            this.initStart()
+        })
     }
 
     // 组件渲染完成后初始化状态
     componentDidMount(){
+        this.initStart()
+    }
+
+    initStart = () => {
         // 初始化动画位置
         let routeActive = this.navBarContainer.childNodes
-        
+                
         for(let i = 0; i< routeActive.length; i++){
             let rouObj = routeActive[i].getElementsByClassName(style.navBarThisPage)
             if(rouObj.length > 0){
                 this.animateStore(rouObj[0])
             }
         }
-
-        // 初始化li动画 mobile
-        this.mbNavBarAnimate()
     }
-
+    // 接收对象获取对象的left 和 width 改变状态
+    animateStore = o => {
+        let navBarWidth = o.parentNode.clientWidth
+        let navBarLeft = o.parentNode.offsetLeft
+        this.props.res.headerNavBar({w:`${navBarWidth}px`, l:`${navBarLeft}px`})    
+    }
     
     /*
         导航动画逻辑
@@ -74,12 +88,7 @@ class Header extends Component {
             
     }
 
-    // 接收对象获取对象的left 和 width 改变状态
-    animateStore = o => {
-        let navBarWidth = o.parentNode.clientWidth
-        let navBarLeft = o.parentNode.offsetLeft
-        this.props.res.headerNavBar({w:`${navBarWidth}px`, l:`${navBarLeft}px`})    
-    }
+
 
     headerScroll = () => {
         /*
