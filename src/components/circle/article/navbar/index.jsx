@@ -21,19 +21,25 @@ class NavBar extends Component {
                 {
                     key:'栏目栏目1',
                     toPath:'/column',
-                    iconCls:'icon-tuijian1',
+                    iconCls:'icon-social-github-octocat',
                     active:false
                 },
                 {
                     key:'栏目2',
                     toPath:'/column',
-                    iconCls:'icon-tuijian1',
+                    iconCls:'icon-social-github-octocat',
                     active:false
                 },
                 {
                     key:'栏目3',
                     toPath:'/column',
-                    iconCls:'icon-tuijian1',
+                    iconCls:'icon-social-github-octocat',
+                    active:false
+                },
+                {
+                    key:'推荐',
+                    toPath:'/recommend',
+                    iconCls:'icon-social-github-octocat',
                     active:false
                 }
             ],

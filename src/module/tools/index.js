@@ -116,7 +116,7 @@ export const getBodyHeight = () => {
 */
 
 export const dev = () => {
-    let u = navigator.userAgent;
+    let u = navigator.userAgent
     let t = {
         trident: u.indexOf('Trident') > -1, //IE内核
         presto: u.indexOf('Presto') > -1, //opera内核

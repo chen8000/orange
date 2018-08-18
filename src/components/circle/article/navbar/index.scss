@@ -9,7 +9,7 @@
     border: 1px solid $BorderColor;
     @include radius(10px);
     overflow: hidden;
-
+    @extend .boxSizing;
     @include wh(100%);
     li{
         text-decoration: none;
@@ -52,7 +52,50 @@
 
 /*-------------- 992 pad*/
 @media all and (max-width: 992px){
+    .navbar{
+        display:block;
+        @include wh(100%);
+        margin-bottom:30px;
+        &:after{
+            @include afterClear;
+        }
+        li{
+            float: left;
+            padding:15px 0;
+            border-bottom:0;
+            width:20%;
+            text-align: center;
+            font-size:15px;
+            i{
+                display: block;
+                margin-right:0;
+                font-size:30px;
+                color:$Gcolor;
+            }
+        }
+        .navbaractive{
+            @include bg($BGcolor);
+            color:white;
     
+            &:hover{
+                @include bg($BGcolor);
+            }
+        }
+    
+    }
+}
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .navbar{
+        margin-bottom:18px;
+        li{
+            font-size:14px;
+            padding:7px 0;
+            i{
+                font-size:24px;
+            }
+        }
+    }
 }
 
 

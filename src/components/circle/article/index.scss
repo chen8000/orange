@@ -19,7 +19,7 @@
     @extend .boxSizing;
 }
 
-/*-------------- 767  phone*/
+/*-------------- 767  pad*/
 @media all and (max-width: 992px){
     .navBar{
         float: none;
@@ -31,7 +31,14 @@
         padding:0;
     }
     .container{
+        // padding:18px 0;
         @include wh(96%);
+    }
+}
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .container{
+        padding:18px 0;
     }
 }
 
