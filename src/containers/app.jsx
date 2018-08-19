@@ -14,7 +14,7 @@ import AboutUs from '../components/aboutUs'
 import News from '../components/news'
 import Circle from '../components/circle'
 import GoTop from '../components/goTop'
-// import Detail from '../components/detail'
+import Detail from '../components/detail'
 
 
 // app style
@@ -33,7 +33,6 @@ class App extends Component {
     }
 
 
-
     render(){
         
         let {  ...res } = this.props
@@ -47,7 +46,7 @@ class App extends Component {
                         <Route path="/aboutUs" component={ AboutUs } />
                         <Route path="/news" component={ News } />
                         <Route path="/circle" component={ Circle } />
-                        {/* <Route path="/detail/:id" component={ Detail }/> */}
+                        <Route path="/detail" component={ Detail }/>
                         <Redirect to="/home"/>
                     </Switch>
                 <GoTop />

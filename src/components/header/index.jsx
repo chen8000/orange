@@ -35,6 +35,8 @@ class Header extends Component {
 
         // 初始化li动画 mobile
         this.mbNavBarAnimate()
+
+        
     }
 
     initStart = () => {
@@ -160,6 +162,8 @@ class Header extends Component {
 
     render(){
         let { result } = this.props.res
+
+        // console.log(this.props.res.location.pathname)
         
         return (
             <div className={
