@@ -13,6 +13,7 @@ import Home from '../components/home'
 import AboutUs from '../components/aboutUs'
 import News from '../components/news'
 import Circle from '../components/circle'
+import GoTop from '../components/goTop'
 
 
 // app style
@@ -47,7 +48,7 @@ class App extends Component {
                         <Route path="/circle" component={ Circle } />
                         <Redirect to="/home"/>
                     </Switch>
-
+                <GoTop />
                 <Footer />
             </div>
         )

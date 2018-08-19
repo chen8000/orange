@@ -164,3 +164,22 @@ export const getElemTop = elem => {
     }
     return elemTop
 }
+
+/*
+-----------------------------------------------------
+|
+|       设置浏览器回到页面顶部
+| 
+-----------------------------------------------------
+*/
+export const goTop = v => {
+    let t = setInterval( () => {
+        let s = document.documentElement.scrollTop || document.body.scrollTop
+        let  p = Math.floor(-s/6)
+        if(s === v){
+            clearInterval(t)
+        }
+        document.documentElement.scrollTop = document.body.scrollTop = s+p
+    }, 30)
+}
+

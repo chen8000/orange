@@ -1,20 +1,14 @@
 
 import React, { Component } from 'react'
+import style from './index.scss'
 
 
 class AboutUs extends Component {
 
     render(){
         return (
-            <div>
-                <h1>aboutUs</h1>
-                <h1>aboutUs</h1>
-                <h1>aboutUs</h1>
-                <h1>aboutUs</h1>
-                <h1>aboutUs</h1>
-                <h1>aboutUs</h1>
-                <h1>aboutUs</h1>
-                <h1>aboutUs</h1>
+            <div className={ style.aboutBox }>
+                <img src="/img/about/logo.jpg" alt=""/>
             </div>
         )
     }

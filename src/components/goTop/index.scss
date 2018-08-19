@@ -1,0 +1,71 @@
+
+@import '../commonStyle/commonSet.scss';
+
+.goTop{
+    position: fixed;
+    bottom:20px;
+    right:15px;
+    z-index: 99;
+    cursor: pointer;
+    transform: translateY(300%);
+    @include transition;
+    i{
+        font-size:66px;
+        color:rgba(0,0,0,.5);
+        display: inline-block;
+        transform: translateY(0) scale(1);
+        @include transition;
+    }
+
+    &:hover i{
+        transform: translateY(-10px) scale(.98);
+        color:rgba(0,0,0,1);
+    }
+}
+.goTopShow{
+    animation: goTopShow .5s ease forwards;
+}
+.goTopHide{
+    animation: goTopHide 1s ease forwards;
+}
+
+// 上来
+@keyframes goTopShow{
+    0%{
+        transform: translateY(300%) rotate(0deg);
+    }
+    30%{
+        transform: translateY(300%) rotate(0deg);
+    }
+    100%{
+        transform: translateY(0) rotate(0deg);
+    }
+}
+// 下去
+@keyframes goTopHide{
+    0%{
+        transform: translateY(0) rotate(0deg);
+    }
+    30%{
+        transform: translateY(0) rotate(180deg);
+    }
+    100%{
+        transform: translateY(300%) rotate(180deg);
+    }
+}
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .goTop{
+        right:10px;
+        bottom:10px;
+
+        i{
+            font-size:55px;
+        }
+    }
+}
+
+
+
+

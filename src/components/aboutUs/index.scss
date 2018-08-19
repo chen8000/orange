@@ -1,0 +1,15 @@
+
+@import '../commonStyle/commonSet.scss';
+
+.aboutBox{
+    @include wh(null, 800px);
+    img{
+        @include positionCenter;
+    }
+}
+
+
+
+
+
+
