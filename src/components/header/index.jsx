@@ -110,8 +110,10 @@ class Header extends Component {
     }
 
     todosClick = () => {
-        
-        this.mbNavBarToggle(this.mobileIcon)
+
+        if(dev().type === 'iphone'){
+            this.mbNavBarToggle(this.mobileIcon)
+        }
     }
 
 

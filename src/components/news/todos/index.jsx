@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
 import style from './index.scss'
 import Placeholder from '../../commonComponents/placeholder'
 
@@ -153,7 +154,7 @@ class Todos extends Component {
                     {
                         this.state.todos.map((res, i) => 
                             <div key={ i } className={ res.layout === 'max' ? style.itemMax : style.itemMin }>
-                                <div className={ style.layout }>
+                                <NavLink to="/news/detail" className={ style.layout }>
                                     <div className={ style.focusImgbox }>
                                         <Placeholder url={`/img/album/todos/placeholder_${ res.layout === 'max' ? 'max' : 'min' }.png`}/>
                                         <img className={ style.focusImg } src={ res.imgUrl } alt=""/>
@@ -171,7 +172,7 @@ class Todos extends Component {
                                             <span className={ style.times }> <i className="iconfont icon-shijian1"></i> { res.times }</span>
                                         </p>
                                     </div>
-                                </div>
+                                </NavLink>
                             </div>
                         )
                     }
