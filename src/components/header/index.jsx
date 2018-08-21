@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import { NavBar } from '../../route/config'
+// import { NavBar } from '../../route/config'
 import { addClass, hasClass, removeClass, addEvent, getScrollTop, dev } from '../../module/tools'
 import style from './index.scss'
 
@@ -15,7 +15,8 @@ class Header extends Component {
 
         // mobile端的一个状态，false为pc
         this.state = {
-            mbType:false
+            mbType:false,
+            headerBar:[]
         }
 
          // 注册window scroll 事件
@@ -25,6 +26,20 @@ class Header extends Component {
         addEvent(window, 'popstate', () => {
             this.initStart()
         })
+
+    }
+
+    // 组件将要渲染数据
+    componentWillMount(){
+
+        // 请求导航
+        fetch('http://chenzhanghui.vip/api')
+            .then(res => {
+                return res.json()
+            })
+            .then(res => {
+                this.setState({ headerBar:res })
+            })
     }
 
     // 组件渲染完成后初始化状态
@@ -161,6 +176,7 @@ class Header extends Component {
 
     render(){
         let { result } = this.props.res
+        let { headerBar } = this.state
 
         // console.log(this.props.res.location.pathname)
         
@@ -184,7 +200,7 @@ class Header extends Component {
 
                         {
                             // 面包屑   
-                            NavBar.map((res, index) => 
+                            headerBar.map((res, index) => 
                                         <li onClick = { this.todosClick } key={ index } style={ this.state.mbType ? { transform:`translate(${result.distance.l})` } : null }>
                                             <NavLink activeClassName={ style.navBarThisPage } 
                                                     onMouseOver={ this.navBarActive } onMouseOut = { this.navBarOut } 
