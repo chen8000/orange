@@ -55,8 +55,7 @@ class Header extends Component {
     }
     // 接收对象获取对象的left 和 width 改变状态
     animateStore = o => {
-        let navBarWidth = o.parentNode.clientWidth
-        let navBarLeft = o.parentNode.offsetLeft
+        let [ navBarWidth, navBarLeft ] = [ o.parentNode.clientWidth, o.parentNode.offsetLeft ]
         this.props.res.headerNavBar({w:`${navBarWidth}px`, l:`${navBarLeft}px`})    
     }
     
