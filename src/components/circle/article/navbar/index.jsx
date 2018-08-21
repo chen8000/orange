@@ -80,16 +80,16 @@ class NavBar extends Component {
     activeClick = (i) => {
         let { bar } = this.state
 
-        let newbar = bar.map(res => {
+        bar.map(res => {
             if(res.active){
                 res.active = false
             }
             return res
         })
 
-        newbar[i].active = true
+        bar[i].active = true
 
-        this.setState({ bar:newbar })
+        this.setState({ bar })
     }
 
     render(){
@@ -99,7 +99,7 @@ class NavBar extends Component {
                 <ul className={ [ style.navbar, fixedBar ? style.fixedBar : null ].join(' ') }>
                     {
                         bar.map((res, i) => 
-                            <li onClick={ e => this.activeClick(i) } key={ i } 
+                            <li onClick={ () => this.activeClick(i) } key={ i } 
                                 className={ res.active ? style.navbaractive : null }> 
                                 <i className={['iconfont', res.iconCls].join(' ')}></i> 
                                 { res.key }
