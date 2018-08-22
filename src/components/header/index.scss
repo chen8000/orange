@@ -86,7 +86,7 @@
 .headerFixed{
     padding:7px 0;
 
-    @include bg(rgba(255,255,255,.5));
+    @include bg(rgba(255,255,255,.9));
 
     .logo{
         width:120px;
@@ -107,7 +107,7 @@
 /*-------------- 767  phone*/
 @media all and (max-width: 767px){
     .header{
-        padding:10px 0 3px 0;
+        padding:5px 0 0px 0;
     }
 
     .logo{
@@ -131,7 +131,7 @@
         &:before,
         &:after{
             @include afterBlock();
-            @include bg(#fff);
+            @include bg(rgb(126, 126, 126));
 
 
             width:100%;
@@ -181,7 +181,7 @@
                 display:block;
                 transform: translate(-100%);
                 border-top:1px solid white;
-                @include bg(rgba(255,255,255,.8));
+                @include bg(rgba(255,255,255,.9));
                 .navBarThisPage{
                     color:#333;
                 }
@@ -200,7 +200,7 @@
         @include bg(rgba(255,255,255,.8));
     }
     .headerFixed{
-        padding:10px 0 3px 0;
+        padding:5px 0 3px 0;
         .logo{
             width:100px;
         }

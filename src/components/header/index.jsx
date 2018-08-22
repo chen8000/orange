@@ -39,19 +39,12 @@ class Header extends Component {
             })
             .then(res => {
                 this.setState({ headerBar:res })
+                
+                // 初始化动画位置(需要在数据渲染后获取节点)
+                this.initStart()
+                // 初始化li动画 mobile
+                this.mbNavBarAnimate()
             })
-    }
-
-    // 组件渲染完成后初始化状态
-    componentDidMount(){
-
-        // 初始化动画位置
-        this.initStart()
-
-        // 初始化li动画 mobile
-        this.mbNavBarAnimate()
-
-        
     }
 
     initStart = () => {
@@ -61,12 +54,12 @@ class Header extends Component {
                 
             for(let i = 0; i< routeActive.length; i++){
                 let rouObj = routeActive[i].getElementsByClassName(style.navBarThisPage)
+
                 if(rouObj.length > 0){
                     this.animateStore(rouObj[0])
                 }
             }
         }
-        
     }
     // 接收对象获取对象的left 和 width 改变状态
     animateStore = o => {
@@ -104,9 +97,13 @@ class Header extends Component {
                                 .parentNode
                                 .parentNode
                                 .getElementsByClassName(style.navBarThisPage)[0]
-        if(activeClassName) 
+        if(activeClassName) {
+            // 如果在导航的页面，那么显示active动画
             this.animateStore(activeClassName)
-            
+        }else{
+            // 如果不在导航栏目所在的页面，那么重置active动画
+            this.props.res.headerNavBar({w:`0px`, l:`0px`})    
+        }
     }
 
 
