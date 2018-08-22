@@ -100,9 +100,6 @@ class Header extends Component {
         if(activeClassName) {
             // 如果在导航的页面，那么显示active动画
             this.animateStore(activeClassName)
-        }else{
-            // 如果不在导航栏目所在的页面，那么重置active动画
-            this.props.res.headerNavBar({w:`0px`, l:`0px`})    
         }
     }
 
