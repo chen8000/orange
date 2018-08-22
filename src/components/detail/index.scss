@@ -1,0 +1,12 @@
+
+@import '../commonStyle/commonSet.scss';
+
+.bg{
+    img{
+        @include wh(100%);
+        display: block;
+    }
+}
+
+
+
