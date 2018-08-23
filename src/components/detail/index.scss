@@ -4,6 +4,7 @@
 .headerbar{
     position: relative;
     color: white;
+    overflow: hidden;
     .bgImg{
         @include wh(100%);
         display: block;
@@ -15,6 +16,7 @@
 
         h2{
             font-size:30px;
+            font-weight: normal;
         }
     }
     .head{
@@ -40,7 +42,7 @@
 
         h3{
             font-size:20px;
-
+            font-weight: normal;
             i{
                 display: inline-block;
                 margin-left:7px;
@@ -52,11 +54,96 @@
             color:rgb(126, 126, 126);
         }
     }
-    .timesbox{
-        color: rgba(228, 228, 228, 0.8);
-        position: absolute;
-        right: 0;
-        bottom:0;
+}
+
+.content{
+    .times{
+        padding: 15px 0;
+        color:rgb(196, 196, 196);
+        font-size:14px;
+    }
+    padding:0 0 30px 0;
+    @extend .container;
+    .text{
+        font-size:16px;
+        margin-bottom:30px;
+        color: $textColor;
+    }
+
+    .imgGroup{
+        margin-bottom:30px;
+        img{
+            @include wh(100%);
+            display: block;
+        }
+    }
+    .videoGroup{
+        margin-bottom:30px;
+        video{
+            @include wh(100%);
+            display: block;
+        }
+    }
+    .imgGroup span,
+    .videoGroup span{
+        display: block;
+        @include bg($BGcolor);
+        color:white;
+        padding: 20px 15px;
+        font-weight: normal;
+        font-size:16px;
+    }
+}
+
+/*-------------- 992 pad*/
+@media all and (max-width: 992px){
+    .headerbar{
+        .times{
+            padding: 15px 0;
+            color:rgb(196, 196, 196);
+            font-size:14px;
+        }
+        .bgImg{
+            @include wh(140%);
+            margin-left:-20%;
+        }
+        .info{
+            h2{
+                font-size:22px;
+            }
+        }
+        .head{
+            margin-top:10px;
+        }
+    }
+}
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .headerbar{
+        
+        .bgImg{
+            @include wh(260%);
+            margin-left:-80%;
+        }
+        .info{
+            h2{
+                font-size:22px;
+            }
+        }
+        .head{
+            margin-top:10px;
+        }
+    }
+    .content{
+        .times{
+            padding: 15px 0 10px 0;
+        }
+        .text,
+        .imgGroup,
+        .videoGroup{
+            margin-bottom:10px;
+        }
     }
 }
 

@@ -104,10 +104,21 @@
     display:none;
 }
 
+/*-------------- 992 pad*/
+@media all and (max-width: 992px){
+    .header{
+        padding:5px 0 0 0;
+    }
+    .logo{
+
+        width:120px;
+    }
+}
+
 /*-------------- 767  phone*/
 @media all and (max-width: 767px){
     .header{
-        padding:5px 0 0px 0;
+        padding:5px 0 0 0;
     }
 
     .logo{
