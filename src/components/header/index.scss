@@ -5,13 +5,13 @@
 
 .header{
     width    : 100%;
-    padding  : 20px 0;
+    padding  : 10px 0;
     position : fixed;
     left:0;
     font-size: 15px;
     z-index  : 99;
 
-    @include bg(rgba(0,0,0,0));
+    @include bg(rgba(255,255,255,.4));
     @include transition(.5s);
 
     &:after{
