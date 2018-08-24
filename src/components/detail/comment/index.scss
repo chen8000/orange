@@ -110,3 +110,24 @@
 }
 
 
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .commentbox{
+        .like{
+            li{
+                @include wh(45px, 45px);
+            }
+        }
+        .textarea{
+            @include wh(100%, 80px);
+            font-size:15px;
+        }
+        .submitbtn{
+            padding:5px 25px;
+            font-size:14px;
+        }
+    }
+}
+
+
+

@@ -4,7 +4,134 @@
 .todosbox{
     border-top: 1px solid $hrColor;
     margin-top:20px;
+    padding-top:10px;
+
+    &:after{
+        @include afterClear;
+    }
+
+    .headImg{
+        @include wh(35px, 35px);
+        @include radius(5px);
+        overflow: hidden;
+        float: left;
+
+        img{
+            @include wh(100%);
+        }
+    }
+    .ments{
+        float: left;
+        @include wh(calc(100% - 35px));
+        padding-left:10px;
+        @extend .boxSizing;
+
+        .name{
+            font-size:15px;
+            font-weight: normal;
+
+            i{
+                color:$Gcolor;
+                font-size:12px;
+            }
+        }
+        .words{
+            font-size:14px;
+            color: $textColor;
+            margin-top:7px;
+            a{
+                color:$Gcolor;
+                text-decoration: none;
+                display: inline-block;
+                margin:0 3px;
+            }
+        }
+        .times{
+            // border: 1px solid red;
+            position: relative;
+            margin-top:15px;
+            &:after{
+                @include afterClear;
+            }
+            .time{
+                font-size:12px;
+                color:rgb(173, 173, 173);
+                position: absolute;
+                bottom:0;
+                left:0;
+            }
+            .reply,
+            .like{
+                float: right;
+                color:rgb(179, 179, 179);
+                i{
+                    font-size:25px;
+                    
+                    font-weight: normal;
+                    cursor: pointer;
+                    @include transition;
+                    
+                    &:hover{
+                        color: $Gcolor;
+                    }
+                }
+            }
+            .reply{
+                display: inline-block;
+                margin-left:15px;
+                i{
+                    font-size:22px;
+                }
+            }
+        }
+    }
+
+    li{
+        display: block;
+        list-style:none;
+        margin-bottom:20px;
+        padding-bottom:15px;
+        border-bottom:1px solid $hrColor;
+        &:after{
+            @include afterClear;
+        }
+        &:last-child{
+            border-bottom:0;
+        }
+    }
 }
+
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .todosbox{
+        li{
+            &:last-child{
+                border-bottom:0;
+                margin-bottom:0;
+            }
+        }
+        .ments{
+            .times{
+                .reply,
+                .like{
+                    font-size:13px;
+                    i{
+                        font-size:20px;
+                        
+                    }
+                }
+                .reply{
+                    i{
+                        font-size:20px;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
 
 
 

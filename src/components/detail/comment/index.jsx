@@ -142,7 +142,7 @@ class Comment extends Component {
                             <i className="iconfont icon-biaoqing"></i>
                         </span>
                         <span onClick={ this.fileFocus } className={ style.file }>
-                            <label for="inputFile" className="iconfont icon-tupian"></label>
+                            <label htmlFor="inputFile" className="iconfont icon-tupian"></label>
                             <input id="inputFile" autoFocus = { fileFocusType ? null : "autofocus" }  type="file"/>
                         </span>
                         <span className={ style.video }>

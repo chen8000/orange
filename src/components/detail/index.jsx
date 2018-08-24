@@ -46,20 +46,20 @@ class Detail extends Component {
                             </span>
                         </div>
                         {/* 照片 */}
-                        {/* <div className={ style.imgGroup }>
+                        <div className={ style.imgGroup }>
                             <img src="/img/detail/content/item1.jpg" alt=""/>
-                        </div> */}
+                        </div>
                         {/* 视频+描述 */}
-                        {/* <div className={ style.videoGroup }>
+                        <div className={ style.videoGroup }>
                             <video src="/img/detail/content/video/item1.mp4" controls></video>
                             <span>
                                 前后倒换一下轮胎，使用寿命勉强也能达到5、6万公里；我的就从来没倒换过，所以快报废了；如果勉强用怕有危险，所以还是换新吧。
                             </span>
-                        </div> */}
+                        </div>
                         {/* 视频 */}
-                        {/* <div className={ style.videoGroup }>
+                        <div className={ style.videoGroup }>
                             <video src="/img/detail/content/video/item1.mp4" controls></video>
-                        </div> */}
+                        </div>
 
                         {/* 分享组件 */}
                         <Share />

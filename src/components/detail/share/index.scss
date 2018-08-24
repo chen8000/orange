@@ -8,6 +8,10 @@
     color:$textColor;
     margin-top:60px;
 
+    &:after{
+        @include afterClear;
+    }
+
     a{
         color:$textColor;
         text-decoration: none;
@@ -52,6 +56,32 @@
         }
     }
 }
+
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .share{
+        font-size:14px;
+        margin-top:30px;
+
+        a{
+            i{
+                font-size:20px;
+            }
+        }
+
+        .like{
+            float: left;
+            &:after{
+                height: 70%;
+            }
+            i{
+                font-size:20px;
+            }
+        }
+    }
+}
+
 
 
 
