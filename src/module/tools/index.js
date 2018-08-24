@@ -175,7 +175,7 @@ export const getElemTop = elem => {
 export const goTop = v => {
     let t = setInterval( () => {
         let s = document.documentElement.scrollTop || document.body.scrollTop
-        let  p = Math.floor(-s/6)
+        let  p = Math.floor(-s/3)
         if(s === v){
             clearInterval(t)
         }
