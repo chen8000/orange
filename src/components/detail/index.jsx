@@ -2,12 +2,13 @@
 import React, { Component } from 'react'
 import style from './index.scss'
 import Comment from './comment'
+import Share from './share'
 
 class Detail extends Component {
 
     render(){
         return (
-            <div>
+            <div className={ style.bgColor }>
                 <div  className={ style.headerbar }>
                     {/* 背景图 */}
                     <img className={ style.bgImg } src= { `/img/detail/bg/item1.jpg` } alt=""/>
@@ -26,10 +27,7 @@ class Detail extends Component {
                         </div>
                     </div>
                 </div>
-
-                {/* 内容 */}
-                <div className={ style.contentbox }>
-                    <div className={ style.content }>
+                <div className={ style.content }>
                         <p className={ style.times }>发表时间：2018年8月23日 18:20</p>
                         {/* 文字 */}
                         {/* 照片  (照片描述)*/}
@@ -62,16 +60,14 @@ class Detail extends Component {
                         {/* <div className={ style.videoGroup }>
                             <video src="/img/detail/content/video/item1.mp4" controls></video>
                         </div> */}
+
+                        {/* 分享组件 */}
+                        <Share />
+
+                        {/* 评论组件 */}
+                        <Comment />
                     </div>
                     
-                    {/* 右侧推荐栏 */}
-                    <div className={ style.rec }>
-                        推荐
-                    </div>
-                </div>
-
-                {/* 评论组件 */}
-                <Comment />
             </div>
         )
     }

@@ -2,7 +2,111 @@
 @import '../../commonStyle/commonSet';
 
 .commentbox{
-    @extend .container;
+
+    border-top:1px solid $hrColor;
+    // @extend .container;
+
+    padding-top:15px;
+
+    .textarea{
+        @include wh(100%, 120px);
+        padding: 10px;
+        @extend .boxSizing;
+        resize:none;
+        outline: 0;
+        border:1px solid $BorderColor;
+        font-size:16px;
+        color:$textColor;
+        @include radius(5px);
+    }
+    .like{
+        margin-bottom:15px;
+        ul{
+            font-size:0;
+        }
+        li{
+            list-style: none;
+            @include wh(50px, 50px);
+            @include radius(5px);
+            display: inline-block;
+            overflow: hidden;
+            margin:0 7px 7px 0;
+            img{
+                @include wh(100%);
+            }
+        }
+    }
+    .btnGroup{
+        &:after{
+            @include afterClear;
+        }
+    }
+    .submitbtn{
+        float: right;
+        padding:5px 20px;
+        border: 0;
+        outline: 0;
+        font-size:16px;
+        color:white;
+        @include bg($Ncolor);
+        cursor: pointer;
+        @include transition(.1s);
+        @include radius;
+        &:hover{
+            @include bg($Ncolor - 30);
+        }
+    }
+    .btnGroup{
+        span{
+            float: left;
+            margin-left:10px;
+            
+        }
+        label,
+        i{
+            font-size:20px;
+            cursor: pointer;
+        }
+
+        .file{
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            color:#f2a4a2;
+            input{
+                // border: 1px solid red;
+                @include wh(23px);
+                position: relative;
+                z-index: 2;
+                opacity: 0;
+                z-index:1;
+            }
+            label{
+                position: absolute;
+                left:0;
+                top:0;
+                z-index: 2;
+                cursor: pointer;
+            }
+
+            &:hover{
+                color:#f16b66;
+            }
+        }
+        .face{
+            color:orange;
+            &:hover{
+                color:rgb(255, 94, 0);
+            }
+        }
+        .video{
+            color:#acd9b1;
+            &:hover{
+                color:#1ce734;
+            }
+        }
+    }
+    
 }
 
 

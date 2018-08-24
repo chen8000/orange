@@ -1,0 +1,60 @@
+
+@import '../../commonStyle/commonSet.scss';
+
+.share{
+    text-align: right;
+    padding-bottom:15px;
+    font-size:16px;
+    color:$textColor;
+    margin-top:60px;
+
+    a{
+        color:$textColor;
+        text-decoration: none;
+        display: inline-block;
+        margin-left:5px;
+        @include transition;
+        i{
+            font-size:22px;
+        }
+    }
+    .weixin:hover{
+        color:#5fbd38;
+    }
+    .qq:hover{
+        color:#7bbdf3;
+    }
+    .weibo:hover{
+        color:#c33e38;
+    }
+    .qqkongjian:hover{
+        color:#f6c243;
+    }
+
+    .like{
+        color: $textColor;
+        display: inline-block;
+        position: relative;
+        margin-right: 20px;
+        padding-right: 20px;
+        &:after{
+            content: '';
+            display: block;
+            height: 80%;
+            width: 1px;
+            @include bg($BorderColor);
+            position: absolute;
+            bottom:0;
+            right: 0;
+        }
+        i{
+            font-size:25px;
+        }
+    }
+}
+
+
+
+
+
+

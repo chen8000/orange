@@ -37,6 +37,7 @@
     "react": "^16.4.1",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.1",
+    "react-file-input": "^0.2.5",
     "react-router-redux": "^4.0.8",
     "redux": "^4.0.0",
     "resolve": "1.6.0",
