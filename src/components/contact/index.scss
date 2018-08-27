@@ -1,0 +1,371 @@
+
+@import '../commonStyle/commonSet.scss';
+
+$padding:10px;
+
+.bodyBg{
+    @include bg($Gbg);
+    position: relative;
+}
+.contact{
+    @include wh(70%, 80%);
+    @include radius(5px);
+    @include bg(white);
+    @include positionCenter;
+    margin:0 auto;
+    // overflow: hidden;
+    border: 1px solid $BorderColor;
+}
+.left{
+    @include wh(300px,100%);
+    @extend .boxSizing;
+    float: left;
+    // padding:$padding 0;
+    border-right: 1px solid $hrColor;
+    overflow: scroll;
+
+    .friendList{
+        padding-left:$padding;
+        list-style: none;
+        cursor: pointer;
+
+        .friendInfo{
+            padding:$padding;
+            padding-left:0;
+            border-bottom:1px solid $hrColor;
+
+            &:after{
+                @include afterClear;
+            }
+        }
+
+        &:hover{
+            @include bg($infoBg);
+        }
+
+        &:last-child .friendInfo{
+            border-bottom:0;
+        }
+
+        .headImg{
+            @include wh(40px, 40px);
+            @include radius(5px);
+            overflow: hidden;
+            float: left;
+            img{
+                @include wh(100%);
+            }
+        }
+        .username{
+            float: left;
+            @include wh(calc(100% - 40px));
+            @extend .boxSizing;
+            padding-left:$padding;
+
+            p,
+            h3{
+                @include clamp;
+                font-size:15px;
+                font-weight: normal;
+            }
+            p{
+                margin-top:2px;
+                font-size:12px;
+                color:rgb(180, 180, 180);
+            }
+        }
+    }
+    .friendActive{
+        @include bg($contactActive);
+
+        &:hover{
+            @include bg($contactActive);
+        }
+    }
+}
+.right{
+    float: left;
+    @include wh(calc(100% - 300px), 100%);
+}
+.info{
+    @include wh(100%, calc(100% - 200px));
+    @include bg($infoBg);
+    // padding:$padding;
+    @extend .boxSizing;
+}
+.enter{
+    @include wh(100%, 199px);
+    border-top:1px solid $hrColor;
+    padding:$padding;
+    @extend .boxSizing;
+}
+.form{
+    @include wh(100%, 100%);
+}
+.textarea{
+    @include wh(100%, 100%);
+    @extend .boxSizing;
+    padding-bottom:45px;
+    // border:1px solid red;
+    position: relative;
+
+    
+    textarea{
+        border:0;
+        outline: 0;
+        resize: none;
+        @include wh(100%, 100%);
+        font-size:16px;
+        color:$textColor;
+    }
+
+    .submit{
+        border:0;
+        outline: 0;
+        position: absolute;
+        right:0;
+        bottom:0;
+        @include bg(#5585ec);
+        color:white;
+        padding: 6px 30px;
+        cursor: pointer;
+        font-size:13px;
+
+        &:hover{
+            @include bg(#2162ec);
+        }
+    }
+
+}
+
+.infobar{
+    @include wh(100%, 49px);
+    @extend .boxSizing;
+    @include lineCenter(49px);
+    border-bottom: 1px solid $BorderColor;
+    padding:0 $padding;
+    position: relative;
+    color:$textColor;
+    display: block;
+
+    h3{
+        float: left;
+        widows: 80%;
+        max-width: 80%;
+    }
+    i{
+        float: right;
+        font-size:20px;
+    }
+
+    &:after{
+        @include afterClear;
+    }
+}
+
+.infoContainer{
+    @include wh(100%, calc(100% - 50px));
+    @extend .boxSizing;
+    padding: $padding $padding*2;
+    overflow: scroll;
+
+    &:after{
+        @include afterClear;
+    }
+
+    .infoLeft,
+    .infoRight{
+        font-size:15px;
+        color:$textColor;
+        margin-bottom:$padding;
+        &:after{
+            @include afterClear;
+        }
+        .infoImg{
+            @include wh(45px, 45px);
+            @include radius(5px);
+            overflow: hidden;
+            float: left;
+            img{
+                @include wh(100%);
+            }
+        }
+        .infos{
+            @include wh(calc(100% - 45px));
+            // @include bg(orange);
+            @extend .boxSizing;
+            padding:0 $padding $padding;
+    
+            float: left;
+    
+            h3{
+                font-size:15px;
+                color: rgb(185, 185, 185);
+                font-weight: normal;
+            }
+            p{
+                @include bg(white);
+                @include radius(5px);
+                padding:$padding;
+                position: relative;
+                display: inline-block;
+                margin-top:3px;
+    
+                &:after{
+                    @include afterBlock;
+                    position: absolute;
+                    top:8px;
+                    left:-15px;
+                    border:8px solid rgba(255, 255, 255, 0);
+                    border-right:8px solid white;
+                }
+            }
+        }
+    }
+
+    .infoRight{
+
+        .infoImg{
+            float: right;
+        }
+        .infos{
+            float: right;
+            text-align: right;
+
+            h3{
+                display: none;
+            }
+            p{
+                @include bg(#b0e46e);
+                &:after{
+                    top:10px;
+                    left:inherit;
+                    right:-15px;
+                    border:8px solid rgba(255, 255, 255, 0);
+                    border-left:8px solid #b0e46e;
+
+                }
+            }
+        }
+    }
+    
+}
+
+.mobilebar{
+    display: none;
+    @extend .boxSizing;
+}
+
+/*--------------  1199*/
+@media all and (max-width: 1199px){
+    .contact{
+        @include wh(90%, 90%);
+    }
+    .left{
+        @include wh(260px,100%);
+    }
+    .right{
+        @include wh(calc(100% - 260px), 100%);
+    }
+}
+
+/*-------------- 992 pad*/
+@media all and (max-width: 992px){
+    .contact{
+        @include wh(95%, 80%);
+    }
+    .left{
+        @include wh(210px,100%);
+    }
+    .right{
+        @include wh(calc(100% - 210px), 100%);
+    }
+}
+
+/*-------------- 767  phone*/
+@media all and (max-width: 767px){
+    .bodyBg{
+        @include bg(white);
+    }
+    .mobilebar{
+        clear: both;
+        display: block;
+        border-top:1px solid $hrColor;
+        @include wh(100%);
+        padding:$padding;
+        
+        // transform: translateY(100%);
+
+        span{
+            display: inline-block;
+            @include wh(50%);
+            text-align: center;
+            position: relative;
+            &:after{
+                @include afterBlock;
+                position: absolute;
+                right:0;
+                top:0;
+                height:100%;
+                width:1px;
+                @include bg($hrColor);
+            }
+            &:last-child:after{
+                display: none;
+            }
+
+            i{
+                font-size:20px;
+                color: $textColor;
+            }
+        }
+        
+    }
+    .contact{
+        border: 0;
+        @include wh(100%, 85%);
+    }
+    .left{
+        @include wh(100%,100%);
+    }
+    .right{
+        @include wh(100%, 100%);
+    }
+    .enter{
+        @include wh(100%, 130px);
+        border-top:1px solid $hrColor;
+        padding:$padding;
+    }
+    .info{
+        @include wh(100%, calc(100% - 130px));
+    }
+    .textarea .submit{
+        @include wh(100%);
+        @include radius(5px);
+    }
+    .infoContainer{
+        .infoLeft,
+        .infoRight{
+            .infos{
+                h3{
+                    font-size:12px;
+                }
+                p{
+                    font-size:13px;
+                }
+            }
+        }
+    }
+
+
+
+
+    .mobileTab{
+        display:none;
+    }
+    
+}
+
+
+
+

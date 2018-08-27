@@ -15,6 +15,7 @@ import News from '../components/news'
 import Circle from '../components/circle'
 import GoTop from '../components/goTop'
 import Detail from '../components/detail'
+import Contact from '../components/contact'
 
 
 // app style
@@ -47,6 +48,7 @@ class App extends Component {
                         <Route path="/news" component={ News } />
                         <Route path="/circle" component={ Circle } />
                         <Route path="/detail" component={ Detail }/>
+                        <Contact path="/contact" component={ Contact } />
                         <Redirect to="/home"/>
                     </Switch>
                 <GoTop />
