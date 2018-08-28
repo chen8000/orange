@@ -40,6 +40,7 @@ class App extends Component {
         let pathname = this.props.location.pathname.split('/')
 
         if(!pathname.includes('admin')){
+            // 前台页面
             return (
                 <div className={ style.app }>
                     <Header res = { res } />
@@ -57,6 +58,7 @@ class App extends Component {
                 </div>
             )
         }else{
+            // 管理页面
             return (
                 // <div>
                     <Switch>

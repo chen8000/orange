@@ -1,0 +1,12 @@
+
+@import '../../commonStyle/commonSet.scss';
+$padding:10px;
+$headerH:40px;
+
+.header{
+    // @include wh(100%, $headerH);
+    border-bottom:1px solid red;
+    padding:0 15px;
+    @extend .boxSizing;
+    @include lineCenter($headerH);
+}

@@ -1,0 +1,10 @@
+
+@import '../../commonStyle/commonSet.scss';
+
+.left{
+    @include wh(200px, calc(100% - 40px));
+    border-right: 1px solid red;
+    display: inline-block;
+    @extend .boxSizing;
+    padding:10px;
+}

@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import { __HOST_API__ } from '../../module/apiConfig'
+import { __HOST_API__ } from '../../module/globalConfig'
 import { addClass, hasClass, removeClass, addEvent, getScrollTop, dev } from '../../module/tools'
 import style from './index.scss'
 

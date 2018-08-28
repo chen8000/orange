@@ -1,0 +1,12 @@
+
+@import '../../commonStyle/commonSet.scss';
+
+.right{
+    display: inline-block;
+    @include wh(calc(100% - 300px), calc(100% - 40px));
+    @extend .boxSizing;
+    padding:10px;
+}
+
+
+
