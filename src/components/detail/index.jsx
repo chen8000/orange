@@ -6,9 +6,14 @@ import Share from './share'
 
 class Detail extends Component {
 
+    // 从别的页面进来后滚动条回到顶部
+    componentDidMount(){
+        this.view.scrollIntoView()
+    }
+
     render(){
         return (
-            <div className={ style.bgColor }>
+            <div ref={ ele => this.view = ele } className={ style.bgColor }>
                 <div  className={ style.headerbar }>
                     {/* 背景图 */}
                     <img className={ style.bgImg } src= { `/img/detail/bg/item1.jpg` } alt=""/>
