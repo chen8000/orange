@@ -5,8 +5,10 @@ import { connect } from 'react-redux'
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { headerNavBar, headerScroll, mbNavBar } from '../redux/actions'
+// app style
+import style from './app.scss'
 
-// 自定义组件
+// 自定义组件(前端)
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Home from '../components/home'
@@ -17,11 +19,8 @@ import GoTop from '../components/goTop'
 import Detail from '../components/detail'
 import Contact from '../components/contact'
 
-
-// app style
-import style from './app.scss'
-
-
+// 自定义组件(后台)
+import Admin from '../components/admin'
 
 class App extends Component {
 
@@ -59,9 +58,12 @@ class App extends Component {
             )
         }else{
             return (
-                <div>
-                    后台模版
-                </div>
+                // <div>
+                    <Switch>
+                        <Route path="/admin" component={ Admin } />
+                        <Redirect to="/admin" />
+                    </Switch>
+                // </div>
             )
         }
         
