@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-// import { NavBar } from '../../route/config'
+import { __HOST_API__ } from '../../module/apiConfig'
 import { addClass, hasClass, removeClass, addEvent, getScrollTop, dev } from '../../module/tools'
 import style from './index.scss'
 
@@ -33,7 +33,7 @@ class Header extends Component {
     componentWillMount(){
 
         // 请求导航
-        fetch('http://chenzhanghui.vip/api')
+        fetch(`${__HOST_API__}/headerBar`)
             .then(res => {
                 return res.json()
             })
