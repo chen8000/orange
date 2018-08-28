@@ -21,12 +21,12 @@ class Header extends Component {
 
          // 注册window scroll 事件
          this.headerScroll()
-
         // 监听浏览器的前进后退按钮
         addEvent(window, 'popstate', () => {
-            this.initStart()
+            if(this.navBarContainer){
+                this.initStart()
+            }
         })
-
     }
 
     // 组件将要渲染数据

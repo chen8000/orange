@@ -37,24 +37,35 @@ class App extends Component {
     render(){
         
         let {  ...res } = this.props
-        
-        return (
-            <div className={ style.app }>
-                <Header res = { res } />
 
-                    <Switch>
-                        <Route path="/home" component={ Home } />
-                        <Route path="/aboutUs" component={ AboutUs } />
-                        <Route path="/news" component={ News } />
-                        <Route path="/circle" component={ Circle } />
-                        <Route path="/detail" component={ Detail }/>
-                        <Contact path="/contact" component={ Contact } />
-                        <Redirect to="/home"/>
-                    </Switch>
-                <GoTop />
-                <Footer />
-            </div>
-        )
+        let pathname = this.props.location.pathname.split('/')
+
+        if(!pathname.includes('admin')){
+            return (
+                <div className={ style.app }>
+                    <Header res = { res } />
+                        <Switch>
+                            <Route path="/home" component={ Home } />
+                            <Route path="/aboutUs" component={ AboutUs } />
+                            <Route path="/news" component={ News } />
+                            <Route path="/circle" component={ Circle } />
+                            <Route path="/detail" component={ Detail }/>
+                            <Contact path="/contact" component={ Contact } />
+                            <Redirect to="/home"/>
+                        </Switch>
+                    <GoTop />
+                    <Footer />
+                </div>
+            )
+        }else{
+            return (
+                <div>
+                    后台模版
+                </div>
+            )
+        }
+        
+        
     }
 }
 

@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import style from './index.scss'
 
-import { addEvent, getScrollTop, goTop } from '../../module/tools'
+import { addEvent, getScrollTop, removeEvent, goTop } from '../../module/tools'
 
 class GoTop extends Component {
 
@@ -15,6 +15,9 @@ class GoTop extends Component {
 
         // 注册滚动条事件
         addEvent(window, 'scroll', this.winScroll)
+    }
+    componentWillUnmount(){
+        removeEvent(window, 'scroll', this.winScroll)
     }
     // 滚动条触发函数
     winScroll = () => {
