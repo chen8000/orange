@@ -6,7 +6,12 @@ class Header extends Component {
     render(){
         return (
             <div className={ style.header }>
-                header
+                <div className={ style.left }>
+                    <img src="/img/admin/header/logo.png" alt=""/>
+                </div>
+                <div className={ style.right }>
+
+                </div>
             </div>
         )
     }

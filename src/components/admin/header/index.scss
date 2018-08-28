@@ -4,9 +4,13 @@ $padding:10px;
 $headerH:40px;
 
 .header{
-    // @include wh(100%, $headerH);
-    border-bottom:1px solid red;
     padding:0 15px;
     @extend .boxSizing;
-    @include lineCenter($headerH);
+    @include wh(100%, $headerH);
+    @include bg($Ncolor);
+}
+.left{
+    img{
+        @include wh(130px)
+    }
 }
