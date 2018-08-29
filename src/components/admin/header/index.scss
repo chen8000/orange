@@ -8,9 +8,85 @@ $headerH:40px;
     @extend .boxSizing;
     @include wh(100%, $headerH);
     @include bg($Ncolor);
+
+    &:after{
+        @include afterClear;
+    }
 }
 .left{
+    float: left;
+    overflow: hidden;
+    @include wh(130px, $headerH);
     img{
-        @include wh(130px)
+        @include wh(100%);
+    }
+}
+.right{
+    @include wh(auto, $headerH);
+    float: right;
+    
+    
+}
+.item{
+    float: right;
+    padding:0 15px;
+    cursor: pointer;
+    @include wh(auto, $headerH);
+    @include bg(rgba(0, 0, 0, 0));
+    @include transition;
+    &:hover{
+        @include bg(rgba(0, 0, 0, 0.1));
+    }
+    .ava{
+        display: inline-block;
+        overflow: hidden;
+        @include wh(30px, 30px);
+        @include radius(50%);
+        @include bg(white);
+        @include positionTBcenter(relative);
+
+        img{
+            @include wh(100%);
+        }
+    }
+    .exit{
+        @include lineCenter($headerH);
+        color:white;
+        i{
+            @include lineCenter($headerH);
+            display: inline-block;
+            margin-right:5px;
+            font-size:25px;
+            color:white;
+        }
+        span{
+            float: right;
+            @include lineCenter($headerH);
+            font-size:13px;
+        }
+        
+    }
+
+    .setting{
+        color: white;
+        @include lineCenter($headerH);
+        text-align: center;
+        i{
+            display: inline-block;
+            font-size:30px;
+            animation: sitting-max 20s linear infinite;
+        }
+        
+    }
+}
+
+// 设置动画
+@keyframes sitting-max {
+    0%{
+        transform-origin: center center;
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
     }
 }
