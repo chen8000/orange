@@ -22,42 +22,83 @@ class Left extends Component {
                     child:[
                         {
                             key:'头图1',
-                            toPath:'/admin/homeBanner'
+                            toPath:'/admin/homeBanner1'
                         },
                         {
                             key:'头图2',
-                            toPath:'/admin/homeBanner'
+                            toPath:'/admin/homeBanner2'
                         },
                         {
                             key:'头图3',
-                            toPath:'/admin/homeBanner'
+                            toPath:'/admin/homeBanner3'
                         },
                         {
                             key:'头图4',
-                            toPath:'/admin/homeBanner'
+                            toPath:'/admin/homeBanner4'
                         }
                     ]
                 },
                 {
                     key:'圈子',
                     icon:'icon-shouye1',
-                    toPath:'/admin/header',
-                    slid:false
+                    slid:false,
+                    child:[
+                        {
+                            key:'头图1',
+                            toPath:'/admin/homeBanner1'
+                        },
+                        {
+                            key:'头图2',
+                            toPath:'/admin/homeBanner2'
+                        },
+                        {
+                            key:'头图3',
+                            toPath:'/admin/homeBanner3'
+                        },
+                        {
+                            key:'头图4',
+                            toPath:'/admin/homeBanner4'
+                        }
+                    ]
                 },
                 {
                     key:'管理',
                     icon:'icon-shouye1',
-                    toPath:'/admin/header',
-                    slid:false
+                    slid:false,
+                    child:[
+                        {
+                            key:'头图1',
+                            toPath:'/admin/homeBanner1'
+                        },
+                        {
+                            key:'头图2',
+                            toPath:'/admin/homeBanner2'
+                        },
+                        {
+                            key:'头图3',
+                            toPath:'/admin/homeBanner3'
+                        },
+                        {
+                            key:'头图4',
+                            toPath:'/admin/homeBanner4'
+                        }
+                    ]
                 }
             ]
         }
     }
 
-    bar = i => {
+    bar = index => {
         let { bar } = this.state
 
-        bar[i].slid = !bar[i].slid
+        bar.map((res, i) => {
+            if(res.slid & i !== index){
+                res.slid = false
+            }
+            return res
+        })
+
+        bar[index].slid = !bar[index].slid
 
         this.setState({ bar })
     }
@@ -78,7 +119,7 @@ class Left extends Component {
                                     res.toPath ? 
                                         // 没有子列表，直接跳转
                                         <div className={ style.bar_1 }>
-                                            <NavLink className={ style.bar_1_a } to={ res.toPath }>
+                                            <NavLink activeClassName={ style.thisLink } className={ style.bar_1_a } to={ res.toPath }>
                                                 <i className={`iconfont ${res.icon} ${ style.startLink }`}></i>
                                                 <i className={ `iconfont icon-lianjie ${style.endLink}` }></i>
                                                 { res.key }
@@ -104,7 +145,7 @@ class Left extends Component {
                                                                 (res, i) => 
                                                                     // 子列表直接跳转
                                                                     <li className={ style.toComponent } key={ i }>
-                                                                        <NavLink to={ res.toPath }>
+                                                                        <NavLink activeClassName={ style.thisLink } to={ res.toPath }>
                                                                             <i className='iconfont icon-lianjie'></i>{ res.key }
                                                                         </NavLink>
                                                                     </li>

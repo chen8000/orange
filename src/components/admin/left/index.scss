@@ -76,7 +76,18 @@ $padding:10px;
         padding:$padding;
         border-bottom:1px solid rgb(87, 87, 87);
     }
+    .thisLink{
+        position: relative;
 
+        &:after{
+            @include afterBlock;
+            @include wh(3px, 100%);
+            @include bg($Ncolor);
+            position: absolute;
+            left:0;
+            top:0;
+        }
+    }
     
 }
 .toComponent{
@@ -115,9 +126,12 @@ $padding:10px;
 .bar_2{
     max-height: 0px;
     overflow: hidden;
-    animation: bar_2 1s ease-in-out forwards;
+    animation: bar_2 .8s ease-in-out forwards;
 }
 
+
+
+// bar展开动画
 @keyframes bar_2 {
     0%{
         max-height: 0px;
