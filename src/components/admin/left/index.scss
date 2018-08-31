@@ -112,3 +112,17 @@ $padding:10px;
         display: inline-block;
     }
 }
+.bar_2{
+    max-height: 0px;
+    overflow: hidden;
+    animation: bar_2 1s ease-in-out forwards;
+}
+
+@keyframes bar_2 {
+    0%{
+        max-height: 0px;
+    }
+    100%{
+        max-height:1000px;
+    }
+}
