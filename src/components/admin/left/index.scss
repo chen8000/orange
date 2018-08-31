@@ -5,18 +5,23 @@ $padding:10px;
 
 .left{
     @include wh(200px, calc(100% - 40px));
-    border-right: 1px solid $BorderColor;
-    float: left;
     @extend .boxSizing;
     @include bg(#333);
+    border-right: 1px solid $BorderColor;
+    float: left;
     color:white;
     padding:$padding 0;
 }
 .smallOrange{
-    border-bottom:1px solid white;
-    padding:$padding;
     @extend .boxSizing;
-    font-size:18px;
+    a{
+        display: block;
+        padding:$padding;
+        border-bottom:1px solid white;
+        color: white;
+        text-decoration: none;
+        font-size:18px;
+    }
 
     i{
         font-size:20px;

@@ -11,7 +11,7 @@ class Left extends Component {
             bar:[
                 {
                     key:'导航',
-                    toPath:'/admin/header',
+                    toPath:'/admin/navbar',
                     icon:'icon-shouye1',
                     slid:false
                 },
@@ -108,8 +108,11 @@ class Left extends Component {
         return (
             <div className={ style.left }>
                 <h3 className={ style.smallOrange }>  
-                    <i className="iconfont icon-guanli"></i> 
-                    Small Orange
+                    <NavLink to="/admin">
+                        <i className="iconfont icon-guanli"></i> 
+                        Small Orange
+                    </NavLink>
+                    
                 </h3>
                 <ul>
                     {
