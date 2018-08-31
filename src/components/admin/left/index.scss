@@ -1,10 +1,114 @@
 
 @import '../../commonStyle/commonSet.scss';
 
+$padding:10px;
+
 .left{
     @include wh(200px, calc(100% - 40px));
     border-right: 1px solid $BorderColor;
-    display: inline-block;
+    float: left;
     @extend .boxSizing;
-    padding:10px;
+    @include bg(#333);
+    color:white;
+    padding:$padding 0;
+}
+.smallOrange{
+    border-bottom:1px solid white;
+    padding:$padding;
+    @extend .boxSizing;
+    font-size:18px;
+
+    i{
+        font-size:20px;
+        display: inline-block;
+        margin-right:$padding;
+        color: $Gcolor;
+    }
+}
+
+.root{
+    .rootTitle{
+        border-bottom:1px solid rgb(87, 87, 87);
+        padding:$padding;
+        font-weight: normal;
+        font-size:16px;
+        cursor: pointer;
+        position: relative;
+
+        .toChild{
+            position: absolute;
+            right:0;
+            transform: rotate(90deg);
+            font-size:14px;
+            opacity: 0;
+            @include transition;
+        }
+        &:hover{
+            @include bg($leftHover);
+        }
+        &:hover .toChild{
+            opacity: 1;
+            transform:rotate(90deg) translateX(50%);
+        }
+    }
+    .rootTitleActive{
+        border-bottom:1px solid rgba(0,0,0,0);
+        @include bg($childBg);
+
+        .toChild{
+            opacity:1;
+            transform:rotate(90deg) translateX(50%);
+        }
+    }
+
+
+    i{
+        display: inline-block;
+        margin-right:$padding;
+        font-size:22px;
+    }
+    
+    a{
+        color:white;
+        text-decoration: none;
+        font-size:15px;
+        display: block;
+        padding:$padding;
+        border-bottom:1px solid rgb(87, 87, 87);
+    }
+
+    
+}
+.toComponent{
+    cursor: pointer;
+    @include bg($childBg);
+
+    i{
+        opacity: 0;
+        color:orange;
+    }
+    &:hover i{
+        opacity: 1;
+    }
+    a{
+        padding:$padding;
+        border:0;
+    }
+}
+
+.bar_1_a{
+    position: relative;
+    .endLink{
+        display: none;
+        color:orange;
+    }
+    .startLink{
+        display: inline-block;
+    }
+    &:hover .startLink{
+        display: none;
+    }
+    &:hover .endLink{
+        display: inline-block;
+    }
 }

@@ -7,7 +7,8 @@ class Header extends Component {
         return (
             <div className={ style.header }>
                 <div className={ style.left }>
-                    <img src="/img/admin/header/logo.png" alt=""/>
+                    <i className="iconfont icon-ORANGE"></i> orange
+                    {/* <img src="/img/admin/header/logo.png" alt=""/> */}
                 </div>
                 <div className={ style.right }>
                     {/* 设置 */}

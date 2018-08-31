@@ -4,7 +4,7 @@ $padding:10px;
 $headerH:40px;
 
 .header{
-    padding:0 15px;
+    padding:0 10px;
     @extend .boxSizing;
     @include wh(100%, $headerH);
     @include bg($Ncolor);
@@ -15,10 +15,12 @@ $headerH:40px;
 }
 .left{
     float: left;
-    overflow: hidden;
-    @include wh(130px, $headerH);
-    img{
-        @include wh(100%);
+    @include lineCenter($headerH);
+    color:orange;
+    font-size:14px;
+    i{
+        color: white;
+        font-size:30px;
     }
 }
 .right{
