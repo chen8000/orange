@@ -8,6 +8,9 @@ export const HEADERSCROLL = 'HEADERSCROLL'
 // 下拉菜单展开收起
 export const DISTANCE = 'DISTANCE'
 
+// 管理页面 pages title
+export const ADMINPAGESTITLE = 'ADMINPAGESTITLE'
+
 
 
 

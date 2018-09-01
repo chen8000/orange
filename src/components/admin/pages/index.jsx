@@ -13,7 +13,7 @@ class Pages extends Component{
             <div>
                 <Switch>
                     <Route path="/admin" component={ Home } exact/>
-                    <Route path="/admin/navbar" component={ NavBar }/>
+                    <Route path="/admin/navbar" component={ NavBar } exact/>
                     <Redirect to="/admin"/>
                 </Switch>
             </div>

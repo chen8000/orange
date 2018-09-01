@@ -2,7 +2,7 @@
 
 import { combineReducers } from 'redux'
 
-import { HEADERNAVBAR, HEADERSCROLL, DISTANCE } from './action-types'
+import { HEADERNAVBAR, HEADERSCROLL, DISTANCE, ADMINPAGESTITLE } from './action-types'
 
 // 初始 state
 const InitState = {
@@ -20,6 +20,12 @@ const InitState = {
     // 下拉菜单展开收起
     distance:{
         l:'-100%'
+    },
+
+    // 管理页面 pages title
+    adminPagesTitle:{
+        title:'首页',
+        icon:'icon-shouye1'
     }
 
 }
@@ -54,6 +60,16 @@ function reducers( state = InitState, action ){
             distance.l = action.data.l
 
         return  { distance, ...state }
+
+        // 管理页面pages title
+        case ADMINPAGESTITLE :
+
+            let { adminPagesTitle } = state
+            
+            adminPagesTitle.title = action.data.title
+            adminPagesTitle.icon = action.data.icon
+
+        return { adminPagesTitle, ...state }
 
         // 默认
         default :

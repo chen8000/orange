@@ -2,6 +2,8 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import style from './index.scss'
+import { connect } from 'react-redux'
+import { adminPagesTitle } from '../../../redux/actions'
 
 class Left extends Component {
     constructor(props){
@@ -86,6 +88,8 @@ class Left extends Component {
                 }
             ]
         }
+
+
     }
 
     bar = index => {
@@ -99,8 +103,15 @@ class Left extends Component {
         })
 
         bar[index].slid = !bar[index].slid
-
         this.setState({ bar })
+
+    }
+
+    // 修改 pages title
+    pagesTitle = res => {
+        this.props.adminPagesTitle({title:res.key, icon:res.icon})
+
+        
     }
 
     render(){
@@ -108,11 +119,10 @@ class Left extends Component {
         return (
             <div className={ style.left }>
                 <h3 className={ style.smallOrange }>  
-                    <NavLink to="/admin">
+                    <NavLink onClick={ () => { this.pagesTitle({key:'首页', icon:'icon-shouye1'}) } } to="/admin">
                         <i className="iconfont icon-guanli"></i> 
                         Small Orange
                     </NavLink>
-                    
                 </h3>
                 <ul>
                     {
@@ -122,7 +132,12 @@ class Left extends Component {
                                     res.toPath ? 
                                         // 没有子列表，直接跳转
                                         <div className={ style.bar_1 }>
-                                            <NavLink activeClassName={ style.thisLink } className={ style.bar_1_a } to={ res.toPath }>
+                                            <NavLink 
+                                                onClick={ () => { this.pagesTitle({key:res.key, icon:res.icon}) } } 
+                                                activeClassName={ style.thisLink } 
+                                                className={ style.bar_1_a } 
+                                                to={ res.toPath }>
+
                                                 <i className={`iconfont ${res.icon} ${ style.startLink }`}></i>
                                                 <i className={ `iconfont icon-lianjie ${style.endLink}` }></i>
                                                 { res.key }
@@ -132,7 +147,7 @@ class Left extends Component {
                                         (
                                             // 有子列表 不跳转
                                             <div className={ style.bar_1 }>
-                                                <h2 onClick={ e => this.bar(i) } 
+                                                <h2 onClick={ e => this.bar(i)  } 
                                                     className={ `${style.rootTitle} ${ res.slid ? style.rootTitleActive : ''}` }>
                                                     <i className={`iconfont ${res.icon}`}></i>
                                                     { res.key }
@@ -145,11 +160,13 @@ class Left extends Component {
                                                         {
                                                             res.child ? 
                                                             res.child.map(
-                                                                (res, i) => 
+                                                                (resC, i) => 
                                                                     // 子列表直接跳转
-                                                                    <li className={ style.toComponent } key={ i }>
-                                                                        <NavLink activeClassName={ style.thisLink } to={ res.toPath }>
-                                                                            <i className='iconfont icon-lianjie'></i>{ res.key }
+                                                                    <li 
+                                                                        onClick={ () => { this.pagesTitle({key:resC.key, icon:res.icon}) } } 
+                                                                        className={ style.toComponent } key={ i }>
+                                                                        <NavLink activeClassName={ style.thisLink } to={ resC.toPath }>
+                                                                            <i className='iconfont icon-lianjie'></i>{ resC.key }
                                                                         </NavLink>
                                                                     </li>
                                                             ) : null
@@ -169,7 +186,10 @@ class Left extends Component {
     }
 }
 
-export default Left
+export default connect(
+    state => ({res:state.reducers}),
+    { adminPagesTitle }
+)(Left)
 
 
 
