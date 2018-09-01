@@ -1,5 +1,11 @@
 
+@import '../../../commonStyle/commonSet.scss';
+
 .navbar{
+    @include bg(white);
+    border:1px solid $BorderColor;
+    @include radius(5px);
+    padding:10px;
 }
 
 
