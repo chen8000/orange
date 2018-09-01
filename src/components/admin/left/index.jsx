@@ -4,92 +4,13 @@ import { NavLink } from 'react-router-dom'
 import style from './index.scss'
 import { connect } from 'react-redux'
 import { adminPagesTitle } from '../../../redux/actions'
+import { bar } from './todos'
 
 class Left extends Component {
     constructor(props){
         super(props)
 
-        this.state = {
-            bar:[
-                {
-                    key:'导航',
-                    toPath:'/admin/navbar',
-                    icon:'icon-shouye1',
-                    slid:false
-                },
-                {
-                    key:'首页',
-                    icon:'icon-shouye1',
-                    slid:false,
-                    child:[
-                        {
-                            key:'头图1',
-                            toPath:'/admin/homeBanner1'
-                        },
-                        {
-                            key:'头图2',
-                            toPath:'/admin/homeBanner2'
-                        },
-                        {
-                            key:'头图3',
-                            toPath:'/admin/homeBanner3'
-                        },
-                        {
-                            key:'头图4',
-                            toPath:'/admin/homeBanner4'
-                        }
-                    ]
-                },
-                {
-                    key:'圈子',
-                    icon:'icon-shouye1',
-                    slid:false,
-                    child:[
-                        {
-                            key:'头图1',
-                            toPath:'/admin/homeBanner1'
-                        },
-                        {
-                            key:'头图2',
-                            toPath:'/admin/homeBanner2'
-                        },
-                        {
-                            key:'头图3',
-                            toPath:'/admin/homeBanner3'
-                        },
-                        {
-                            key:'头图4',
-                            toPath:'/admin/homeBanner4'
-                        }
-                    ]
-                },
-                {
-                    key:'管理',
-                    icon:'icon-shouye1',
-                    slid:false,
-                    child:[
-                        {
-                            key:'头图1',
-                            toPath:'/admin/homeBanner1'
-                        },
-                        {
-                            key:'头图2',
-                            toPath:'/admin/homeBanner2'
-                        },
-                        {
-                            key:'头图3',
-                            toPath:'/admin/homeBanner3'
-                        },
-                        {
-                            key:'头图4',
-                            toPath:'/admin/homeBanner4'
-                        }
-                    ]
-                }
-            ]
-        }
-
-
+        this.state = { bar }
     }
 
     bar = index => {
@@ -104,14 +25,10 @@ class Left extends Component {
 
         bar[index].slid = !bar[index].slid
         this.setState({ bar })
-
     }
-
     // 修改 pages title
     pagesTitle = res => {
-        this.props.adminPagesTitle({title:res.key, icon:res.icon})
-
-        
+        this.props.adminPagesTitle({title:res.key, icon:res.icon})  
     }
 
     render(){
