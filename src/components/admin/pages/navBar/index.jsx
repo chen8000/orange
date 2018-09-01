@@ -1,13 +1,13 @@
 
 import React, { Component } from 'react'
-// import style from './index.scss'
+import style from './index.scss'
 
 class NavBar extends Component{
 
     render(){
 
         return (
-            <div>
+            <div className={ style.navbar }>
                 NavBar
             </div>
         )

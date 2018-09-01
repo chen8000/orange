@@ -3,9 +3,26 @@
 
 .right{
     float: left;
-    @include wh(calc(100% - 300px), calc(100% - 40px));
+    @include wh(calc(100% - 200px), calc(100% - 40px));
     @extend .boxSizing;
+    overflow: scroll;
+}
+.titleBar{
+    @include wh(100%);
+    border-bottom:1px solid $BorderColor;
+    padding: 10px;
+    @extend .boxSizing;
+    @include bg(white);
+    font-size:18px;
+    font-weight: normal;
+
+    i{
+        font-size:22px;
+    }
+}
+.pages{
     padding:10px;
+    @extend .boxSizing;
 }
 
 
