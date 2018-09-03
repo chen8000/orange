@@ -1,13 +1,16 @@
 
 import React, { Component } from 'react'
 import style from './index.scss'
+import { Link } from 'react-router-dom'
 
 class Header extends Component {
     render(){
         return (
             <div className={ style.header }>
                 <div className={ style.left }>
-                    <i className="iconfont icon-ORANGE"></i> orange
+                    <Link className={ style.logo } to="/home">
+                        <i className="iconfont icon-ORANGE"></i> orange                    
+                    </Link>
                 </div>
                 <div className={ style.right }>
                     {/* 设置 */}
