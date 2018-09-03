@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import style from './index.scss'
 import { connect } from 'react-redux'
 import { adminPagesTitle } from '../../../redux/actions'
-import { bar } from './todos'
+import { bar } from './config'
 
 class Left extends Component {
     constructor(props){
