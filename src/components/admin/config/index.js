@@ -1,4 +1,5 @@
 
+// left 列表
 export const bar = [
     {
         key:'导航',
