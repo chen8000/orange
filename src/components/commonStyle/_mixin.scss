@@ -111,3 +111,12 @@
     @include bg($h);
     border:1px solid $b;
 }
+
+// 通用块的样式
+@mixin cmsBox{
+    border:1px solid $BorderColor;
+    @include bg(white);
+    padding:10px;
+    @include radius(5px);
+    @include cmsShadow;
+}

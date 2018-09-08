@@ -32,7 +32,9 @@ class List extends Component {
         return (
             <div className={ style.navbar }>
                 <div className={ style.addNabBar }>
-                    <button className={ style.addBtn }>增加导航</button>
+                    <Link to="/admin/navbar/add">
+                        <button className={ style.addBtn }>增加导航</button>
+                    </Link>
                 </div>
                 <div className={ style.tablebox }>
                     <table className={ style.table } border='0' cellPadding='0' cellSpacing='0'>
@@ -53,9 +55,10 @@ class List extends Component {
                                         <td>{ res.key }</td>
                                         <td>{ res.toPath }</td>
                                         <td>
-                                            <Link to="/admin/navbar/edit"><button className={ style.editBtn }>编辑</button></Link>
-                                            
-                                            <button className={ style.deleteBtn }>删除</button>
+                                            <Link to="/admin/navbar/edit">
+                                                <button className={ style.editBtn }>编辑</button>
+                                            </Link>
+                                            <button className={ style.deleteBtn }>删除</button>   
                                         </td>
                                     </tr>
                                 )

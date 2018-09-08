@@ -8,6 +8,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 // 子组件
 import List from './list'
 import Edit from './edit'
+import Add from './add'
 
 class NavBar extends Component{
 
@@ -24,9 +25,10 @@ class NavBar extends Component{
         
         return (
             <Switch>
-                <Route path="/admin/navBar" component={ List } exact/>
+                <Route path="/admin/navbar" component={ List } exact/>
                 <Route path="/admin/navbar/edit" component={ Edit } />
-                <Redirect to="/admin/navBar"/>
+                <Route path="/admin/navbar/add" component={ Add } />
+                <Redirect to="/admin/navbar"/>
             </Switch>
         )
     }
