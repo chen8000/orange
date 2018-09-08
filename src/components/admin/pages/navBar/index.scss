@@ -3,9 +3,10 @@
 
 .navbar{
     @include bg(white);
-    border:1px solid $BorderColor;
+    // border:1px solid $BorderColor;
     @include radius(5px);
-    padding:10px;
+    // padding:10px;
+    @include cmsShadow; 
 }
 .table{
     @include wh(100%);  
@@ -14,14 +15,14 @@
     // border-collapse:collapse;
     // border:1px solid $hrColor;
     th{
-        @include bg(rgb(223, 223, 223));
+        @include bg(rgb(240, 240, 240));
     }
     th, 
     td{
         text-align: center;
         padding:10px;
-        border-bottom:1px solid $hrColor;
-        border-right:1px solid $hrColor;
+        border-bottom:1px solid $tableBorderColor;
+        border-right:1px solid $tableBorderColor;
 
         &:last-child{
             border-right:0;
@@ -34,7 +35,7 @@
     }
 }
 .tablebox{
-    border:1px solid $hrColor;
+    border:1px solid $tableBorderColor;
     border-radius:5px;
     overflow: hidden;
 }

@@ -1,0 +1,11 @@
+
+@import '../../../commonStyle/commonSet.scss';
+.welcome{
+    font-size:200px;
+    color:orange;
+    text-align: center;
+    @include positionCenter;
+}
+
+
+

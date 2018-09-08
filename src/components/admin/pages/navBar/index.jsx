@@ -3,12 +3,15 @@ import React, { Component } from 'react'
 import style from './index.scss'
 import { connect } from 'react-redux'
 import { adminPagesTitle } from '../../../../redux/actions'
+import { thisPageInfo } from '../../config'
 
 class NavBar extends Component{
 
-    componentDidMount(){
+    constructor(props){
+        super(props)
 
-        this.props.adminPagesTitle({ title:'', icon:'' })
+        // 修改页面标题
+        this.props.adminPagesTitle(thisPageInfo(this.props))
     }
 
     render(){

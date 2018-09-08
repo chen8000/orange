@@ -24,7 +24,7 @@ const InitState = {
 
     // 管理页面 pages title
     adminPagesTitle:{
-        title:'首页',
+        key:'首页',
         icon:'icon-shouye1'
     }
 
@@ -66,7 +66,7 @@ function reducers( state = InitState, action ){
 
             let { adminPagesTitle } = state
             
-            adminPagesTitle.title = action.data.title
+            adminPagesTitle.key = action.data.key
             adminPagesTitle.icon = action.data.icon
 
         return { adminPagesTitle, ...state }

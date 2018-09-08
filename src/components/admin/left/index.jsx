@@ -2,15 +2,13 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import style from './index.scss'
-import { connect } from 'react-redux'
-import { adminPagesTitle } from '../../../redux/actions'
-import { bar } from '../config'
+import { bar, barTitle } from '../config'
 
 class Left extends Component {
     constructor(props){
         super(props)
 
-        this.state = { bar }
+        this.state = { bar, barTitle }
     }
 
     bar = index => {
@@ -27,18 +25,18 @@ class Left extends Component {
         this.setState({ bar })
     }
     // 修改 pages title
-    pagesTitle = res => {
-        this.props.adminPagesTitle({title:res.key, icon:res.icon})  
-    }
+    // pagesTitle = res => {
+    //     this.props.adminPagesTitle({title:res.key, icon:res.icon})  
+    // }
 
     render(){
-        let { bar } = this.state
+        let { bar, barTitle } = this.state
         return (
             <div className={ style.left }>
                 <h3 className={ style.smallOrange }>  
-                    <NavLink onClick={ () => { this.pagesTitle({key:'首页', icon:'icon-shouye1'}) } } to="/admin">
-                        <i className="iconfont icon-guanli"></i> 
-                        Small Orange
+                    <NavLink to={ barTitle[0].toPath }>
+                        <i className={`iconfont ${ barTitle[0].icon }`}></i> 
+                        { barTitle[0].key }
                     </NavLink>
                 </h3>
                 <ul>
@@ -49,9 +47,7 @@ class Left extends Component {
                                     res.toPath ? 
                                         // 没有子列表，直接跳转
                                         <div className={ style.bar_1 }>
-                                            <NavLink 
-                                                onClick={ () => { this.pagesTitle({key:res.key, icon:res.icon}) } } 
-                                                activeClassName={ style.thisLink } 
+                                            <NavLink activeClassName={ style.thisLink } 
                                                 className={ style.bar_1_a } 
                                                 to={ res.toPath }>
 
@@ -80,7 +76,7 @@ class Left extends Component {
                                                                 (resC, i) => 
                                                                     // 子列表直接跳转
                                                                     <li 
-                                                                        onClick={ () => { this.pagesTitle({key:resC.key, icon:res.icon}) } } 
+                                                                        
                                                                         className={ style.toComponent } key={ i }>
                                                                         <NavLink activeClassName={ style.thisLink } to={ resC.toPath }>
                                                                             <i className='iconfont icon-lianjie'></i>{ resC.key }
@@ -103,10 +99,7 @@ class Left extends Component {
     }
 }
 
-export default connect(
-    state => ({res:state.reducers}),
-    { adminPagesTitle }
-)(Left)
+export default Left
 
 
 

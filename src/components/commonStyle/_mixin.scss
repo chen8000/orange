@@ -89,3 +89,8 @@
     -webkit-line-clamp: $line;
     overflow: hidden;
 }
+
+// 块阴影
+@mixin cmsShadow{
+    box-shadow: 0 0 5px #dfdfdf;
+}
