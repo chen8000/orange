@@ -99,26 +99,46 @@ export const bar = [
     }
 ]
 
- // 返回 路由对应的标题和icon (导航list)
-const pageInfo = (res, _this) => {
-    let path = _this.location.pathname
-    
-    for(let i = 0; i< res.length; i++){
-        let { key, toPath, icon } = res[i]
+/*
+    把复杂的数组元素的 key icon toPath  挑选出来放到一个新数组里
 
-        if(!toPath){
-            let { key, icon, child } = res[i]
+    1. 有topath 的元素 绝对没有 child  
+    2. 有child 的元素绝对没有 toPath
+*/ 
+const newArr = bar => {
+    let arr = []
+    for(let i = 0; i<bar.length; i++){
+        let { key, icon, toPath, child } = bar[i]
 
-            for(let i = 0; i<child.length;i++){
+        if(toPath){
+            arr.push({ toPath, icon, key })
+        }else{
+            for(let i = 0; i<child.length; i++){
+
+                // 把 child 的toPath放到数组里
                 let { toPath } = child[i]
 
-                if(path === toPath){
-                    return {key, icon}
-                }
+                arr.push({ toPath, icon, key })
             }
         }
+    }
 
-        if(path === toPath){
+    return arr
+}
+
+ // 返回 路由对应的标题和icon (导航list)
+const pageInfo = (res, _this) => {
+
+    let arr = newArr(res)
+
+    let path = _this.location.pathname
+
+    for(let i = 0;i<arr.length; i++){
+
+        let { toPath, key, icon } = arr[i]
+
+        // 把接收到的path跟数组的toPath互相includes如果包含那么就返回 挑选出来的icon
+        if(toPath.includes(path) || path.includes(toPath)){
             return { key, icon }
         }
     }
@@ -131,7 +151,6 @@ export const leftTitleInfo = _this => {
 
 // left list
 export const thisPageInfo = _this => {
-
     return pageInfo(bar, _this)
 
 }
