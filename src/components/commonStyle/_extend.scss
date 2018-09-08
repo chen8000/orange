@@ -15,6 +15,25 @@
     }
 }
 
+.addBtn{
+    @include cmsBtnC($btnAddColor);
+    &:hover{
+        @include cmsBtnH($btnAddColorH, $btnAddColorB);
+    }
+}
+.editBtn{
+    @include cmsBtnC($btnEditColor);
+    &:hover{
+        @include cmsBtnH($btnEditColorH, $btnEditColorB);
+    }
+}
+.deleteBtn{
+    @include cmsBtnC($btnDeleteColor);
+    &:hover{
+        @include cmsBtnH($btnDeleteColorH, $btnDeleteColorB);
+    }
+}
+
 /*-------------- 767  phone*/
 @media all and (max-width: 767px){
     .container{

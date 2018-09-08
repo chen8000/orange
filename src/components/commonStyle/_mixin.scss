@@ -94,3 +94,20 @@
 @mixin cmsShadow{
     box-shadow: 0 0 5px #dfdfdf;
 }
+
+
+// button
+@mixin cmsBtnC($c){
+    border:1px solid $c;
+    @include bg($c);
+    @include radius(5px);
+    padding:7px 12px;
+    cursor:pointer;
+    outline:0;
+    font-size:14px;
+    color:white;
+}
+@mixin cmsBtnH($h, $b){
+    @include bg($h);
+    border:1px solid $b;
+}

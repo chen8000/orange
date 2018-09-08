@@ -1,0 +1,53 @@
+
+@import '../../commonStyle//commonSet.scss';
+
+.routerIcon{
+    display: inline-block;
+    margin-right:5px;
+    @include wh(31px, 20px);
+    position: relative;  
+
+    i{
+        position: absolute;
+    }
+    
+    .routerMax{
+        font-size:18px;
+        left:0;
+        top:0;
+        transform: rotate(0);
+        animation: routerMax 10s linear infinite;
+        color:#40e81c;
+    }
+    .routerMin1{
+        font-size:14px;
+        right:-1px;
+        top:5px;
+        animation: routerMin 10s linear infinite;
+        color:#1c91e8;
+    }
+    .routerMin2{
+        font-size:12px;
+        bottom:-11px;
+        left:8px;
+        animation: routerMin 10s linear infinite;
+        color:orange;
+    }
+}
+
+@keyframes routerMax {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes routerMin {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(-360deg);
+    }
+}

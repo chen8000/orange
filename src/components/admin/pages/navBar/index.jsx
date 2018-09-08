@@ -4,6 +4,8 @@ import style from './index.scss'
 import { connect } from 'react-redux'
 import { adminPagesTitle } from '../../../../redux/actions'
 import { thisPageInfo } from '../../config'
+import { __HOST_API__ } from '../../../../module/globalConfig'
+import RouteIcon from '../../../commonComponents/routeIcon'
 
 class NavBar extends Component{
 
@@ -12,33 +14,56 @@ class NavBar extends Component{
 
         // 修改页面标题
         this.props.adminPagesTitle(thisPageInfo(this.props))
+
+        this.state = {
+            todo:[]
+        }
+    }
+
+    componentWillMount(){
+
+        fetch(`${ __HOST_API__ }/headerBar`)
+            .then(res => {
+                return res.json()
+            })
+            .then(res => {
+                this.setState({todo:res})
+            })
+        
     }
 
     render(){
-
+        let { todo } = this.state
         return (
             <div className={ style.navbar }>
+                <div className={ style.addNabBar }>
+                    <button className={ style.addBtn }>增加导航</button>
+                </div>
                 <div className={ style.tablebox }>
                     <table className={ style.table } border='0' cellPadding='0' cellSpacing='0'>
                         <tbody>
                             <tr>
                                 <th width='5%'>序号</th>
-                                <th>板块</th>
-                                <th>路由</th>
-                                <th>操作</th>
+                                <th width="40%">板块</th>
+                                <th width="40%">
+                                    <RouteIcon />
+                                    路由
+                                </th>
+                                <th width="15%">操作</th>
                             </tr>
-                            <tr>
-                                <td>0</td>
-                                <td>首页</td>
-                                <td>/home</td>
-                                <td><a href="javascript:void(0);">编辑</a><a href="javascript:void(0);">删除</a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>最新动态</td>
-                                <td>/news</td>
-                                <td><a href="javascript:void(0);">编辑</a><a href="javascript:void(0);">删除</a></td>
-                            </tr>
+                            {
+                                todo.map((res, i) => 
+                                    <tr key={ i }>
+                                        <td>{i}</td>
+                                        <td>{ res.key }</td>
+                                        <td>{ res.toPath }</td>
+                                        <td>
+                                            <button className={ style.editBtn }>编辑</button>
+                                            <button className={ style.deleteBtn }>删除</button>
+                                        </td>
+                                    </tr>
+                                )
+                            }
                         </tbody>
                     </table>
                 </div>

@@ -12,7 +12,7 @@ export const bar = [
     {
         key:'导航',
         toPath:'/admin/navbar',
-        icon:'icon-shouye1',
+        icon:'icon-daohang',
         slid:false
     },
     {
@@ -27,8 +27,53 @@ export const bar = [
         ]
     },
     {
+        key:'最新动态',
+        icon:'icon-info',
+        slid:false,
+        child:[
+            {
+                key:'头图1',
+                toPath:'/admin/homeBanner1'
+            },
+            {
+                key:'头图2',
+                toPath:'/admin/homeBanner2'
+            }
+        ]
+    },
+    {
         key:'圈子',
-        icon:'icon-shouye1',
+        icon:'icon-quanzi',
+        slid:false,
+        child:[
+            {
+                key:'头图1',
+                toPath:'/admin/homeBanner1'
+            },
+            {
+                key:'头图2',
+                toPath:'/admin/homeBanner2'
+            }
+        ]
+    },
+    {
+        key:'关于我',
+        icon:'icon-guanyuguwen',
+        slid:false,
+        child:[
+            {
+                key:'头图1',
+                toPath:'/admin/homeBanner1'
+            },
+            {
+                key:'头图2',
+                toPath:'/admin/homeBanner2'
+            }
+        ]
+    },
+    {
+        key:'聊天',
+        icon:'icon-liaotianjilu',
         slid:false,
         child:[
             {
@@ -43,7 +88,7 @@ export const bar = [
     },
     {
         key:'管理',
-        icon:'icon-shouye1',
+        icon:'icon-shezhi1',
         slid:false,
         child:[
             {
