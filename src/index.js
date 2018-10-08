@@ -7,7 +7,6 @@ import store from './redux/store'
 
 import App from './containers/app'
 
-
 render(
     (
         <Provider store={store}>
